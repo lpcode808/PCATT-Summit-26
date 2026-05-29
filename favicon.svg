@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">PCATT Summit 2026 Favicon</title>
+  <desc id="desc">A rounded square with a diagonal conference-inspired gradient and a bold command line prompt symbol representing AI and technology.</desc>
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43a6c9"/>
+      <stop offset="0.5" stop-color="#003571"/>
+      <stop offset="1" stop-color="#c8531d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- High-fidelity background container with modern rounded edges -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bg)"/>
+
+  <!-- Command prompt chevron (>) styled in a clean, bold, round-cap path -->
+  <path d="M22 18 L42 32 L22 46" fill="none" stroke="#fff7eb" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+
+  <!-- Terminal cursor block (_) accompanying the prompt -->
+  <rect x="44" y="41" width="8" height="4.5" rx="1.5" fill="#ffd7c7" opacity="0.92"/>
+</svg>

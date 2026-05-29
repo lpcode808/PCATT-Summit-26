@@ -1,0 +1,5078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>PCATT Summit 2026 — Conference Guide</title>
+  <meta name="description" content="Mobile-first guide for the PCATT Summit 2026, June 4-5, 2026, at the Ala Moana Hotel in Honolulu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pcatt.org/summit26-schedule/">
+  <meta property="og:title" content="PCATT Summit 2026 — Conference Guide">
+  <meta property="og:description" content="Schedule, featured presenters, and personal notes for the PCATT Summit 2026.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PCATT Summit 2026 — Conference Guide">
+  <meta name="twitter:description" content="Schedule, featured presenters, and personal notes for the PCATT Summit 2026.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#06226b">
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06226b;
+      --surface: #12347d;
+      --surface-elevated: #1d418a;
+      --surface-input: #173978;
+      --primary: #334f7e;
+      --teal: #7cc9dd;
+      --teal-dim: rgba(7, 168, 168, 0.15);
+      --orange: #f285da;
+      --orange-dim: rgba(242, 133, 218, 0.16);
+      --lime: #ffd166;
+      --lime-dim: rgba(255, 209, 102, 0.16);
+      --text: #fffaf2;
+      --text-muted: rgba(255, 250, 242, 0.62);
+      --text-dim: rgba(255, 250, 242, 0.36);
+      --border: rgba(255, 250, 242, 0.1);
+      --border-active: rgba(124, 201, 221, 0.38);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --font-display: 'Sen', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    button,
+    a,
+    [role="button"] {
+      touch-action: manipulation;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    /* ── HEADER ── */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top, 0);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem 0.75rem;
+      gap: 1rem;
+    }
+
+    .conference-name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .conference-meta {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .header-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 0.7rem;
+      border-radius: var(--radius-sm);
+      background: var(--teal-dim);
+      color: var(--teal);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .header-link:hover { background: rgba(7, 168, 168, 0.25); }
+
+    /* ── TAB NAV ── */
+    .tab-nav {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 44px;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 2px;
+    }
+
+    .tab-btn.active { color: var(--teal); }
+    .tab-btn.active::after { transform: scaleX(1); }
+
+    .note-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: var(--bg);
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      font-family: var(--font-display);
+      line-height: 1;
+    }
+    .note-count:empty { display: none; }
+
+    /* ── EPISODE BANNER ── */
+    .episode-banner {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .episode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      min-height: 44px;
+      transition: background 0.15s;
+    }
+    .episode-toggle:hover { background: rgba(7,168,168,0.07); }
+
+    .episode-toggle-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .episode-toggle-label { flex: 1; }
+
+    .episode-toggle-eyebrow {
+      display: block;
+      color: var(--teal);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 0.1rem;
+    }
+
+    .episode-toggle-chevron {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+    .episode-banner.open .episode-toggle-chevron { transform: rotate(180deg); }
+
+    .episode-banner.open {
+      box-shadow: 0 0 0 2px rgba(200, 83, 29, 0.35), 0 8px 32px rgba(200, 83, 29, 0.22);
+      border-bottom-color: rgba(200, 83, 29, 0.55);
+    }
+
+    .episode-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .episode-body-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0 1rem 1rem;
+    }
+    .episode-body-inner iframe {
+      display: block;
+      border-radius: var(--radius-sm);
+      width: 100%;
+    }
+
+    .episode-transcript-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.68rem 1rem;
+      border-radius: 999px;
+      background: var(--orange);
+      border: 1px solid rgba(200, 83, 29, 0.95);
+      box-shadow: 0 10px 24px rgba(200, 83, 29, 0.26);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    }
+    .episode-transcript-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(200, 83, 29, 0.34);
+      filter: brightness(1.05);
+    }
+
+    /* ── TAB PANELS ── */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── MAIN ── */
+    main {
+      padding: 0 0 6rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── DATE HEADER ── */
+    .date-header {
+      padding: 1.25rem 1.25rem 0.75rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .date-label {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .date-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── LEARN CALLOUT ── */
+    .learn-callout {
+      margin: 0 0.75rem 0.9rem;
+      padding: 1rem;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(7, 168, 168, 0.18), rgba(0, 53, 113, 0.42)),
+        var(--surface);
+      border: 1px solid var(--border-active);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+      transition: padding 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .learn-callout.collapsed {
+      padding: 0.52rem 0.8rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .learn-callout-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .learn-callout-inline-link {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .learn-callout-inline-link:hover .learn-callout-title {
+      color: #ffffff;
+    }
+
+    .learn-callout-toggle {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 247, 235, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 247, 235, 0.04);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .learn-callout-toggle:hover {
+      background: rgba(255, 247, 235, 0.08);
+      color: var(--text);
+      border-color: rgba(255, 247, 235, 0.14);
+    }
+
+    .learn-callout-toggle-icon {
+      font-size: 1rem;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .learn-callout.collapsed .learn-callout-toggle-icon {
+      transform: rotate(0deg);
+    }
+
+    .learn-callout:not(.collapsed) .learn-callout-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .learn-callout-body {
+      max-height: 320px;
+      overflow: hidden;
+      opacity: 1;
+      transition: max-height 0.28s ease, opacity 0.2s ease, margin-top 0.2s ease;
+    }
+
+    .learn-callout.collapsed .learn-callout-body {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      pointer-events: none;
+    }
+
+    .learn-callout-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 0.55rem;
+      font-family: var(--font-display);
+    }
+
+    .learn-callout-title {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      transition: color 0.18s ease;
+    }
+
+    .learn-callout-copy {
+      font-size: 0.82rem;
+      line-height: 1.66;
+      color: rgba(255, 247, 235, 0.78);
+    }
+
+    .learn-callout-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.9rem;
+    }
+
+    .learn-callout-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.68rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s, border-color 0.15s;
+    }
+
+    .learn-callout-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .learn-callout-link.primary {
+      background: var(--teal);
+      color: var(--bg);
+    }
+
+    .learn-callout-link.secondary {
+      background: rgba(255, 247, 235, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .learn-callout.collapsed .learn-callout-inline-link {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+    }
+
+    .learn-callout.collapsed .learn-callout-row {
+      align-items: center;
+    }
+
+    .learn-callout.collapsed .learn-callout-label {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .learn-callout.collapsed .learn-callout-title {
+      margin-bottom: 0;
+      font-size: 0.86rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(255, 247, 235, 0.92);
+    }
+
+    .learn-callout.collapsed .learn-callout-toggle {
+      width: auto;
+      height: auto;
+      padding: 0.1rem 0.18rem;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      align-self: center;
+    }
+
+    .learn-callout.collapsed .learn-callout-toggle:hover {
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .learn-callout.collapsed .learn-callout-toggle-icon {
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    /* ── SESSION ITEM ── */
+    .session-item {
+      margin: 0 0.75rem 0.5rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.25s;
+    }
+
+    .session-item.expanded {
+      border-color: var(--border-active);
+    }
+
+    .session-item.type-meal,
+    .session-item.type-break,
+    .session-item.type-background {
+      background: rgba(0, 32, 64, 0.78);
+      border-color: rgba(255, 247, 235, 0.05);
+    }
+
+    .session-item.type-meal .session-time,
+    .session-item.type-break .session-time,
+    .session-item.type-background .session-time,
+    .session-item.type-meal .session-speaker,
+    .session-item.type-break .session-speaker,
+    .session-item.type-background .session-speaker,
+    .session-item.type-meal .session-chevron,
+    .session-item.type-break .session-chevron,
+    .session-item.type-background .session-chevron,
+    .session-item.type-meal .meta-item,
+    .session-item.type-break .meta-item,
+    .session-item.type-background .meta-item {
+      color: rgba(255, 247, 235, 0.58);
+    }
+
+    .session-item.type-meal .session-title,
+    .session-item.type-break .session-title,
+    .session-item.type-background .session-title {
+      color: rgba(255, 247, 235, 0.82);
+    }
+
+    .session-item.type-meal .session-body-inner,
+    .session-item.type-break .session-body-inner,
+    .session-item.type-background .session-body-inner {
+      background:
+        linear-gradient(180deg, rgba(5, 33, 58, 0.76), rgba(2, 24, 43, 0.94)),
+        rgba(2, 32, 64, 0.88);
+    }
+
+    /* ── SESSION TRIGGER ── */
+    .session-trigger {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: var(--text);
+      min-height: 58px;
+    }
+
+    .session-time {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+      padding-top: 0.25rem;
+      min-width: 54px;
+      letter-spacing: 0.03em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .session-main { flex: 1; min-width: 0; }
+
+    .session-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+    }
+
+    .badge-keynote      { background: var(--orange-dim);               color: #e07840; }
+    .badge-fireside     { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
+    .badge-panel        { background: var(--teal-dim);                 color: var(--teal); }
+    .badge-pitch        { background: rgba(200, 83, 29, 0.2);          color: #e07840; }
+    .badge-roundtable   { background: var(--lime-dim);                 color: var(--lime); }
+    .badge-networking   { background: rgba(175, 205, 83, 0.1);         color: #c4df6a; }
+    .badge-mindfulness  { background: rgba(91, 211, 162, 0.12);        color: #5bd3a2; }
+    .badge-ceremony     { background: rgba(255, 200, 80, 0.13);        color: #ffc850; }
+    .badge-meal         { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
+    .badge-break        { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
+    .badge-welcome      { background: var(--teal-dim);                 color: var(--teal); }
+    .badge-presentation { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
+    .badge-announcement { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
+    .badge-background   { background: rgba(255, 247, 235, 0.04);       color: var(--text-dim); }
+
+    .session-title {
+      font-family: var(--font-display);
+      font-size: 0.93rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      display: block;
+    }
+
+    .session-speaker {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+      display: block;
+    }
+
+    .session-chevron {
+      font-size: 1rem;
+      color: var(--text-dim);
+      padding-top: 0.35rem;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .session-item.expanded .session-chevron { transform: rotate(180deg); }
+
+    /* ── SESSION BODY (accordion) ── */
+    .session-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .session-body-inner {
+      padding: 0.9rem 1rem 1rem;
+      border-top: 1px solid rgba(7, 168, 168, 0.16);
+      background:
+        linear-gradient(180deg, rgba(6, 43, 76, 0.74), rgba(2, 29, 52, 0.96)),
+        rgba(2, 32, 64, 0.94);
+      box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.03);
+    }
+
+    .session-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      padding: 0.75rem 0 0.65rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .meta-icon { font-size: 0.82rem; }
+
+    .meta-speaker-list {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.18rem 0.28rem;
+    }
+
+    .meta-prefix,
+    .meta-separator {
+      color: var(--text-dim);
+    }
+
+    .meta-speaker-link {
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      color: rgba(255, 247, 235, 0.9);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-color: rgba(7, 168, 168, 0.28);
+      text-underline-offset: 0.14rem;
+      transition: color 0.18s, text-decoration-color 0.18s;
+    }
+
+    .meta-speaker-link:hover {
+      color: var(--teal);
+      text-decoration-color: rgba(7, 168, 168, 0.7);
+    }
+
+    .session-description {
+      font-size: 0.84rem;
+      line-height: 1.68;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── SUB-ITEMS ── */
+    .sub-items-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.58rem 0.8rem;
+      background: rgba(255, 247, 235, 0.05);
+      border: 1px solid rgba(255, 247, 235, 0.08);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.77rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: left;
+      min-height: 44px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .sub-items-toggle:hover {
+      background: rgba(255, 247, 235, 0.08);
+      color: var(--text);
+      border-color: rgba(255, 247, 235, 0.12);
+    }
+
+    .sub-items-toggle .sub-chevron {
+      margin-left: auto;
+      font-size: 0.95rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--text-dim);
+    }
+    .sub-items-toggle.open .sub-chevron { transform: rotate(180deg); }
+
+    .sub-items-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sub-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .sub-item {
+      padding: 0.5rem 0.68rem;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid var(--teal);
+    }
+
+    .sub-item-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .sub-item-speaker {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.18rem;
+    }
+
+    /* ── SESSION ACTIONS ── */
+    .session-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── STUDENT SUMMARY ── */
+    .summary-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--lime-dim);
+      border: 1px solid rgba(175, 205, 83, 0.2);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--lime);
+      font-family: var(--font-body);
+      font-size: 0.79rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: left;
+      transition: background 0.2s;
+      min-height: 44px;
+    }
+    .summary-toggle:hover { background: rgba(175, 205, 83, 0.12); }
+
+    .summary-toggle .s-chevron {
+      margin-left: auto;
+      font-size: 0.95rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      color: rgba(175, 205, 83, 0.6);
+    }
+    .summary-toggle.open .s-chevron { transform: rotate(180deg); }
+
+    .summary-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .summary-text {
+      padding: 0.75rem;
+      background: rgba(175, 205, 83, 0.05);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-size: 0.82rem;
+      line-height: 1.68;
+      color: rgba(255, 247, 235, 0.85);
+      border: 1px solid rgba(175, 205, 83, 0.15);
+      border-top: none;
+    }
+
+    /* ── RESEARCH NOTES ── */
+    .research-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--orange-dim);
+      border: 1px solid rgba(200, 83, 29, 0.22);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: #f0b283;
+      font-family: var(--font-body);
+      font-size: 0.79rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: left;
+      transition: background 0.2s;
+      min-height: 44px;
+    }
+    .research-toggle:hover { background: rgba(200, 83, 29, 0.18); }
+
+    .research-toggle .r-chevron {
+      margin-left: auto;
+      font-size: 0.95rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      color: rgba(240, 178, 131, 0.72);
+    }
+    .research-toggle.open .r-chevron { transform: rotate(180deg); }
+
+    .research-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .research-panel {
+      padding: 0.72rem 0.75rem;
+      background: rgba(200, 83, 29, 0.05);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      border: 1px solid rgba(200, 83, 29, 0.16);
+      border-top: none;
+    }
+
+    .research-copy {
+      margin: 0;
+      color: rgba(255, 247, 235, 0.82);
+      font-size: 0.84rem;
+      line-height: 1.68;
+    }
+
+    .research-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+
+    .research-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0.48rem 0.7rem;
+      background: rgba(255, 247, 235, 0.04);
+      border: 1px solid rgba(255, 247, 235, 0.08);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.73rem;
+      font-weight: 600;
+      line-height: 1.3;
+      transition: border-color 0.18s, background 0.18s, color 0.18s;
+    }
+
+    .research-link:hover {
+      background: rgba(200, 83, 29, 0.12);
+      border-color: rgba(200, 83, 29, 0.28);
+      color: #fff4ea;
+    }
+
+    .research-link span:last-child {
+      flex-shrink: 0;
+      color: rgba(240, 178, 131, 0.72);
+    }
+
+    /* ── NOTE SECTION ── */
+    .note-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--teal-dim);
+      border: 1px solid rgba(7, 168, 168, 0.2);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 0.79rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: left;
+      transition: background 0.2s;
+      min-height: 44px;
+    }
+    .note-toggle:hover { background: rgba(7, 168, 168, 0.12); }
+
+    .note-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-left: auto;
+      display: none;
+      flex-shrink: 0;
+    }
+    .note-toggle.has-note .note-dot { display: block; }
+
+    .note-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .note-inner {
+      padding-top: 0.5rem;
+    }
+
+    .note-meta {
+      margin-top: 0.45rem;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+    }
+
+    .note-textarea {
+      width: 100%;
+      background: var(--surface-input);
+      border: 1px solid rgba(7, 168, 168, 0.2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      padding: 0.65rem 0.8rem;
+      resize: none;
+      min-height: 90px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .note-textarea:focus { border-color: var(--teal); }
+    .note-textarea::placeholder { color: var(--text-dim); }
+
+    .note-save-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+      padding: 0.5rem 1.1rem;
+      background: var(--teal);
+      color: var(--bg);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.15s, transform 0.12s;
+      min-height: 44px;
+    }
+    .note-save-btn:hover { opacity: 0.9; }
+    .note-save-btn:active { transform: scale(0.97); }
+    .note-add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0 18px;
+      font: 600 0.85rem/1 'Manrope', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s, transform 0.12s;
+      min-height: 44px;
+    }
+    .note-add-btn:hover { opacity: 0.9; }
+    .note-add-btn:active { transform: scale(0.97); }
+
+    /* ── EXT LINK ── */
+    .ext-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 247, 235, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      min-height: 44px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .ext-link:hover { background: rgba(255, 247, 235, 0.1); color: var(--text); }
+
+    /* ── NOTES TAB ── */
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1.25rem 1.25rem 0.75rem;
+    }
+
+    .notes-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .notes-subtitle {
+      padding: 0 1.25rem 0.9rem;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .notes-subtitle strong {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .notes-search-wrap {
+      padding: 0 1.25rem 0.95rem;
+    }
+
+    .notes-search-row {
+      display: flex;
+      gap: 0.6rem;
+      align-items: stretch;
+    }
+
+    .notes-search {
+      flex: 1;
+      width: 100%;
+      background: var(--surface-input);
+      border: 1px solid rgba(7, 168, 168, 0.18);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      padding: 0.85rem 0.95rem;
+      outline: none;
+      min-height: 44px;
+    }
+
+    .notes-search:focus {
+      border-color: var(--teal);
+    }
+
+    .notes-search::placeholder {
+      color: var(--text-dim);
+    }
+
+    .notes-search-clear {
+      flex-shrink: 0;
+      min-height: 44px;
+      padding: 0 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 247, 235, 0.05);
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .notes-search-clear:hover:not(:disabled) {
+      background: rgba(7, 168, 168, 0.12);
+      border-color: rgba(7, 168, 168, 0.26);
+      color: var(--teal);
+    }
+
+    .notes-search-clear:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .notes-search-status {
+      min-height: 1.2rem;
+      margin-top: 0.45rem;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+
+    .notes-search-status:empty {
+      display: none;
+    }
+
+    .notes-compose-card {
+      margin-bottom: 0.85rem;
+    }
+
+    .notes-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .export-btn,
+    .clear-notes-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+      min-height: 44px;
+    }
+    .export-btn {
+      background: var(--teal);
+      color: var(--bg);
+    }
+    .export-btn:hover { opacity: 0.9; }
+
+    .clear-notes-btn {
+      background: rgba(200, 83, 29, 0.12);
+      color: var(--orange);
+      border: 1px solid rgba(200, 83, 29, 0.28);
+    }
+    .clear-notes-btn:hover:not(:disabled) {
+      background: rgba(200, 83, 29, 0.18);
+    }
+    .clear-notes-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .notes-empty {
+      text-align: center;
+      padding: 3.5rem 2rem;
+      color: var(--text-dim);
+    }
+
+    .notes-empty-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+
+    .notes-empty p { font-size: 0.88rem; line-height: 1.7; }
+
+    .notes-empty strong { color: var(--teal); font-weight: 600; }
+
+    .note-card {
+      --note-accent: var(--teal);
+      --note-accent-soft: rgba(7, 168, 168, 0.1);
+      --note-accent-border: rgba(7, 168, 168, 0.18);
+      --note-title: var(--teal);
+      margin: 0 0.75rem 0.5rem;
+      padding: 0.9rem 1rem;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, var(--note-accent-soft), rgba(0, 32, 64, 0.92) 44%),
+        var(--surface);
+      border: 1px solid var(--note-accent-border);
+      border-radius: var(--radius);
+      box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.03);
+    }
+
+    .note-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--note-accent), rgba(255, 247, 235, 0.32));
+      opacity: 0.95;
+    }
+
+    .note-card.note-type-general {
+      --note-accent: #e78b4f;
+      --note-accent-soft: rgba(200, 83, 29, 0.14);
+      --note-accent-border: rgba(200, 83, 29, 0.2);
+      --note-title: #f0b283;
+    }
+
+    .note-card.note-type-session {
+      --note-accent: var(--lime);
+      --note-accent-soft: rgba(175, 205, 83, 0.12);
+      --note-accent-border: rgba(175, 205, 83, 0.2);
+      --note-title: #d4e983;
+    }
+
+    .note-card.note-type-speaker {
+      --note-accent: var(--teal);
+      --note-accent-soft: rgba(7, 168, 168, 0.12);
+      --note-accent-border: rgba(7, 168, 168, 0.2);
+      --note-title: #6fe1df;
+    }
+
+    .note-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.35rem;
+    }
+
+    .note-card-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: var(--note-accent-soft);
+      color: var(--note-accent);
+      border: 1px solid var(--note-accent-border);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    .note-card-time {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .note-card-session {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--note-title);
+      margin-bottom: 0.5rem;
+    }
+
+    .note-card-context {
+      font-size: 0.76rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .note-card-text {
+      font-size: 0.85rem;
+      line-height: 1.68;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+
+    .note-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .note-card-open,
+    .note-card-delete {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem 0.8rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      font-family: var(--font-body);
+      min-height: 44px;
+      margin-top: 0;
+    }
+
+    .note-card-open {
+      color: var(--text-muted);
+    }
+
+    .note-card-open:hover {
+      background: rgba(7, 168, 168, 0.12);
+      color: var(--teal);
+      border-color: rgba(7, 168, 168, 0.25);
+    }
+
+    .note-card-delete {
+      color: var(--text-dim);
+    }
+    .note-card-delete:hover {
+      background: rgba(200, 83, 29, 0.1);
+      color: var(--orange);
+      border-color: rgba(200, 83, 29, 0.3);
+    }
+
+    /* ── COLLAPSIBLE NOTE CARDS ── */
+    .note-card-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .note-card-chevron {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 0.15rem;
+      line-height: 1;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s;
+      display: flex;
+      align-items: center;
+      min-width: 20px;
+      min-height: 20px;
+      justify-content: center;
+    }
+    .note-card-chevron:hover { color: var(--text); }
+    .note-card:not(.note-collapsed) .note-card-chevron {
+      transform: rotate(90deg);
+    }
+
+    .note-card-summary {
+      display: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.4;
+      margin-top: 0.1rem;
+    }
+    .note-card-summary-title {
+      color: var(--note-title);
+      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+    }
+    .note-card-summary-preview {
+      color: var(--text-muted);
+    }
+
+    .note-card.note-collapsed {
+      cursor: pointer;
+      user-select: none;
+    }
+    .note-card.note-collapsed .note-card-meta {
+      margin-bottom: 0.15rem;
+    }
+    .note-card.note-collapsed .note-card-summary {
+      display: block;
+    }
+    .note-card.note-collapsed .note-card-body {
+      display: none;
+    }
+
+    .notes-collapse-btn {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255, 247, 235, 0.12);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s;
+      min-height: 44px;
+      background: rgba(255, 247, 235, 0.06);
+      color: var(--text-muted);
+    }
+    .notes-collapse-btn:hover {
+      background: rgba(255, 247, 235, 0.1);
+      color: var(--text);
+    }
+
+    /* ── EXPORT MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 19, 41, 0.85);
+      z-index: 200;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .modal-overlay.hidden { display: none; }
+
+    .modal-sheet {
+      background: var(--surface);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius) var(--radius) var(--radius-sm) var(--radius-sm);
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      max-height: 78dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-top-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .modal-close {
+      background: rgba(255, 247, 235, 0.08);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255, 247, 235, 0.15); }
+
+    .modal-body { flex: 1; overflow: auto; padding: 1rem 1.25rem 0.5rem; }
+
+    .modal-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .export-download-prompt,
+    .notes-test-tools {
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .export-download-prompt {
+      background: rgba(7, 168, 168, 0.1);
+      border: 1px solid rgba(7, 168, 168, 0.28);
+    }
+
+    .notes-test-tools {
+      background: rgba(175, 205, 83, 0.08);
+      border: 1px dashed rgba(175, 205, 83, 0.38);
+      margin-top: 0.85rem;
+    }
+
+    .export-download-title,
+    .notes-test-title {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .export-download-copy,
+    .notes-test-copy,
+    .notes-test-status {
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .export-download-copy {
+      margin: 0;
+    }
+
+    .notes-test-copy {
+      margin: 0 0 0.55rem;
+    }
+
+    .notes-test-status {
+      margin: 0 0 0.7rem;
+    }
+
+    .notes-test-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .prompt-dismiss-btn,
+    .test-reset-btn {
+      padding: 0.72rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255, 247, 235, 0.06);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+      min-height: 44px;
+    }
+
+    .prompt-dismiss-btn:hover,
+    .test-reset-btn:hover {
+      background: rgba(255, 247, 235, 0.1);
+      border-color: var(--border-active);
+    }
+
+    .export-textarea {
+      width: 100%;
+      height: 240px;
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      padding: 0.75rem;
+      resize: none;
+      outline: none;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .modal-hint strong,
+    .confirm-copy strong,
+    .confirm-label strong {
+      color: var(--text);
+    }
+
+    .share-btn,
+    .download-btn,
+    .copy-btn {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, background 0.3s, border-color 0.2s, color 0.2s;
+      min-height: 50px;
+    }
+
+    .share-btn {
+      background: var(--teal);
+      color: var(--bg);
+    }
+    .share-btn:hover:not(:disabled) { opacity: 0.9; }
+
+    .download-btn {
+      background: var(--lime);
+      color: var(--bg);
+    }
+    .download-btn:hover:not(:disabled) { opacity: 0.9; }
+
+    .copy-btn {
+      background: rgba(255, 247, 235, 0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .copy-btn:hover:not(:disabled) {
+      background: rgba(255, 247, 235, 0.1);
+      border-color: var(--border-active);
+    }
+    .copy-btn.copied {
+      background: var(--lime);
+      color: var(--bg);
+      border-color: transparent;
+    }
+
+    .share-btn:disabled,
+    .download-btn:disabled,
+    .copy-btn:disabled,
+    .danger-confirm-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .confirm-copy {
+      font-size: 0.86rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .confirm-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+    }
+
+    .confirm-label code {
+      color: var(--text);
+      font-size: 0.84rem;
+      text-transform: none;
+    }
+
+    .confirm-input {
+      width: 100%;
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 0.95rem;
+      outline: none;
+    }
+    .confirm-input:focus {
+      border-color: rgba(200, 83, 29, 0.42);
+      box-shadow: 0 0 0 3px rgba(200, 83, 29, 0.12);
+    }
+
+    /* iOS Safari zooms focused fields when font-size is under 16px. */
+    @supports (-webkit-touch-callout: none) {
+      input,
+      textarea,
+      select {
+        font-size: 16px;
+      }
+    }
+
+    .confirm-note,
+    .confirm-status {
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+      margin-top: 0.65rem;
+    }
+
+    .confirm-status.ready {
+      color: var(--lime);
+    }
+
+    .danger-confirm-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--orange);
+      color: var(--bg);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, background 0.3s;
+      min-height: 50px;
+    }
+    .danger-confirm-btn:hover:not(:disabled) { opacity: 0.9; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: var(--lime);
+      color: var(--bg);
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.22s, transform 0.22s;
+      pointer-events: none;
+      z-index: 300;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── FOOTER ── */
+    .app-footer {
+      text-align: center;
+      padding: 1.5rem 1.25rem 2rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    .app-footer a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .qr-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+      padding: 0.6rem 1.1rem;
+      background: rgba(7, 168, 168, 0.12);
+      border: 1px solid rgba(7, 168, 168, 0.35);
+      border-radius: var(--radius-sm);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      min-height: 44px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .qr-share-btn:hover { background: rgba(7, 168, 168, 0.2); border-color: var(--teal); }
+
+    /* ── QR MODAL ── */
+    .qr-modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 1.25rem;
+    }
+    .qr-frame {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      line-height: 0;
+    }
+    .qr-frame img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+    .qr-url {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      word-break: break-all;
+      text-align: center;
+    }
+    .qr-hint {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── SPEAKERS TAB ── */
+    .speakers-search-wrap {
+      padding: 0.75rem 0.75rem 0.5rem;
+    }
+
+    .speakers-search {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      padding: 0.65rem 1rem 0.65rem 2.4rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,247,235,0.3)' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 0.75rem center;
+    }
+    .speakers-search:focus { border-color: var(--teal); }
+    .speakers-search::placeholder { color: var(--text-dim); }
+
+    .speakers-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0 0.75rem 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .speaker-toolbar-btn,
+    .speaker-clear-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0.58rem 0.95rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, opacity 0.2s, border-color 0.2s;
+    }
+
+    .speaker-toolbar-btn {
+      background: rgba(175, 205, 83, 0.08);
+      border: 1px solid rgba(175, 205, 83, 0.28);
+      color: var(--lime);
+    }
+
+    .speaker-toolbar-btn[aria-pressed="true"] {
+      background: rgba(175, 205, 83, 0.2);
+      color: #f5ffd0;
+      border-color: rgba(175, 205, 83, 0.45);
+    }
+
+    .speaker-toolbar-btn:disabled,
+    .speaker-clear-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .speaker-clear-btn {
+      background: rgba(200, 83, 29, 0.12);
+      border: 1px solid rgba(200, 83, 29, 0.28);
+      color: var(--orange);
+    }
+
+    .speaker-toolbar-btn:hover:not(:disabled),
+    .speaker-clear-btn:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    .speakers-star-state {
+      margin: 0 0.75rem 0.2rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(7, 168, 168, 0.16);
+      background:
+        linear-gradient(180deg, rgba(7, 168, 168, 0.08), rgba(0, 32, 64, 0.92)),
+        var(--surface);
+      color: var(--text-muted);
+      font-size: 0.79rem;
+      line-height: 1.55;
+    }
+
+    .speakers-star-state strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .speakers-count {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem 0.5rem;
+    }
+
+    .speaker-item {
+      margin: 0 0.75rem 0.45rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.16s;
+    }
+
+    .speaker-item.expanded { border-color: var(--border-active); }
+    .speaker-item.is-starred {
+      border-color: rgba(175, 205, 83, 0.52);
+      box-shadow: 0 0 0 1px rgba(175, 205, 83, 0.14);
+    }
+
+    .speaker-item.swipe-starred {
+      transform: translateX(-6px);
+      box-shadow: 0 0 0 1px rgba(175, 205, 83, 0.2), 0 10px 24px rgba(175, 205, 83, 0.1);
+    }
+
+    .speaker-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: var(--text);
+      min-height: 56px;
+    }
+
+    .speaker-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .speaker-info { flex: 1; min-width: 0; }
+
+    .speaker-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .speaker-star-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      line-height: 1;
+      padding: 0.15rem 0.35rem;
+      border-radius: 999px;
+      background: var(--lime-dim);
+      color: var(--lime);
+      letter-spacing: 0.03em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .speaker-role {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.18rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .speaker-chevron {
+      font-size: 1rem;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .speaker-item.expanded .speaker-chevron { transform: rotate(180deg); }
+
+    .speaker-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .speaker-body-inner {
+      padding: 0.85rem 1rem 0.95rem;
+      border-top: 1px solid rgba(7, 168, 168, 0.18);
+      background:
+        linear-gradient(180deg, rgba(6, 45, 80, 0.78), rgba(3, 31, 56, 0.96)),
+        rgba(2, 32, 64, 0.94);
+      box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.03);
+    }
+
+    .speaker-company {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.65rem 0 0.6rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--teal-dim);
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .speaker-sessions-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.45rem;
+    }
+
+    .speaker-gesture-hint {
+      margin: 0.1rem 0 0.55rem;
+      color: var(--text-dim);
+      font-size: 0.69rem;
+      line-height: 1.45;
+    }
+
+    .speaker-session-chip {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(255, 247, 235, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin: 0 0.35rem 0.35rem 0;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      min-height: 44px;
+      font-family: var(--font-body);
+    }
+    .speaker-session-chip:hover { background: rgba(7, 168, 168, 0.12); color: var(--teal); }
+
+    .speaker-star-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.58rem 0.8rem;
+      background: rgba(175, 205, 83, 0.08);
+      border: 1px solid rgba(175, 205, 83, 0.28);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--lime);
+      font-family: var(--font-body);
+      font-size: 0.79rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: left;
+      transition: background 0.2s;
+      min-height: 44px;
+    }
+
+    .speaker-star-toggle:hover {
+      background: rgba(175, 205, 83, 0.15);
+    }
+
+    .speaker-session-time {
+      color: var(--text-dim);
+      font-weight: 600;
+      font-size: 0.68rem;
+    }
+
+    .speakers-empty {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    /* ── YOU ARE HERE ── */
+    .session-item.status-current {
+      border-color: rgba(7, 168, 168, 0.6);
+      box-shadow: 0 0 0 1px rgba(7, 168, 168, 0.2), 0 4px 20px rgba(7, 168, 168, 0.1);
+    }
+
+    .session-item.status-upcoming {
+      border-color: rgba(175, 205, 83, 0.35);
+    }
+
+    .status-now-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.12rem 0.4rem;
+      background: var(--teal);
+      color: var(--bg);
+      border-radius: 3px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      animation: pulse-now 2s ease-in-out infinite;
+    }
+
+    .status-upcoming-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.12rem 0.4rem;
+      background: var(--lime-dim);
+      color: var(--lime);
+      border: 1px solid rgba(175, 205, 83, 0.3);
+      border-radius: 3px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    @keyframes pulse-now {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div>
+        <span class="conference-name">PCATT Summit 2026</span>
+        <span class="conference-meta">June 4-5, 2026 · Ala Moana Hotel</span>
+      </div>
+      <a href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener" class="header-link" title="Visit the official PCATT Summit 2026 site">PCATT ↗</a>
+    </div>
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="schedule" aria-selected="true">Schedule</button>
+      <button class="tab-btn" role="tab" data-tab="speakers" aria-selected="false">Speakers</button>
+      <button class="tab-btn" role="tab" data-tab="notes" aria-selected="false">
+        Notes <span class="note-count" id="noteCount"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="scheduleTab" class="tab-content active" role="tabpanel">
+      <div class="date-header">
+        <span class="date-label">June 4-5, 2026</span>
+        <span class="date-sub">Ala Moana Hotel · Honolulu, Hawaiʻi</span>
+      </div>
+      <section class="learn-callout" id="learnCallout" aria-label="Source content status">
+        <div class="learn-callout-row">
+          <button class="learn-callout-inline-link" type="button" aria-controls="learnCalloutBody">
+            <span class="learn-callout-label">First Pass</span>
+            <h2 class="learn-callout-title">Built from the current PCATT Summit 2026 scrape</h2>
+          </button>
+          <button
+            class="learn-callout-toggle"
+            id="learnCalloutToggle"
+            type="button"
+            aria-expanded="true"
+            aria-controls="learnCalloutBody"
+            aria-label="Collapse code guide panel"
+          >
+            <span class="learn-callout-toggle-icon" aria-hidden="true">▾</span>
+          </button>
+        </div>
+        <div class="learn-callout-body" id="learnCalloutBody">
+          <p class="learn-callout-copy">
+            This first pass uses the official PCATT schedule cards for keynotes and breakout sessions. Meals, registration, and all-day gallery blocks are still being pulled into the local guide.
+          </p>
+          <div class="learn-callout-links">
+            <a class="learn-callout-link primary" href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener">Official PCATT Summit 2026 site ↗</a>
+
+          </div>
+        </div>
+      </section>
+      <div id="scheduleList"></div>
+      <footer class="app-footer">
+        <a href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener">Official PCATT Summit 2026 site</a>
+        &nbsp;·&nbsp;
+        <a href="../index.html">Preserved mobile scrape</a>
+        &nbsp;·&nbsp; Pacific Center for Advanced Technology Training
+        <br>$175 registration includes breakfast, lunch, and snacks both conference days.
+        <br>
+        <button class="qr-share-btn" id="openQrModal" type="button" aria-haspopup="dialog">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/><rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/><rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/>
+            <path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/>
+          </svg>
+          Share this app
+        </button>
+      </footer>
+    </section>
+
+    <section id="speakersTab" class="tab-content" role="tabpanel">
+      <div class="speakers-search-wrap">
+        <input class="speakers-search" type="search" id="speakerSearch" placeholder="Search speakers…" aria-label="Search speakers">
+      </div>
+      <div class="speakers-toolbar">
+        <button class="speaker-toolbar-btn" id="showStarredFirstBtn" type="button" aria-pressed="false" disabled>⭐ Show Starred Up Top</button>
+        <button class="speaker-clear-btn" id="clearSpeakerStarsBtn" type="button" aria-haspopup="dialog" disabled>Clear Stars</button>
+      </div>
+      <p class="speakers-star-state" id="speakersStarState"></p>
+      <p class="speakers-count" id="speakersCount"></p>
+      <div id="speakersList"></div>
+    </section>
+
+    <section id="notesTab" class="tab-content" role="tabpanel">
+      <div class="notes-header">
+        <span class="notes-title">My Notes</span>
+        <div class="notes-actions">
+          <button class="notes-collapse-btn" id="collapseNotesBtn" type="button">Expand All</button>
+          <button class="clear-notes-btn" id="clearNotesBtn" type="button" aria-haspopup="dialog">🗑 Clear All</button>
+          <button class="export-btn" id="exportBtn" type="button" aria-haspopup="dialog">Export ↓</button>
+        </div>
+      </div>
+      <p class="notes-subtitle">Use <strong>Quick Notes</strong> to jot down scraps, to-dos, or anything not tied to a session or speaker.</p>
+      <div class="notes-test-tools" id="notesTestTools" hidden>
+        <span class="notes-test-title">Test mode</span>
+        <p class="notes-test-copy">Desktop export reminder testing is enabled for this session. Use the reset button below to bring back the reminder after clicking <strong>Don’t remind me again</strong>.</p>
+        <p class="notes-test-status" id="downloadReminderTestStatus"></p>
+        <div class="notes-test-actions">
+          <button class="test-reset-btn" id="resetDownloadReminderBtn" type="button">Reset download reminder</button>
+        </div>
+      </div>
+      <div class="notes-search-wrap">
+        <div class="notes-search-row">
+          <input class="notes-search" type="search" id="notesSearch" placeholder="Search your notes..." aria-label="Search your notes">
+          <button class="notes-search-clear" id="clearNotesSearchBtn" type="button" disabled>Clear</button>
+        </div>
+        <p class="notes-search-status" id="notesSearchStatus" aria-live="polite"></p>
+      </div>
+      <div id="notesComposer"></div>
+      <div id="notesList"></div>
+    </section>
+  </main>
+
+  <!-- Export modal -->
+  <div class="modal-overlay hidden" id="exportModal" role="dialog" aria-modal="true" aria-label="Export your notes">
+    <div class="modal-sheet">
+      <div class="modal-top">
+        <span class="modal-top-title">Export My Notes</span>
+        <button class="modal-close" id="closeModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="export-download-prompt" id="desktopDownloadPrompt" hidden>
+          <span class="export-download-title">Save a local Markdown backup</span>
+          <p class="export-download-copy">You’re on desktop, so downloading a <code>.md</code> file is the safest way to keep these notes outside this browser before you close the tab.</p>
+          <div class="notes-test-actions">
+            <button class="prompt-dismiss-btn" id="dismissDownloadPromptBtn" type="button">Don’t remind me again</button>
+          </div>
+        </div>
+        <p class="modal-hint" id="exportHint">On iPhone, tap <strong>Send to Notes…</strong> to open the share sheet, then choose <strong>Notes</strong> or <strong>New Quick Note</strong>. If you prefer, copy and paste manually.</p>
+        <textarea class="export-textarea" id="exportTextarea" readonly aria-label="Your notes formatted for export"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="download-btn" id="downloadMarkdownBtn" type="button" hidden>Download .md Backup</button>
+        <button class="share-btn" id="shareBtn" type="button">Send to Notes…</button>
+        <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear notes modal -->
+  <div class="modal-overlay hidden" id="clearNotesModal" role="dialog" aria-modal="true" aria-labelledby="clearNotesTitle">
+    <div class="modal-sheet">
+      <div class="modal-top">
+        <span class="modal-top-title" id="clearNotesTitle">Delete All Notes</span>
+        <button class="modal-close" id="closeClearModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="confirm-copy" id="clearNotesCopy">Are you sure you want to delete all notes?</p>
+        <label class="confirm-label" for="clearNotesInput">Type <code>delete all</code> exactly to confirm.</label>
+        <input
+          class="confirm-input"
+          id="clearNotesInput"
+          type="text"
+          placeholder="delete all"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+        >
+        <p class="confirm-note" id="clearNotesNote">This removes notes from this browser on this device only.</p>
+        <p class="confirm-status" id="clearNotesStatus">Type the phrase exactly to enable the delete button.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="danger-confirm-btn" id="confirmClearNotesBtn" type="button" disabled>Delete All Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear speaker stars modal -->
+  <div class="modal-overlay hidden" id="clearSpeakerStarsModal" role="dialog" aria-modal="true" aria-labelledby="clearSpeakerStarsTitle">
+    <div class="modal-sheet">
+      <div class="modal-top">
+        <span class="modal-top-title" id="clearSpeakerStarsTitle">Clear Starred Speakers</span>
+        <button class="modal-close" id="closeClearSpeakerStarsModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="confirm-copy" id="clearSpeakerStarsCopy">Are you sure you want to clear all starred speakers?</p>
+        <label class="confirm-label" for="clearSpeakerStarsInput">Type <code>clear stars</code> exactly to confirm.</label>
+        <input
+          class="confirm-input"
+          id="clearSpeakerStarsInput"
+          type="text"
+          placeholder="clear stars"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+        >
+        <p class="confirm-note" id="clearSpeakerStarsNote">This only changes the saved stars in this browser on this device.</p>
+        <p class="confirm-status" id="clearSpeakerStarsStatus">Type the phrase exactly to enable the clear button.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="danger-confirm-btn" id="confirmClearSpeakerStarsBtn" type="button" disabled>Clear Starred Speakers</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR share modal -->
+  <div class="modal-overlay hidden" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <div class="modal-sheet">
+      <div class="modal-top">
+        <span class="modal-top-title" id="qrModalTitle">Share This App</span>
+        <button class="modal-close" id="closeQrModal" aria-label="Close">✕</button>
+      </div>
+      <div class="qr-modal-body">
+        <p class="qr-hint">Point any camera at this code to open the app — no AirDrop needed.</p>
+        <div class="qr-frame">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=06226b&bgcolor=ffffff&data=https%3A%2F%2Fpcatt.org%2Fsummit26-schedule%2F"
+            alt="QR code for https://pcatt.org/summit26-schedule/"
+            width="200"
+            height="200"
+            loading="lazy"
+          >
+        </div>
+        <p class="qr-url">pcatt.org/summit26-schedule</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  // ──────────────────────────────────────────────────────────
+  //  SCHEDULE DATA — PCATT Summit 2026, extracted from https://pcatt.org/summit26-schedule/
+  // ──────────────────────────────────────────────────────────
+  const SCHEDULE = [
+  {
+    "id": "thursday-09-30-am-bring-impossible-ideas-to-life",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "09:30 AM",
+    "timeEnd": "TBD",
+    "title": "Bring Impossible Ideas to Life",
+    "type": "keynote",
+    "speaker": "Chris Barton",
+    "location": "Hibiscus",
+    "description": "Technology & AI are dramatically changing what’s possible in our world. Our challenge as we create new things is to dislodge from the comfort of what we already know. Chris created Shazam after being told by every “expert” that his outlandish idea was impossible. It was an idea far ahead of its time – eight years before iPhone apps even existed. In this presentation, Chris helps audiences imagine and then create new visions for the future. He inspires with jaw-dropping stories about creating Shazam and shows how innovation comes from not just an idea, but from a series of insights to overcome obstacles along the way.",
+    "strand": "Keynote Speaker",
+    "track": "Keynote Speaker",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-10-30-am-auntie-s-advice-for-ai-ethics-and-responsible-use",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "10:30 AM",
+    "timeEnd": "TBD",
+    "title": "Auntie’s Advice for AI Ethics and Responsible Use",
+    "type": "breakout",
+    "speaker": "Mericia Palma Elmore",
+    "location": "Pakalana",
+    "description": "In the landscape of AI, most of us travel between fascinated and freaked out on any given day. We read the articles, scroll the feeds, and consume the podcasts. It is too much and not enough; it would be helpful to have a knowledgeable auntie (and her friends) who have the time and space to sit with you a while and have some real talk. Join Mericia Palma Elmore in conversation with writer/producer Noah Evslin, journalist Cassie Ordonio, and IATSE Local 665 President Christopher Weiking. Together they'll dig into AI ethics, what responsible practice actually looks like in newsrooms and on set, and what they hope for the future of media and creative work.",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-10-30-am-game-based-learning-with-ai-from-concept-to-classroom",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "10:30 AM",
+    "timeEnd": "TBD",
+    "title": "Game-Based Learning with AI: From Concept to Classroom",
+    "type": "breakout",
+    "speaker": "Monir Hodges",
+    "location": "Plumeria",
+    "description": "This session explores how AI can be used to design and build an engaging educational game app for students. It will demonstrate how AI tools can help generate ideas, create interactive content, personalize learning experiences, and simplify development—making it easier to turn core academic concepts into fun, accessible gameplay that supports student learning.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-10-30-am-ai-101-vibe-coding-build-and-launch-your-own-projects",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "10:30 AM",
+    "timeEnd": "TBD",
+    "title": "AI 101 Vibe Coding: Build and Launch Your Own Projects",
+    "type": "breakout",
+    "speaker": "Gabriel Yanagihara",
+    "location": "Carnation",
+    "description": "In this interactive session, attendees will learn what AI is and what it is truly capable of in today's landscape. We will then dive into how to use AI to rapidly prototype, build, and launch your own digital projects. Participants will explore the \"vibe coding\" workflow and leave with their own website, a project plan, and the AI skills needed to improve office productivity for free starting tomorrow.",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-10-30-am-operationalizing-intelligence-in-real-world",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "10:30 AM",
+    "timeEnd": "TBD",
+    "title": "Operationalizing Intelligence in Real-World",
+    "type": "breakout",
+    "speaker": "Paul Sakamoto",
+    "location": "Ilima",
+    "description": "A practical view of AI adoption within existing systems, workflows, and organizational constraints. The following tools will be demonstrated: 1. AI Career Explorer 2. AI Program Report (education to workforce alignment) 3. AI Data Query (Using AI to write SQL and extract data)",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-01-30-pm-ai-in-cybersecurity",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "01:30 PM",
+    "timeEnd": "TBD",
+    "title": "AI in Cybersecurity",
+    "type": "breakout",
+    "speaker": "Chad Morita",
+    "location": "Pakalana",
+    "description": "TBA",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-01-30-pm-ai-workforce-resources-from-the-national-science-foundation",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "01:30 PM",
+    "timeEnd": "TBD",
+    "title": "AI Workforce Resources from the National Science Foundation",
+    "type": "breakout",
+    "speaker": "Dr. Kimberly Scott",
+    "location": "Plumeria",
+    "description": "This session will cover AI funding opportunities, partnership possibilities, and guidance on NSF program submissions. This session is presented virtually.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-01-30-pm-ai-for-social-good",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "01:30 PM",
+    "timeEnd": "TBD",
+    "title": "AI for Social Good",
+    "type": "breakout",
+    "speaker": "Nicole Cacal",
+    "location": "Carnation",
+    "description": "Presenter: Nicole Cacal\nTRUE Initiative\nFocus: Solving societal challenges such as climate change, education, and public health",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-01-30-pm-understanding-machine-learning-algorithms",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "01:30 PM",
+    "timeEnd": "TBD",
+    "title": "Understanding Machine Learning Algorithms",
+    "type": "breakout",
+    "speaker": "Wayne Lewis PCATT",
+    "location": "Ilima",
+    "description": "Presenter:Wayne Lewis PCATT\nFocus: Supervised vs. unsupervised learning",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-02-30-pm-regulatory-perspectives-on-ai-trust",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "02:30 PM",
+    "timeEnd": "TBD",
+    "title": "Regulatory Perspectives on AI Trust",
+    "type": "breakout",
+    "speaker": "Darsh Davé and Hunter Kirihara",
+    "location": "Pakalana",
+    "description": "Presenter: Darsh Davé and Hunter Kirihara\nKapi‘olani Community College\nFocus: Exploring sources of bias and strategies for mitigation",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-02-30-pm-beyond-the-bot-how-building-with-ai-is-defining-the-future-of-work-in-hawai-i",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "02:30 PM",
+    "timeEnd": "TBD",
+    "title": "Beyond the Bot: How Building with AI Is Defining the Future of Work in Hawaiʻi",
+    "type": "breakout",
+    "speaker": "Dr. Gloria Niles",
+    "location": "Plumeria",
+    "description": "The Intelligence Era is swiftly moving beyond the \"bot phase\" of simply using AI tools into the \"build phase\" of creation and customization. This presentation explores why the future of work requires employees with specialized skills to build with AI, leading to dramatic improvements in productivity, efficiency, and individual agency across all industry sectors. We will discuss the competencies necessary for this shift and highlight the University of Hawaiʻi's free \"Artificial Intelligence for Hawaiʻi\" course (https://aiforhi.hawaii.edu/) as an accessible strategy for all attendees to upskill in AI literacy and drive this new building paradigm.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-02-30-pm-every-candidate-deserves-an-interview-every-employer-deserves-a-real-conversatio",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "02:30 PM",
+    "timeEnd": "TBD",
+    "title": "Every Candidate Deserves an Interview. Every Employer Deserves a Real Conversation. AI Delivers Both.",
+    "type": "breakout",
+    "speaker": "Lionel Derrick Roxas",
+    "location": "Carnation",
+    "description": "Hawai’i loses talent every time an interview doesn’t happen. Candidates struggle with speaking after growing up in the digital world, and employers make bad hires because they screen people out on paper instead of talking to them first. Hexcelerate, built by UH students for Hawaiʻi’s workforce, fixes both with one conversational AI platform: HexReady for candidates and HexHire for employers. In this session, you’ll get hands-on with our “Tell Your Story” interview prep module, then see how the same conversation scales to employers like Goodwill, WorkHawaii, Oceanit, and HECO. You’ll walk away with the workshop curriculum, a live demo, and a partnership pathway for your school or organization.",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-02-30-pm-apple-intelligence-ml-and-ai",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "02:30 PM",
+    "timeEnd": "TBD",
+    "title": "Apple Intelligence, ML, and AI",
+    "type": "breakout",
+    "speaker": "Nani Daniels",
+    "location": "Ilima",
+    "description": "Learn about AI, Machine Learning, and Apple Intelligence, and how Apple securely and privately integrates them into products and services you use every day.",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-09-00-am-learning-at-the-speed-of-ai-with-cisco",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "09:00 AM",
+    "timeEnd": "TBD",
+    "title": "Learning at the Speed of AI with Cisco",
+    "type": "keynote",
+    "speaker": "Dave Free",
+    "location": "Hibiscus",
+    "description": "The pace of AI innovation is unprecedented, but technical progress is only half the story. As we move from AI as a tool to AI as a collaborative coworker, the true challenge lies in preparing our workforce to keep pace. Join Dave Free from Cisco Networking Academy for an insightful look at how the landscape of ICT roles is shifting—and why 78% of technology jobs will soon require specialized AI skills. In this session, we will explore the \"AI fog\"—the gap between rapid technical advancement and workforce preparedness—and discuss how educators can bridge it. We’ll look beyond the hype to examine the essential blend of technical proficiency, ethical intelligence, and human-centric skills needed to succeed in the AI era. Whether you are looking to integrate AI into your curriculum or help students transition from entry-level learners to expert AI practitioners, this session offers a practical roadmap for building a resilient, future-ready workforce.",
+    "strand": "Keynote Speaker",
+    "track": "Keynote Speaker",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-10-15-am-trust-by-design-in-the-age-of-ai",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "10:15 AM",
+    "timeEnd": "TBD",
+    "title": "Trust by Design in the Age of AI",
+    "type": "breakout",
+    "speaker": "Victoria Rivett, AI in Education",
+    "location": "Pakalana",
+    "description": "This presentation explores how trust in AI should be developed intentionally rather than assumed. It explores how AI is reshaping the process in academia and other domains in how we come to know what is true, how knowledge is formed and information is interpreted. Participants will gain practical ways to verify and use AI with greater confidence in everyday work and life.",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-10-15-am-experience-ai-on-apple-platforms",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "10:15 AM",
+    "timeEnd": "TBD",
+    "title": "Experience AI on Apple Platforms",
+    "type": "breakout",
+    "speaker": "Apple Presenter",
+    "location": "Carnation",
+    "description": "Presenter: Apple Presenter\nApple Education\nFocus: Join us for this hands-on experience to explore the full spectrum of on-device AI, cloud AI, and Apple Intelligence across Apple platforms - iPhone, iPad, and Mac.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-10-15-am-how-can-ai-tools-help-with-grading-an-ethical-and-practical-dive-into-four-effec",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "10:15 AM",
+    "timeEnd": "TBD",
+    "title": "How can AI tools help with grading? An ethical and practical dive into four effective techniques",
+    "type": "breakout",
+    "speaker": "Kevin Lim",
+    "location": "Plumeria",
+    "description": "AI Tools based on Large Language Models (LLMs) are changing education. In this session, I'll talk about upgrades I've made to my process that reduce the grading burden while increasing feedback quality and improving student-teacher relationships. First, I will cover anonymizing student submissions to ensure safer handling and reduce bias. Second, I'll discuss improvements to the grading flow that reduce distraction, frustration, and wasted time. Finally, I'll advocate for using AI to give us a wider-angle lens on assessment, moving away from detection of individual acts of AI plagiarism, toward a more productive and compassionate conversation about the student's growth.",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-10-15-am-impact-of-genai-in-the-classroom-case-study-from-a-capstone-course",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "10:15 AM",
+    "timeEnd": "TBD",
+    "title": "Impact of GenAI in the Classroom - Case Study from a Capstone Course!",
+    "type": "breakout",
+    "speaker": "Debasis Bhattacharya",
+    "location": "Ilima",
+    "description": "Generative Artificial Intelligence (GenAI), which uses Large Language Models (LLMs), has existed for a few years and has significantly influenced higher education. Although educators understand what GenAI is, they find it challenging to implement it effectively in the classroom. While some disruptions have impacted student learning and assessment, they have also notably affected faculty teaching STEM, Business, and other disciplines. This session will examine the impact on curriculum development, assessment strategies, and teaching methods for a business course, including a case study from a Business Capstone course in the ABIT BAS program at UH Maui College. Session learning outcomes will include designing an adaptive curriculum, project-based assessments, and oral student presentations that showcase creativity in solving new and unique problems. This session will cover general topics of interest to faculty, staff, and administrators, including hands-on activities to actively engage a diverse audience.",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-01-00-pm-digital-sovereignty-in-the-ai-era",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "01:00 PM",
+    "timeEnd": "TBD",
+    "title": "Digital Sovereignty in the AI Era",
+    "type": "breakout",
+    "speaker": "Todd Robertson",
+    "location": "Pakalana",
+    "description": "A hopeful, urgent look at how AI is reshaping society, and why Hawaiʻi must help guide that future through equity, digital sovereignty, ALOHA, and human connection.",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-01-00-pm-building-the-ai-workforce-practical-pathways-into-applied-computing",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "01:00 PM",
+    "timeEnd": "TBD",
+    "title": "Building the AI Workforce: Practical Pathways into Applied Computing",
+    "type": "breakout",
+    "speaker": "Mahdi Belcaid",
+    "location": "Plumeria",
+    "description": "This session introduces UH Manoa's AI and Data Science professional programs, designed for learners without prior computer science experience. The session will highlight the program’s student-centered approach and show how students from varied backgrounds can move from little or no prior experience in computer science to real competence in one year through practical training, project-based learning, and exposure to state-of-the-art AI and data science methodologies.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-01-00-pm-the-human-edge-in-an-ai-world",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "01:00 PM",
+    "timeEnd": "TBD",
+    "title": "The Human Edge in an AI World",
+    "type": "breakout",
+    "speaker": "Noah Pomeroy Mindfulness Catalyst",
+    "location": "Carnation",
+    "description": "Competing with machines is a losing game. So what is our human edge? As AI capabilities accelerate, the human capacities that technology cannot replace will matter more and more in education, work, and life. This session brings together current research, reflection, and guided practices to help participants strengthen those capacities and begin putting them to work.",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-01-00-pm-glass-box-ai-knowledge-graphs-and-decision-tracing-part-i",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "01:00 PM",
+    "timeEnd": "TBD",
+    "title": "Glass Box AI: Knowledge Graphs and Decision Tracing (Part I)",
+    "type": "breakout",
+    "speaker": "Sadie Flick",
+    "location": "Ilima",
+    "description": "In 2026, the greatest hurdle for institutions isn't the technology's capability—it's its reliability. This session explores the transition from &#8216;Black Box' LLMs to &#8216;Glass Box' architectures. By grounding AI in Knowledge Graphs and Fixed Entity Architecture (FEA), we can move from probabilistic guessing to deterministic navigation. We will look under the hood of a local cybersecurity career navigator to explore Decision Tracing (showing the AI's work) and Knowledge Fidelity (anchoring AI in frameworks like NIST and ESCO). Attendees will walk away with a practical framework for architecting AI systems that are transparent, auditable, and reliable. For both technical and non-technical audiences, includes high-level technical explanations with visual demos to clearly demonstrate practical use-cases.",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-02-00-pm-a-decade-in-the-making-how-true-ai-native-architecture-delivers-self-driving-net",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "02:00 PM",
+    "timeEnd": "TBD",
+    "title": "A Decade in the Making: How True AI-Native Architecture Delivers Self-Driving Networks",
+    "type": "breakout",
+    "speaker": "Sujit Ghosh",
+    "location": "Pakalana",
+    "description": "The combination of HPE and Juniper Networks has created the industry's first true AI-native networking portfolio. Powered by Mist AI and Marvis—an intelligent conversational virtual assistant—this platform utilizes over a decade of domain data to drive autonomous, self-driving networks across campus, branch, and data center environments",
+    "strand": "Trust in AI",
+    "track": "Track I",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-02-00-pm-the-future-is-bright-building-a-resilient-workforce-in-the-age-of-ai",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "02:00 PM",
+    "timeEnd": "TBD",
+    "title": "The Future is Bright: Building a Resilient Workforce in the Age of AI",
+    "type": "breakout",
+    "speaker": "Nicole Bentley and Katie Adams",
+    "location": "Carnation",
+    "description": "The rapid advancement of artificial intelligence and its impact on the American workforce have outpaced many individuals's expectations. Nevertheless, workforce development professionals and educators are primed for the shift. The necessity to adapt, evolve, and modernize is fundamental to establishing a sustainable talent development strategy. This session will utilize the Registered Apprenticeship model as a case study to highlight best practices for incorporating AI literacy, education, and hands-on skills training into essential occupations without supplanting their existence.",
+    "strand": "AI and the Future of Work",
+    "track": "Track II",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-02-00-pm-the-race-to-regulate-ai",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "02:00 PM",
+    "timeEnd": "TBD",
+    "title": "The Race to Regulate AI",
+    "type": "breakout",
+    "speaker": "Seiichi Nagai",
+    "location": "Plumeria",
+    "description": "A tour of the AI policy landscape in 2026, the bills moving through state and federal legislatures, and what's at stake.",
+    "strand": "Public/Social Interest in AI",
+    "track": "Track III",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-02-00-pm-glass-box-ai-knowledge-graphs-and-decision-tracing-part-ii",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "02:00 PM",
+    "timeEnd": "TBD",
+    "title": "Glass Box AI: Knowledge Graphs and Decision Tracing (Part II)",
+    "type": "breakout",
+    "speaker": "Sadie Flick",
+    "location": "Ilima",
+    "description": "In 2026, the greatest hurdle for institutions isn't the technology's capability—it's its reliability. This session explores the transition from &#8216;Black Box' LLMs to &#8216;Glass Box' architectures. By grounding AI in Knowledge Graphs and Fixed Entity Architecture (FEA), we can move from probabilistic guessing to deterministic navigation. We will look under the hood of a local cybersecurity career navigator to explore Decision Tracing (showing the AI's work) and Knowledge Fidelity (anchoring AI in frameworks like NIST and ESCO). Attendees will walk away with a practical framework for architecting AI systems that are transparent, auditable, and reliable. For both technical and non-technical audiences, includes high-level technical explanations with visual demos to clearly demonstrate practical use-cases.",
+    "strand": "Mechanics of AI",
+    "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  }
+];
+
+    const SESSION_RESEARCH = {};
+
+  // ──────────────────────────────────────────────────────────
+  //  NOTES — localStorage
+  // ──────────────────────────────────────────────────────────
+  const NOTES_KEY = 'pcatt_summit_2026_notes';
+  const STARRED_SPEAKERS_KEY = 'pcatt_summit_2026_starred_speakers';
+  const EXPORT_DOWNLOAD_REMINDER_KEY = 'pcatt_summit_2026_export_download_reminder_hidden';
+  const DELETE_ALL_CONFIRMATION = 'delete all';
+  const CLEAR_STARS_CONFIRMATION = 'clear stars';
+  const EXPORT_SHARE_TITLE = 'PCATT Summit 2026 Notes';
+  const IS_TEST_MODE = new URLSearchParams(window.location.search).get('test') === '1';
+  const NOTE_TYPES = {
+    SESSION: 'session',
+    SPEAKER: 'speaker',
+    GENERAL: 'general'
+  };
+  const GENERAL_NOTE_ID = 'quick-note';
+  let notesSearchQuery = '';
+  let notesCollapsed = null; // null = auto (collapse when ≥ 3 notes), true/false = user override
+
+  function slugify(value = '') {
+    return value
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function noteKey(type, entityId = GENERAL_NOTE_ID) {
+    return `${type}:${entityId}`;
+  }
+
+  function getSessionById(id) {
+    return SCHEDULE.find(session => session.id === id);
+  }
+
+  function normalizeTimestamp(value) {
+    if (typeof value === 'number' && Number.isFinite(value)) return value;
+    const parsed = Date.parse(value || '');
+    return Number.isNaN(parsed) ? Date.now() : parsed;
+  }
+
+  function normalizeNoteRecord(key, value) {
+    if (!value || typeof value !== 'object') return null;
+
+    const text = typeof value.text === 'string' ? value.text.trim() : '';
+    if (!text) return null;
+
+    if (value.type) {
+      const entityId = value.entityId || key.split(':').slice(1).join(':') || GENERAL_NOTE_ID;
+      const createdAt = normalizeTimestamp(value.createdAt || value.savedAt);
+      const updatedAt = normalizeTimestamp(value.updatedAt || value.createdAt || value.savedAt || createdAt);
+      return {
+        key,
+        type: value.type,
+        entityId,
+        text,
+        createdAt,
+        updatedAt
+      };
+    }
+
+    const sessionId = value.id || key;
+    const createdAt = normalizeTimestamp(value.savedAt);
+    return {
+      key: noteKey(NOTE_TYPES.SESSION, sessionId),
+      type: NOTE_TYPES.SESSION,
+      entityId: sessionId,
+      text,
+      createdAt,
+      updatedAt: createdAt
+    };
+  }
+
+  function getNotes() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+      if (!raw || typeof raw !== 'object') return {};
+
+      let changed = false;
+      const normalized = {};
+
+      Object.entries(raw).forEach(([key, value]) => {
+        const record = normalizeNoteRecord(key, value);
+        if (!record) {
+          changed = true;
+          return;
+        }
+        if (
+          key !== record.key ||
+          value.type !== record.type ||
+          value.entityId !== record.entityId ||
+          value.text !== record.text ||
+          value.createdAt !== record.createdAt ||
+          value.updatedAt !== record.updatedAt
+        ) {
+          changed = true;
+        }
+        normalized[record.key] = record;
+      });
+
+      if (changed) {
+        localStorage.setItem(NOTES_KEY, JSON.stringify(normalized));
+      }
+
+      return normalized;
+    } catch {
+      return {};
+    }
+  }
+
+  function persistNotes(notes) {
+    localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+    updateNoteCount();
+  }
+
+  function getStarredSpeakers() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(STARRED_SPEAKERS_KEY) || '[]');
+      if (Array.isArray(raw)) {
+        return new Set(raw.filter(id => typeof id === 'string'));
+      }
+      if (raw && typeof raw === 'object') {
+        return new Set(Object.entries(raw).filter(([, value]) => !!value).map(([id]) => id));
+      }
+      return new Set();
+    } catch {
+      return new Set();
+    }
+  }
+
+  function persistStarredSpeakers(starredSet) {
+    localStorage.setItem(STARRED_SPEAKERS_KEY, JSON.stringify([...starredSet]));
+  }
+
+  function clearAllSpeakerStars() {
+    const starred = getStarredSpeakers();
+    if (starred.size === 0) return false;
+    localStorage.removeItem(STARRED_SPEAKERS_KEY);
+    return true;
+  }
+
+  function toggleSpeakerStar(speakerId) {
+    const starred = getStarredSpeakers();
+    let isStarred = false;
+    if (starred.has(speakerId)) {
+      starred.delete(speakerId);
+    } else {
+      starred.add(speakerId);
+      isStarred = true;
+    }
+    persistStarredSpeakers(starred);
+    return isStarred;
+  }
+
+  function getNoteCount() {
+    return Object.keys(getNotes()).length;
+  }
+
+  function getNote(type, entityId = GENERAL_NOTE_ID) {
+    return getNotes()[noteKey(type, entityId)] || null;
+  }
+
+  function saveNote(type, entityId, text) {
+    const notes = getNotes();
+    const key = noteKey(type, entityId || GENERAL_NOTE_ID);
+    const trimmed = text.trim();
+    const existing = notes[key];
+
+    if (!trimmed) {
+      if (existing) {
+        delete notes[key];
+        persistNotes(notes);
+        return { status: 'deleted', note: null };
+      }
+      return { status: 'unchanged', note: null };
+    }
+
+    if (existing && existing.text === trimmed) {
+      return { status: 'unchanged', note: existing };
+    }
+
+    const now = Date.now();
+    const next = {
+      key,
+      type,
+      entityId: entityId || GENERAL_NOTE_ID,
+      text: trimmed,
+      createdAt: existing ? normalizeTimestamp(existing.createdAt) : now,
+      updatedAt: now
+    };
+
+    notes[key] = next;
+    persistNotes(notes);
+    return {
+      status: existing ? 'updated' : 'created',
+      note: next
+    };
+  }
+
+  function deleteNote(noteId) {
+    const notes = getNotes();
+    if (!notes[noteId]) return false;
+    delete notes[noteId];
+    persistNotes(notes);
+    syncNoteEditorValues();
+    syncNoteIndicators();
+    syncNoteMeta();
+    renderNotesTab();
+    return true;
+  }
+
+  function clearAllNotes() {
+    if (getNoteCount() === 0) return false;
+    localStorage.removeItem(NOTES_KEY);
+    updateNoteCount();
+    syncNoteEditorValues();
+    syncNoteIndicators();
+    syncNoteMeta();
+    renderNotesTab();
+    return true;
+  }
+
+  function updateNotesActionState() {
+    const clearBtn = document.getElementById('clearNotesBtn');
+    if (!clearBtn) return;
+    clearBtn.disabled = getNoteCount() === 0;
+  }
+
+  function updateNoteCount() {
+    const count = getNoteCount();
+    const el = document.getElementById('noteCount');
+    el.textContent = count > 0 ? count : '';
+    updateNotesActionState();
+  }
+
+  function noteLabel(type, hasNote) {
+    if (type === NOTE_TYPES.SPEAKER) {
+      return hasNote ? 'Edit Person Note' : 'Add Person Note';
+    }
+    return hasNote ? 'Edit Note' : 'Add Note';
+  }
+
+  function syncNoteIndicators() {
+    const notes = getNotes();
+    document.querySelectorAll('.note-toggle').forEach(btn => {
+      const type = btn.dataset.noteType;
+      const id = btn.dataset.noteId;
+      const hasNote = !!notes[noteKey(type, id)];
+      btn.classList.toggle('has-note', hasNote);
+      const labelSpan = btn.querySelector('.note-label');
+      if (labelSpan) labelSpan.textContent = noteLabel(type, hasNote);
+    });
+  }
+
+  function formatNoteTimestamp(timestamp) {
+    return new Intl.DateTimeFormat(undefined, {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit'
+    }).format(new Date(timestamp));
+  }
+
+  function formatNoteTime(timestamp) {
+    return new Intl.DateTimeFormat(undefined, {
+      hour: 'numeric',
+      minute: '2-digit'
+    }).format(new Date(timestamp));
+  }
+
+  function noteMetaMessage(note) {
+    if (!note) {
+      return 'Uses this device’s local time when you save.';
+    }
+    const created = `Noted ${formatNoteTimestamp(note.createdAt)} on this device`;
+    if (note.updatedAt && note.updatedAt !== note.createdAt) {
+      return `${created} · updated ${formatNoteTime(note.updatedAt)}`;
+    }
+    return created;
+  }
+
+  function syncNoteMeta() {
+    document.querySelectorAll('[data-note-meta-type]').forEach(el => {
+      const note = getNote(el.dataset.noteMetaType, el.dataset.noteMetaId);
+      el.textContent = noteMetaMessage(note);
+    });
+  }
+
+  function syncNoteEditorValues() {
+    document.querySelectorAll('.note-textarea').forEach(textarea => {
+      const note = getNote(textarea.dataset.noteType, textarea.dataset.noteId);
+      const nextValue = note ? note.text : '';
+      if (textarea.value !== nextValue) {
+        textarea.value = nextValue;
+      }
+    });
+  }
+
+  function noteTypeLabel(type) {
+    if (type === NOTE_TYPES.SESSION) return 'Session Note';
+    if (type === NOTE_TYPES.SPEAKER) return 'Person Note';
+    return 'Quick Note';
+  }
+
+  function normalizeSearchText(value = '') {
+    return String(value)
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function noteMatchesSearch(note, query) {
+    if (!query) return true;
+    const searchableText = normalizeSearchText([
+      note.text,
+      getNoteTitle(note),
+      getNoteContext(note),
+      noteTypeLabel(note.type)
+    ].join(' '));
+    return searchableText.includes(query);
+  }
+
+  function updateNotesSearchControls() {
+    const input = document.getElementById('notesSearch');
+    const clearBtn = document.getElementById('clearNotesSearchBtn');
+    if (input && input.value !== notesSearchQuery) {
+      input.value = notesSearchQuery;
+    }
+    if (clearBtn) {
+      clearBtn.disabled = !notesSearchQuery.trim();
+    }
+  }
+
+  function setNotesSearchQuery(value) {
+    notesSearchQuery = value;
+    updateNotesSearchControls();
+    if (document.getElementById('notesTab')?.classList.contains('active')) {
+      renderNotesTab();
+    }
+  }
+
+  function noteTypeClass(type) {
+    return `note-type-${type}`;
+  }
+
+  function escapeAttr(str) {
+    return esc(str).replace(/'/g, '&#39;');
+  }
+
+  function normalizeSpeakerLookupName(name = '') {
+    return name
+      .replace(/^.*?:\s*/, '')
+      .replace(/\s*\([^)]*\)\s*$/g, '')
+      .trim();
+  }
+
+  function speakerByName(name) {
+    const lookup = slugify(normalizeSpeakerLookupName(name));
+    return SPEAKERS.find(speaker => speaker.id === lookup) || null;
+  }
+
+  function speakerMetaMarkup(speakerLine) {
+    const tokens = speakerLine.split('·').map(token => token.trim()).filter(Boolean);
+
+    const tokenHtml = tokens.map((token, index) => {
+      const speaker = speakerByName(token);
+      const displayName = normalizeSpeakerLookupName(token);
+      const prefixMatch = token.match(/^(.*?:)\s*/);
+      const prefix = prefixMatch ? prefixMatch[1] : '';
+      const label = prefix ? token.replace(prefixMatch[0], '').trim() : token;
+      const parts = [];
+
+      if (prefix) {
+        parts.push(`<span class="meta-prefix">${esc(prefix)}</span>`);
+      }
+
+      if (speaker) {
+        parts.push(
+          `<button class="meta-speaker-link" type="button" data-speaker-id="${speaker.id}" aria-label="Open ${escapeAttr(displayName)} in speakers">${esc(label)}</button>`
+        );
+      } else {
+        parts.push(`<span>${esc(label)}</span>`);
+      }
+
+      if (index < tokens.length - 1) {
+        parts.push(`<span class="meta-separator" aria-hidden="true">·</span>`);
+      }
+
+      return parts.join('');
+    }).join('');
+
+    return `<span class="meta-item"><span class="meta-icon">👤</span><span class="meta-speaker-list">${tokenHtml}</span></span>`;
+  }
+
+  function getSessionResearch(id) {
+    return SESSION_RESEARCH[id] || null;
+  }
+
+  function renderResearchSection(id, research) {
+    if (!research) return '';
+    const researchPanelId = `research-${id}`;
+    const copyText = Array.isArray(research.notes) ? research.notes.join(' ') : (research.notes || '');
+    const linksHtml = research.links.map(link => `
+      <a class="research-link" href="${escapeAttr(link.url)}" target="_blank" rel="noopener">
+        <span>${esc(link.label)}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    `).join('');
+
+    return `
+      <button class="research-toggle" data-id="${id}" aria-expanded="false" aria-controls="${researchPanelId}">
+        <span aria-hidden="true">🔎</span> Quick Context + Links
+        <span class="r-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="research-body" id="${researchPanelId}">
+        <div class="research-panel">
+          <p class="research-copy">${esc(copyText)}</p>
+          <div class="research-links">${linksHtml}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  RENDER SCHEDULE
+  // ──────────────────────────────────────────────────────────
+  const BADGE_LABELS = {
+    keynote: 'Keynote', fireside: 'Fireside', panel: 'Panel',
+    pitch: 'Pitch', roundtable: 'Roundtable', networking: 'Networking',
+    mindfulness: 'Mindfulness', ceremony: 'Ceremony', meal: 'Dining',
+    break: 'Break', welcome: 'Welcome', presentation: 'Presentation',
+    announcement: 'Closing', background: 'All Day'
+  };
+  let currentStrandFilter = 'all';
+
+  function esc(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function speakerPreview(speaker, type) {
+    if (!speaker || type === 'meal' || type === 'break' || type === 'background') return '';
+    const parts = speaker.split('·').map(s => s.trim());
+    return `<span class="session-speaker">${parts.map(esc).join(' · ')}</span>`;
+  }
+
+  function renderSchedule() {
+    const notes = getNotes();
+    const html = SCHEDULE.map(s => {
+      const note = notes[noteKey(NOTE_TYPES.SESSION, s.id)];
+      const hasNote = !!note;
+      const hasSubs = s.subItems && s.subItems.length > 0;
+      const notePanelId = `notebody-session-${s.id}`;
+      const research = getSessionResearch(s.id);
+
+      const metaParts = [];
+      if (s.speaker && s.type !== 'meal' && s.type !== 'break' && s.type !== 'background') {
+        metaParts.push(speakerMetaMarkup(s.speaker));
+      }
+      if (s.location) {
+        metaParts.push(`<span class="meta-item"><span class="meta-icon">📍</span>${esc(s.location)}</span>`);
+      }
+      if (s.day) {
+        metaParts.push(`<span class="meta-item"><span class="meta-icon">📅</span>${esc(s.day)}</span>`);
+      }
+      if (s.time && s.timeEnd) {
+        metaParts.push(`<span class="meta-item"><span class="meta-icon">⏱</span>${esc(s.time)} – ${esc(s.timeEnd)}</span>`);
+      }
+
+      const subItemsHtml = hasSubs ? `
+        <button class="sub-items-toggle" data-id="${s.id}" aria-expanded="false" aria-controls="subitems-${s.id}">
+          <span aria-hidden="true">👥</span> Who's In The Room
+          <span class="sub-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="sub-items-body" id="subitems-${s.id}">
+          <div class="sub-items-list">
+            ${s.subItems.map(sub => `
+              <div class="sub-item">
+                <div class="sub-item-title">${esc(sub.title)}</div>
+                ${sub.speaker ? `<div class="sub-item-speaker">${esc(sub.speaker)}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      return `
+        <div class="session-item type-${s.type}" id="item-${s.id}">
+          <button class="session-trigger" aria-expanded="false" data-id="${s.id}" aria-controls="body-${s.id}">
+            <span class="session-time">${esc(s.time)}</span>
+            <span class="session-main">
+              <span class="session-badge badge-${s.type}">${BADGE_LABELS[s.type] || s.type}</span>
+              <span class="session-title">${esc(s.title)}</span>
+              ${speakerPreview(s.speaker, s.type)}
+            </span>
+            <span class="session-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="session-body" id="body-${s.id}" role="region" aria-label="${esc(s.title)} details">
+            <div class="session-body-inner">
+              ${metaParts.length ? `<div class="session-meta-row">${metaParts.join('')}</div>` : ''}
+              ${s.description ? `<p class="session-description">${esc(s.description)}</p>` : ''}
+              ${subItemsHtml}
+              <div class="session-actions">
+                ${s.studentSummary ? `
+                  <button class="summary-toggle" data-id="${s.id}" aria-expanded="false">
+                    <span aria-hidden="true">🤖</span> Student Summary
+                    <span class="s-chevron" aria-hidden="true">▾</span>
+                  </button>
+                  <div class="summary-body" id="summary-${s.id}">
+                    <div class="summary-text">${esc(s.studentSummary)}</div>
+                  </div>
+                ` : ''}
+                ${renderResearchSection(s.id, research)}
+                <button class="note-toggle ${hasNote ? 'has-note' : ''}" data-note-type="${NOTE_TYPES.SESSION}" data-note-id="${s.id}" aria-expanded="false" aria-controls="${notePanelId}">
+                  <span aria-hidden="true">📝</span>
+                  <span class="note-label">${noteLabel(NOTE_TYPES.SESSION, hasNote)}</span>
+                  <span class="note-dot" aria-hidden="true"></span>
+                </button>
+                <div class="note-body" id="${notePanelId}">
+                  <div class="note-inner">
+                    <textarea
+                      class="note-textarea"
+                      data-note-type="${NOTE_TYPES.SESSION}"
+                      data-note-id="${s.id}"
+                      placeholder="What stood out? Questions? Connections to make..."
+                      aria-label="Note for ${esc(s.title)}"
+                    >${note ? esc(note.text) : ''}</textarea>
+                    <p class="note-meta" data-note-meta-type="${NOTE_TYPES.SESSION}" data-note-meta-id="${s.id}">${esc(noteMetaMessage(note))}</p>
+                    <button class="note-save-btn" data-note-type="${NOTE_TYPES.SESSION}" data-note-id="${s.id}">Save Note ✓</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('scheduleList').innerHTML = html;
+    attachScheduleEvents();
+    updateNoteCount();
+  }
+
+  function saveNoteFromTextarea(textarea) {
+    const noteType = textarea.dataset.noteType;
+    if (!noteType) {
+      return { status: 'unchanged', note: null };
+    }
+
+    const result = saveNote(noteType, textarea.dataset.noteId, textarea.value);
+    syncNoteEditorValues();
+    syncNoteIndicators();
+    syncNoteMeta();
+    return result;
+  }
+
+  function saveNoteFromButton(button) {
+    const textarea = document.querySelector(
+      `.note-textarea[data-note-type="${button.dataset.noteType}"][data-note-id="${button.dataset.noteId}"]`
+    );
+    if (!textarea) return { status: 'unchanged', note: null };
+    return saveNoteFromTextarea(textarea);
+  }
+
+  function noteToast(type, status) {
+    if (status === 'deleted') return 'Note cleared';
+    if (status === 'created' || status === 'updated') {
+      if (type === NOTE_TYPES.SPEAKER) return 'Person note saved ✓';
+      if (type === NOTE_TYPES.GENERAL) return 'Quick note saved ✓';
+      return 'Note saved ✓';
+    }
+    return '';
+  }
+
+  function bindNoteEditors(root) {
+    root.querySelectorAll('.note-toggle').forEach(btn => {
+      btn.addEventListener('click', () => toggleNotePanel(btn));
+    });
+
+    root.querySelectorAll('.note-save-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const result = saveNoteFromButton(btn);
+        const message = noteToast(btn.dataset.noteType, result.status);
+        if (message) showToast(message);
+        keepAccordionExpanded(btn);
+      });
+    });
+
+    root.querySelectorAll('.note-textarea').forEach(textarea => {
+      if (!textarea.dataset.noteType) return;
+      textarea.addEventListener('blur', () => {
+        saveNoteFromTextarea(textarea);
+      });
+    });
+  }
+
+  function attachScheduleEvents() {
+    const root = document.getElementById('scheduleList');
+
+    root.querySelectorAll('.session-trigger').forEach(btn => {
+      btn.addEventListener('click', () => toggleSession(btn.dataset.id));
+    });
+
+    root.querySelectorAll('.summary-toggle').forEach(btn => {
+      btn.addEventListener('click', () => toggleSummary(btn.dataset.id));
+    });
+
+    root.querySelectorAll('.sub-items-toggle').forEach(btn => {
+      btn.addEventListener('click', () => toggleSubItems(btn.dataset.id));
+    });
+
+    root.querySelectorAll('.research-toggle').forEach(btn => {
+      btn.addEventListener('click', () => toggleResearch(btn.dataset.id));
+    });
+
+    root.querySelectorAll('.meta-speaker-link').forEach(btn => {
+      btn.addEventListener('click', () => openSpeakerContext(btn.dataset.speakerId));
+    });
+
+    bindNoteEditors(root);
+  }
+
+  // ── TOGGLE HELPERS ──
+
+  function toggleSession(id) {
+    const item = document.getElementById(`item-${id}`);
+    const body = document.getElementById(`body-${id}`);
+    const trigger = item.querySelector('.session-trigger');
+    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+    if (isExpanded) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      trigger.setAttribute('aria-expanded', 'false');
+      item.classList.remove('expanded');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 2000 + 'px';
+      trigger.setAttribute('aria-expanded', 'true');
+      item.classList.add('expanded');
+    }
+  }
+
+  function toggleSummary(id) {
+    const btn = document.querySelector(`.summary-toggle[data-id="${id}"]`);
+    const body = document.getElementById(`summary-${id}`);
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('open');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      btn.classList.add('open');
+      setTimeout(() => { body.style.maxHeight = '9999px'; }, 370);
+    }
+    keepAccordionExpanded(body);
+  }
+
+  function toggleResearch(id) {
+    const btn = document.querySelector(`.research-toggle[data-id="${id}"]`);
+    const body = document.getElementById(`research-${id}`);
+    if (!btn || !body) return;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('open');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      btn.classList.add('open');
+      setTimeout(() => { body.style.maxHeight = '9999px'; }, 370);
+    }
+    keepAccordionExpanded(body);
+  }
+
+  function toggleSubItems(id) {
+    const btn = document.querySelector(`.sub-items-toggle[data-id="${id}"]`);
+    const body = document.getElementById(`subitems-${id}`);
+    if (!btn || !body) return;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('open');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      btn.classList.add('open');
+      setTimeout(() => { body.style.maxHeight = '9999px'; }, 370);
+    }
+    keepAccordionExpanded(body);
+  }
+
+  function toggleNotePanel(btn) {
+    const body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      setTimeout(() => {
+        body.style.maxHeight = '9999px';
+        const ta = body.querySelector('.note-textarea');
+        if (ta) ta.focus();
+      }, 200);
+    }
+    keepAccordionExpanded(body);
+  }
+
+  function keepAccordionExpanded(child) {
+    const parentBody = child.closest('.session-body, .speaker-body');
+    if (parentBody && parentBody.style.maxHeight !== '0px') {
+      parentBody.style.maxHeight = '9999px';
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  RENDER NOTES TAB
+  // ──────────────────────────────────────────────────────────
+  function getSpeakerById(id) {
+    return SPEAKERS.find(speaker => speaker.id === id);
+  }
+
+  function getNoteTitle(note) {
+    if (note.type === NOTE_TYPES.SESSION) {
+      const session = getSessionById(note.entityId);
+      return session ? session.title : 'Session note';
+    }
+    if (note.type === NOTE_TYPES.SPEAKER) {
+      const speaker = getSpeakerById(note.entityId);
+      return speaker ? speaker.name : 'Speaker note';
+    }
+    return 'Quick Note';
+  }
+
+  function getNoteContext(note) {
+    if (note.type === NOTE_TYPES.SESSION) {
+      const session = getSessionById(note.entityId);
+      return session && session.time ? `${session.time} session` : 'Session note';
+    }
+    if (note.type === NOTE_TYPES.SPEAKER) {
+      const speaker = getSpeakerById(note.entityId);
+      return speaker ? `${speaker.role} · ${speaker.company}` : 'Person note';
+    }
+    return 'Not tied to a session or speaker';
+  }
+
+  function getQuickNotes(notes) {
+    return Object.values(notes)
+      .filter(note => note.type === NOTE_TYPES.GENERAL)
+      .sort((a, b) => b.createdAt - a.createdAt);
+  }
+
+  function getLinkedNotes(notes) {
+    return Object.values(notes)
+      .filter(note => note.type !== NOTE_TYPES.GENERAL)
+      .sort((a, b) => b.createdAt - a.createdAt);
+  }
+
+  function renderNotesTab() {
+    const notes = getNotes();
+    const quickNotes = getQuickNotes(notes);
+    const linkedNotes = getLinkedNotes(notes);
+    const normalizedQuery = normalizeSearchText(notesSearchQuery);
+    const filteredQuickNotes = quickNotes.filter(note => noteMatchesSearch(note, normalizedQuery));
+    const filteredLinkedNotes = linkedNotes.filter(note => noteMatchesSearch(note, normalizedQuery));
+    const totalSavedNotes = quickNotes.length + linkedNotes.length;
+    const totalMatches = filteredQuickNotes.length + filteredLinkedNotes.length;
+    const composer = document.getElementById('notesComposer');
+    const container = document.getElementById('notesList');
+    const status = document.getElementById('notesSearchStatus');
+
+    // Auto-determine collapsed state on first render (or reset if null)
+    if (notesCollapsed === null) {
+      notesCollapsed = totalSavedNotes >= 3;
+    }
+    const collapsed = notesCollapsed;
+
+    // Update collapse button
+    const collapseBtn = document.getElementById('collapseNotesBtn');
+    if (collapseBtn) {
+      collapseBtn.textContent = collapsed ? 'Expand All' : 'Collapse All';
+      collapseBtn.style.display = totalSavedNotes >= 2 ? '' : 'none';
+    }
+
+    updateNotesSearchControls();
+
+    if (status) {
+      if (normalizedQuery) {
+        const queryLabel = notesSearchQuery.trim();
+        if (totalMatches === 0) {
+          status.textContent = `No notes match "${queryLabel}".`;
+        } else {
+          status.textContent = `Showing ${totalMatches} of ${totalSavedNotes} saved notes for "${queryLabel}".`;
+        }
+      } else if (totalSavedNotes > 0) {
+        status.textContent = 'Search across your quick, session, and speaker notes.';
+      } else {
+        status.textContent = '';
+      }
+    }
+
+    // Composer: always-blank textarea to create a new sticky note
+    composer.innerHTML = `
+      <div class="note-card ${noteTypeClass(NOTE_TYPES.GENERAL)} notes-compose-card">
+        <div class="note-card-meta">
+          <span class="note-card-badge">Quick Note</span>
+          <span class="note-card-time">Not tied to a session or speaker</span>
+        </div>
+        <div class="note-card-session">New Quick Note</div>
+        <textarea
+          class="note-textarea note-compose-textarea"
+          id="quickNoteCompose"
+          placeholder="Jot something down without linking it anywhere..."
+          aria-label="New quick note"
+        ></textarea>
+        <div class="note-card-actions">
+          <button class="note-add-btn" id="addQuickNote">Add Note ✓</button>
+        </div>
+      </div>
+      ${filteredQuickNotes.map(note => {
+        const preview = note.text.length > 80 ? note.text.slice(0, 80) + '…' : note.text;
+        return `
+        <div class="note-card ${noteTypeClass(NOTE_TYPES.GENERAL)} ${collapsed ? 'note-collapsed' : ''}" id="notecard-${slugify(note.key)}">
+          <div class="note-card-meta">
+            <span class="note-card-badge">Quick Note</span>
+            <span class="note-card-meta-right">
+              <span class="note-card-time">${esc(noteMetaMessage(note))}</span>
+              <button class="note-card-chevron" aria-label="${collapsed ? 'Expand note' : 'Collapse note'}">›</button>
+            </span>
+          </div>
+          <div class="note-card-summary">
+            <span class="note-card-summary-preview">${esc(preview)}</span>
+          </div>
+          <div class="note-card-body">
+            <textarea
+              class="note-textarea"
+              data-note-type="${NOTE_TYPES.GENERAL}"
+              data-note-id="${esc(note.entityId)}"
+              aria-label="Quick note"
+            >${esc(note.text)}</textarea>
+            <p class="note-meta" data-note-meta-type="${NOTE_TYPES.GENERAL}" data-note-meta-id="${esc(note.entityId)}">${esc(noteMetaMessage(note))}</p>
+            <div class="note-card-actions">
+              <button class="note-card-delete" data-note-key="${note.key}" aria-label="Delete quick note">✕ Delete</button>
+              <button class="note-save-btn" data-note-type="${NOTE_TYPES.GENERAL}" data-note-id="${esc(note.entityId)}">Save ✓</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('')}
+    `;
+
+    // Bind save-on-blur and save buttons for existing quick note stickies
+    bindNoteEditors(composer);
+    syncNoteMeta();
+
+    // Per-card chevron toggle for quick note stickies
+    bindNoteCardChevrons(composer);
+
+    // "Add Note" creates a new sticky and clears the composer
+    document.getElementById('addQuickNote').addEventListener('click', () => {
+      const textarea = document.getElementById('quickNoteCompose');
+      const text = textarea.value.trim();
+      if (!text) {
+        showToast('Type something first');
+        return;
+      }
+      const newId = `quick-note-${Date.now()}`;
+      saveNote(NOTE_TYPES.GENERAL, newId, text);
+      showToast('Quick note added ✓');
+      renderNotesTab();
+    });
+
+    // Delete buttons on quick note stickies
+    composer.querySelectorAll('.note-card-delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (deleteNote(btn.dataset.noteKey)) {
+          showToast('Note deleted');
+        }
+      });
+    });
+
+    if (normalizedQuery && totalMatches === 0) {
+      container.innerHTML = `
+        <div class="notes-empty">
+          <span class="notes-empty-icon">🔎</span>
+          <p>No notes match <strong>${esc(notesSearchQuery.trim())}</strong>.<br>Try a speaker name, session title, or a word from your note.</p>
+        </div>
+      `;
+      return;
+    }
+
+    if (!normalizedQuery && linkedNotes.length === 0) {
+      container.innerHTML = `
+        <div class="notes-empty">
+          <span class="notes-empty-icon">📝</span>
+          <p>No session or speaker notes yet.<br>Tap <strong>Add Note</strong> on a session, or save a note from a speaker profile.</p>
+        </div>
+      `;
+      return;
+    }
+
+    if (filteredLinkedNotes.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+
+    container.innerHTML = filteredLinkedNotes.map(note => {
+      const title = getNoteTitle(note);
+      const previewLen = 60;
+      const preview = note.text.length > previewLen ? note.text.slice(0, previewLen) + '…' : note.text;
+      return `
+      <div class="note-card ${noteTypeClass(note.type)} ${collapsed ? 'note-collapsed' : ''}" id="notecard-${slugify(note.key)}">
+        <div class="note-card-meta">
+          <span class="note-card-badge">${esc(noteTypeLabel(note.type))}</span>
+          <span class="note-card-meta-right">
+            <span class="note-card-time">${esc(noteMetaMessage(note))}</span>
+            <button class="note-card-chevron" aria-label="${collapsed ? 'Expand note' : 'Collapse note'}">›</button>
+          </span>
+        </div>
+        <div class="note-card-summary">
+          <span class="note-card-summary-title">${esc(title)}</span>
+          <span class="note-card-summary-preview"> — ${esc(preview)}</span>
+        </div>
+        <div class="note-card-body">
+          <div class="note-card-session">${esc(title)}</div>
+          <div class="note-card-context">${esc(getNoteContext(note))}</div>
+          <div class="note-card-text">${esc(note.text)}</div>
+          <div class="note-card-actions">
+            <button class="note-card-open" data-note-key="${note.key}">${note.type === NOTE_TYPES.SESSION ? 'Open Session' : 'View Speaker'}</button>
+            <button class="note-card-delete" data-note-key="${note.key}" aria-label="Delete note for ${esc(title)}">✕ Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    // Per-card chevron toggle for linked notes
+    bindNoteCardChevrons(container);
+
+    container.querySelectorAll('.note-card-open').forEach(btn => {
+      btn.addEventListener('click', () => openNoteContext(btn.dataset.noteKey));
+    });
+
+    container.querySelectorAll('.note-card-delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (deleteNote(btn.dataset.noteKey)) {
+          showToast('Note deleted');
+        }
+      });
+    });
+  }
+
+  function bindNoteCardChevrons(root) {
+    root.querySelectorAll('.note-card-chevron').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const card = btn.closest('.note-card');
+        const isNowCollapsed = !card.classList.contains('note-collapsed');
+        card.classList.toggle('note-collapsed', isNowCollapsed);
+        btn.setAttribute('aria-label', isNowCollapsed ? 'Expand note' : 'Collapse note');
+      });
+    });
+
+    // Click anywhere on a collapsed card to expand it
+    root.querySelectorAll('.note-card').forEach(card => {
+      card.addEventListener('click', e => {
+        if (!card.classList.contains('note-collapsed')) return;
+        if (e.target.closest('.note-card-chevron')) return;
+        card.classList.remove('note-collapsed');
+        const chevron = card.querySelector('.note-card-chevron');
+        if (chevron) chevron.setAttribute('aria-label', 'Collapse note');
+      });
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  EXPORT
+  // ──────────────────────────────────────────────────────────
+  function buildExportText() {
+    const notes = getNotes();
+    const noteList = Object.values(notes).sort((a, b) => a.createdAt - b.createdAt);
+    if (noteList.length === 0) return 'No notes saved yet.';
+
+    const lines = [
+      'PCATT Summit 2026 — MY NOTES',
+      'June 4-5, 2026 · Ala Moana Hotel, Honolulu',
+      '─'.repeat(42),
+      '',
+      ...noteList.flatMap(n => [
+        noteTypeLabel(n.type).toUpperCase(),
+        getNoteTitle(n),
+        `${getNoteContext(n)} · ${noteMetaMessage(n)}`,
+        n.text,
+        ''
+      ])
+    ];
+    return lines.join('\n');
+  }
+
+  function buildExportMarkdown() {
+    const notes = getNotes();
+    const noteList = Object.values(notes).sort((a, b) => a.createdAt - b.createdAt);
+    const lines = [
+      '# PCATT Summit 2026 — My Notes',
+      '',
+      'June 4-5, 2026 · Ala Moana Hotel, Honolulu',
+      '',
+      `Exported ${formatNoteTimestamp(Date.now())} from this browser.`,
+      ''
+    ];
+
+    if (noteList.length === 0) {
+      lines.push('No notes saved yet.');
+      return lines.join('\n');
+    }
+
+    lines.push('---', '');
+
+    noteList.forEach((note, index) => {
+      lines.push(`## ${noteTypeLabel(note.type)}`);
+      lines.push('');
+      lines.push(`### ${getNoteTitle(note)}`);
+      lines.push('');
+      lines.push(`${getNoteContext(note)} · ${noteMetaMessage(note)}`);
+      lines.push('');
+      lines.push(note.text);
+      if (index < noteList.length - 1) {
+        lines.push('', '---', '');
+      }
+    });
+
+    return lines.join('\n');
+  }
+
+  function buildExportMarkdownFilename(date = new Date()) {
+    const pad = value => String(value).padStart(2, '0');
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hour = pad(date.getHours());
+    const minute = pad(date.getMinutes());
+    return `pcatt_summit_2026-notes-${year}-${month}-${day}-${hour}${minute}.md`;
+  }
+
+  function isLikelyDesktopDevice() {
+    const ua = navigator.userAgent || '';
+    const looksMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const hoverCapable = window.matchMedia('(hover: hover)').matches;
+    return !looksMobile && hoverCapable && window.innerWidth >= 768;
+  }
+
+  function shouldShowDesktopDownloadPrompt() {
+    return isLikelyDesktopDevice() && localStorage.getItem(EXPORT_DOWNLOAD_REMINDER_KEY) !== '1';
+  }
+
+  function downloadExportMarkdown() {
+    if (getNoteCount() === 0) return null;
+
+    const blob = new Blob([buildExportMarkdown()], { type: 'text/markdown;charset=utf-8' });
+    const objectUrl = URL.createObjectURL(blob);
+    const filename = buildExportMarkdownFilename();
+    const link = document.createElement('a');
+    link.href = objectUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+    return filename;
+  }
+
+  function updateDownloadReminderTestState() {
+    const tools = document.getElementById('notesTestTools');
+    const status = document.getElementById('downloadReminderTestStatus');
+    if (!tools || !status) return;
+
+    tools.hidden = !IS_TEST_MODE;
+    if (!IS_TEST_MODE) return;
+
+    if (!isLikelyDesktopDevice()) {
+      status.textContent = 'This device currently looks mobile, so the desktop-only reminder will stay hidden even in test mode.';
+      return;
+    }
+
+    status.textContent = shouldShowDesktopDownloadPrompt()
+      ? 'Reminder status: active for this desktop browser.'
+      : 'Reminder status: dismissed for this desktop browser.';
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  TOAST
+  // ──────────────────────────────────────────────────────────
+  let toastTimer;
+  function syncEpisodeBannerHeight() {
+    const banner = document.getElementById('episodeBanner');
+    const body = document.getElementById('episodeBody');
+    if (!banner || !body) return;
+    body.style.maxHeight = banner.classList.contains('open') ? `${body.scrollHeight}px` : '0px';
+  }
+
+  function toggleEpisodeBanner() {
+    const banner = document.getElementById('episodeBanner');
+    const body = document.getElementById('episodeBody');
+    const btn = banner.querySelector('.episode-toggle');
+    const isOpen = banner.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    body.setAttribute('aria-hidden', !isOpen);
+    // Lazy-load the iframe on first open to avoid unnecessary network requests
+    if (isOpen) {
+      const iframe = banner.querySelector('iframe[data-src]');
+      if (iframe) {
+        iframe.src = iframe.dataset.src;
+        iframe.removeAttribute('data-src');
+        iframe.addEventListener('load', syncEpisodeBannerHeight, { once: true });
+      }
+    }
+    requestAnimationFrame(syncEpisodeBannerHeight);
+  }
+
+  const episodeBodyInner = document.querySelector('#episodeBody .episode-body-inner');
+  if (window.ResizeObserver && episodeBodyInner) {
+    new ResizeObserver(syncEpisodeBannerHeight).observe(episodeBodyInner);
+  }
+  window.addEventListener('resize', syncEpisodeBannerHeight);
+  window.addEventListener('resize', () => {
+    updateDownloadReminderTestState();
+    const exportModal = document.getElementById('exportModal');
+    if (exportModal && !exportModal.classList.contains('hidden')) {
+      updateExportModalState();
+    }
+  });
+
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  TAB SWITCHING
+  // ──────────────────────────────────────────────────────────
+  function activateTab(target) {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      const isActive = btn.dataset.tab === target;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.tab-content').forEach(panel => {
+      panel.classList.toggle('active', panel.id === target + 'Tab');
+    });
+
+    if (target === 'notes') renderNotesTab();
+    if (target === 'speakers') renderSpeakers(document.getElementById('speakerSearch').value);
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+
+  document.getElementById('notesSearch').addEventListener('input', e => {
+    setNotesSearchQuery(e.target.value);
+  });
+
+  document.getElementById('clearNotesSearchBtn').addEventListener('click', () => {
+    setNotesSearchQuery('');
+    document.getElementById('notesSearch').focus();
+  });
+
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) modal.classList.add('hidden');
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  EXPORT MODAL
+  // ──────────────────────────────────────────────────────────
+  function updateExportModalState() {
+    const shareBtn = document.getElementById('shareBtn');
+    const downloadBtn = document.getElementById('downloadMarkdownBtn');
+    const reminderPrompt = document.getElementById('desktopDownloadPrompt');
+    const exportHint = document.getElementById('exportHint');
+    const hasNotes = getNoteCount() > 0;
+    const isDesktop = isLikelyDesktopDevice();
+    const supportsShare = typeof navigator.share === 'function' && !isDesktop;
+
+    shareBtn.hidden = isDesktop;
+    shareBtn.disabled = !supportsShare || !hasNotes;
+    shareBtn.textContent = supportsShare ? 'Send to Notes…' : 'Send to Notes unavailable here';
+
+    downloadBtn.hidden = !isDesktop;
+    downloadBtn.disabled = !hasNotes;
+
+    reminderPrompt.hidden = !(isDesktop && hasNotes && shouldShowDesktopDownloadPrompt());
+    exportHint.innerHTML = isDesktop
+      ? 'On desktop, use <strong>Download .md Backup</strong> to keep a local copy of these notes outside this browser. You can still copy and paste if you prefer.'
+      : supportsShare
+        ? 'On iPhone, tap <strong>Send to Notes…</strong> to open the share sheet, then choose <strong>Notes</strong> or <strong>New Quick Note</strong>. If you prefer, copy and paste manually.'
+        : 'This browser cannot open the native iPhone share sheet from here, so use <strong>Copy to Clipboard</strong> and paste into Notes manually.';
+
+    updateDownloadReminderTestState();
+  }
+
+  function selectExportTextarea() {
+    const ta = document.getElementById('exportTextarea');
+    ta.focus();
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+  }
+
+  function flashCopyButton() {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied! ✓';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy to Clipboard';
+      btn.classList.remove('copied');
+    }, 2500);
+  }
+
+  function copyExportText() {
+    const ta = document.getElementById('exportTextarea');
+    const text = ta.value;
+
+    if (navigator.clipboard) {
+      return navigator.clipboard.writeText(text).catch(() => {
+        selectExportTextarea();
+        if (!document.execCommand('copy')) {
+          throw new Error('Clipboard copy failed');
+        }
+      });
+    }
+
+    selectExportTextarea();
+    if (!document.execCommand('copy')) {
+      return Promise.reject(new Error('Clipboard copy failed'));
+    }
+    return Promise.resolve();
+  }
+
+  document.getElementById('collapseNotesBtn').addEventListener('click', () => {
+    // If state is null (auto), treat current button label to determine intent
+    const currentlyCollapsed = notesCollapsed === null ? true : notesCollapsed;
+    notesCollapsed = !currentlyCollapsed;
+    const allCards = [
+      ...document.querySelectorAll('#notesList .note-card'),
+      ...document.querySelectorAll('#notesComposer .note-card:not(.notes-compose-card)')
+    ];
+    allCards.forEach(card => {
+      card.classList.toggle('note-collapsed', notesCollapsed);
+      const chevron = card.querySelector('.note-card-chevron');
+      if (chevron) chevron.setAttribute('aria-label', notesCollapsed ? 'Expand note' : 'Collapse note');
+    });
+    const btn = document.getElementById('collapseNotesBtn');
+    if (btn) btn.textContent = notesCollapsed ? 'Expand All' : 'Collapse All';
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    document.getElementById('exportTextarea').value = buildExportText();
+    updateExportModalState();
+    openModal('exportModal');
+  });
+
+  document.getElementById('downloadMarkdownBtn').addEventListener('click', () => {
+    const filename = downloadExportMarkdown();
+    if (!filename) {
+      showToast('No notes to export yet');
+      return;
+    }
+    showToast(`Downloaded ${filename}`);
+  });
+
+  document.getElementById('dismissDownloadPromptBtn').addEventListener('click', () => {
+    localStorage.setItem(EXPORT_DOWNLOAD_REMINDER_KEY, '1');
+    updateExportModalState();
+    showToast('Desktop download reminder turned off');
+  });
+
+  document.getElementById('resetDownloadReminderBtn').addEventListener('click', () => {
+    localStorage.removeItem(EXPORT_DOWNLOAD_REMINDER_KEY);
+    updateDownloadReminderTestState();
+    if (!document.getElementById('exportModal').classList.contains('hidden')) {
+      updateExportModalState();
+    }
+    showToast('Desktop download reminder reset');
+  });
+
+  document.getElementById('closeModal').addEventListener('click', () => {
+    closeModal('exportModal');
+  });
+
+  document.getElementById('exportModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('exportModal')) {
+      closeModal('exportModal');
+    }
+  });
+
+  document.getElementById('shareBtn').addEventListener('click', async () => {
+    const text = document.getElementById('exportTextarea').value;
+    if (text === 'No notes saved yet.') {
+      showToast('No notes to export yet');
+      return;
+    }
+
+    if (typeof navigator.share !== 'function') {
+      try {
+        await copyExportText();
+        flashCopyButton();
+        showToast('Copied to clipboard');
+      } catch {
+        showToast('Could not copy notes');
+      }
+      return;
+    }
+
+    try {
+      await navigator.share({
+        title: EXPORT_SHARE_TITLE,
+        text
+      });
+      closeModal('exportModal');
+    } catch (error) {
+      if (error && error.name === 'AbortError') return;
+      try {
+        await copyExportText();
+        flashCopyButton();
+        showToast('Share unavailable — copied instead');
+      } catch {
+        showToast('Could not share or copy notes');
+      }
+    }
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    try {
+      await copyExportText();
+      flashCopyButton();
+      showToast('Copied to clipboard');
+    } catch {
+      showToast('Could not copy notes');
+    }
+  });
+
+  // ──────────────────────────────────────────────────────────
+  //  DELETE ALL NOTES MODAL
+  // ──────────────────────────────────────────────────────────
+  function updateClearNotesConfirmState() {
+    const input = document.getElementById('clearNotesInput');
+    const status = document.getElementById('clearNotesStatus');
+    const confirmBtn = document.getElementById('confirmClearNotesBtn');
+    const isMatch = input.value === DELETE_ALL_CONFIRMATION;
+
+    confirmBtn.disabled = !isMatch;
+    status.textContent = isMatch
+      ? 'Phrase matched. Delete will clear every saved note on this device.'
+      : 'Type the phrase exactly to enable the delete button.';
+    status.classList.toggle('ready', isMatch);
+  }
+
+  function resetClearNotesModal() {
+    document.getElementById('clearNotesInput').value = '';
+    updateClearNotesConfirmState();
+  }
+
+  function openClearNotesModal() {
+    const count = getNoteCount();
+    if (count === 0) {
+      showToast('No notes to clear');
+      return;
+    }
+
+    document.getElementById('clearNotesCopy').textContent = 'Are you sure you want to delete all notes?';
+    document.getElementById('clearNotesNote').textContent =
+      `This will remove ${count} saved ${count === 1 ? 'note' : 'notes'} from this browser on this device only.`;
+    resetClearNotesModal();
+    openModal('clearNotesModal');
+    setTimeout(() => document.getElementById('clearNotesInput').focus(), 40);
+  }
+
+  function closeClearNotesModal() {
+    closeModal('clearNotesModal');
+    resetClearNotesModal();
+  }
+
+  document.getElementById('clearNotesBtn').addEventListener('click', openClearNotesModal);
+  document.getElementById('closeClearModal').addEventListener('click', closeClearNotesModal);
+  document.getElementById('clearNotesModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('clearNotesModal')) {
+      closeClearNotesModal();
+    }
+  });
+
+  document.getElementById('clearNotesInput').addEventListener('input', updateClearNotesConfirmState);
+  document.getElementById('clearNotesInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.getElementById('clearNotesInput').value === DELETE_ALL_CONFIRMATION) {
+      e.preventDefault();
+      document.getElementById('confirmClearNotesBtn').click();
+    }
+  });
+
+  document.getElementById('confirmClearNotesBtn').addEventListener('click', () => {
+    if (document.getElementById('clearNotesInput').value !== DELETE_ALL_CONFIRMATION) return;
+    if (clearAllNotes()) {
+      closeClearNotesModal();
+      closeModal('exportModal');
+      showToast('All notes deleted');
+    }
+  });
+
+  // ──────────────────────────────────────────────────────────
+  //  SPEAKERS DATA — PCATT Summit 2026 extracted presenters
+  // ──────────────────────────────────────────────────────────
+  const SPEAKERS = [
+  {
+    "name": "AI in Education",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-10-15-am-trust-by-design-in-the-age-of-ai"
+    ]
+  },
+  {
+    "name": "Apple Presenter",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-10-15-am-experience-ai-on-apple-platforms"
+    ]
+  },
+  {
+    "name": "Chad Morita",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-01-30-pm-ai-in-cybersecurity"
+    ]
+  },
+  {
+    "name": "Chris Barton",
+    "role": "Keynote Speaker",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-09-30-am-bring-impossible-ideas-to-life"
+    ]
+  },
+  {
+    "name": "Darsh Davé",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-02-30-pm-regulatory-perspectives-on-ai-trust"
+    ]
+  },
+  {
+    "name": "Dave Free",
+    "role": "Keynote Speaker",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-09-00-am-learning-at-the-speed-of-ai-with-cisco"
+    ]
+  },
+  {
+    "name": "Debasis Bhattacharya",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-10-15-am-impact-of-genai-in-the-classroom-case-study-from-a-capstone-course"
+    ]
+  },
+  {
+    "name": "Dr. Gloria Niles",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-02-30-pm-beyond-the-bot-how-building-with-ai-is-defining-the-future-of-work-in-hawai-i"
+    ]
+  },
+  {
+    "name": "Dr. Kimberly Scott",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-01-30-pm-ai-workforce-resources-from-the-national-science-foundation"
+    ]
+  },
+  {
+    "name": "Gabriel Yanagihara",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-10-30-am-ai-101-vibe-coding-build-and-launch-your-own-projects"
+    ]
+  },
+  {
+    "name": "Hunter Kirihara",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-02-30-pm-regulatory-perspectives-on-ai-trust"
+    ]
+  },
+  {
+    "name": "Katie Adams",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-02-00-pm-the-future-is-bright-building-a-resilient-workforce-in-the-age-of-ai"
+    ]
+  },
+  {
+    "name": "Kevin Lim",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-10-15-am-how-can-ai-tools-help-with-grading-an-ethical-and-practical-dive-into-four-effec"
+    ]
+  },
+  {
+    "name": "Lionel Derrick Roxas",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-02-30-pm-every-candidate-deserves-an-interview-every-employer-deserves-a-real-conversatio"
+    ]
+  },
+  {
+    "name": "Mahdi Belcaid",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-01-00-pm-building-the-ai-workforce-practical-pathways-into-applied-computing"
+    ]
+  },
+  {
+    "name": "Mericia Palma Elmore",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-10-30-am-auntie-s-advice-for-ai-ethics-and-responsible-use"
+    ]
+  },
+  {
+    "name": "Monir Hodges",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-10-30-am-game-based-learning-with-ai-from-concept-to-classroom"
+    ]
+  },
+  {
+    "name": "Nani Daniels",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-02-30-pm-apple-intelligence-ml-and-ai"
+    ]
+  },
+  {
+    "name": "Nicole Bentley",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-02-00-pm-the-future-is-bright-building-a-resilient-workforce-in-the-age-of-ai"
+    ]
+  },
+  {
+    "name": "Nicole Cacal",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-01-30-pm-ai-for-social-good"
+    ]
+  },
+  {
+    "name": "Noah Pomeroy Mindfulness Catalyst",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-01-00-pm-the-human-edge-in-an-ai-world"
+    ]
+  },
+  {
+    "name": "Paul Sakamoto",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-10-30-am-operationalizing-intelligence-in-real-world"
+    ]
+  },
+  {
+    "name": "Sadie Flick",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-01-00-pm-glass-box-ai-knowledge-graphs-and-decision-tracing-part-i",
+      "friday-02-00-pm-glass-box-ai-knowledge-graphs-and-decision-tracing-part-ii"
+    ]
+  },
+  {
+    "name": "Seiichi Nagai",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-02-00-pm-the-race-to-regulate-ai"
+    ]
+  },
+  {
+    "name": "Sujit Ghosh",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-02-00-pm-a-decade-in-the-making-how-true-ai-native-architecture-delivers-self-driving-net"
+    ]
+  },
+  {
+    "name": "Todd Robertson",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-01-00-pm-digital-sovereignty-in-the-ai-era"
+    ]
+  },
+  {
+    "name": "Victoria Rivett",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-10-15-am-trust-by-design-in-the-age-of-ai"
+    ]
+  },
+  {
+    "name": "Wayne Lewis PCATT",
+    "role": "Presenter",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-01-30-pm-understanding-machine-learning-algorithms"
+    ]
+  }
+]
+    .map(speaker => ({ ...speaker, id: slugify(speaker.name) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+    let speakersShowStarredFirst = false;
+
+  function initials(name) {
+    return name.split(' ').map(p => p[0]).slice(0, 2).join('').toUpperCase();
+  }
+
+  function sessionTitle(id) {
+    const s = getSessionById(id);
+    return s ? s.title : id;
+  }
+
+  function sessionTime(id) {
+    const s = getSessionById(id);
+    if (!s) return '';
+    const dayPrefix = s.date ? s.date.slice(5).replace('-', '/') : '';
+    return dayPrefix ? `${dayPrefix} · ${s.time}` : s.time;
+  }
+
+  function speakerSearchQuery(speaker) {
+    return [speaker.name, speaker.role, speaker.company].filter(Boolean).join(' ');
+  }
+
+  function speakerSearchUrl(speaker) {
+    return `https://g.ai/?q=${encodeURIComponent(speakerSearchQuery(speaker))}`;
+  }
+
+  function getSpeakerSearchValue() {
+    const input = document.getElementById('speakerSearch');
+    return input ? input.value : '';
+  }
+
+  function updateSpeakerStarControls(starredCount) {
+    if (starredCount === 0) {
+      speakersShowStarredFirst = false;
+    }
+
+    const showBtn = document.getElementById('showStarredFirstBtn');
+    const clearBtn = document.getElementById('clearSpeakerStarsBtn');
+    const stateEl = document.getElementById('speakersStarState');
+
+    showBtn.disabled = starredCount === 0;
+    showBtn.setAttribute('aria-pressed', speakersShowStarredFirst ? 'true' : 'false');
+    showBtn.textContent = starredCount === 0
+      ? '⭐ Show Starred Up Top'
+      : speakersShowStarredFirst
+        ? '↕ Back to A–Z'
+        : `⭐ Show ${starredCount} Starred Up Top`;
+
+    clearBtn.disabled = starredCount === 0;
+
+    if (starredCount === 0) {
+      stateEl.innerHTML = '<strong>No starred speakers yet.</strong> Swipe left on a speaker row to star on mobile, or open a speaker card and tap the star button on desktop.';
+      return;
+    }
+
+    stateEl.innerHTML = speakersShowStarredFirst
+      ? `<strong>${starredCount} starred speaker${starredCount !== 1 ? 's are' : ' is'} pinned to the top.</strong> Tap A–Z anytime to go back to the full alphabetical flow.`
+      : `<strong>${starredCount} speaker${starredCount !== 1 ? 's are' : ' is'} starred.</strong> Tap the button above to pull them to the top, then clear them here when you are done.`;
+  }
+
+  function openSessionContext(sessionId, { focusNote = false } = {}) {
+    activateTab('schedule');
+
+    setTimeout(() => {
+      const item = document.getElementById('item-' + sessionId);
+      if (!item) return;
+
+      const trigger = item.querySelector('.session-trigger');
+      if (trigger && trigger.getAttribute('aria-expanded') !== 'true') {
+        toggleSession(sessionId);
+      }
+
+      if (focusNote) {
+        const noteBtn = item.querySelector(`.note-toggle[data-note-type="${NOTE_TYPES.SESSION}"][data-note-id="${sessionId}"]`);
+        if (noteBtn && noteBtn.getAttribute('aria-expanded') !== 'true') {
+          toggleNotePanel(noteBtn);
+        }
+      }
+
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+  }
+
+  function openSpeakerContext(speakerId, { focusNote = false } = {}) {
+    const search = document.getElementById('speakerSearch');
+    if (search) search.value = '';
+    activateTab('speakers');
+
+    setTimeout(() => {
+      const item = document.getElementById('spk-' + speakerId);
+      if (!item) return;
+
+      const trigger = item.querySelector('.speaker-trigger');
+      if (trigger && trigger.getAttribute('aria-expanded') !== 'true') {
+        trigger.click();
+      }
+
+      if (focusNote) {
+        const noteBtn = item.querySelector(`.note-toggle[data-note-type="${NOTE_TYPES.SPEAKER}"][data-note-id="${speakerId}"]`);
+        if (noteBtn && noteBtn.getAttribute('aria-expanded') !== 'true') {
+          toggleNotePanel(noteBtn);
+        }
+      }
+
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+  }
+
+  function openNoteContext(noteId) {
+    const note = getNotes()[noteId];
+    if (!note) return;
+
+    if (note.type === NOTE_TYPES.SESSION) {
+      openSessionContext(note.entityId, { focusNote: true });
+      return;
+    }
+
+    if (note.type === NOTE_TYPES.SPEAKER) {
+      openSpeakerContext(note.entityId, { focusNote: true });
+    }
+  }
+
+  function renderSpeakers(filter = '') {
+    const notes = getNotes();
+    const starred = getStarredSpeakers();
+    const q = filter.toLowerCase().trim();
+    const filteredList = q
+      ? SPEAKERS.filter(s => s.name.toLowerCase().includes(q) || s.company.toLowerCase().includes(q) || s.role.toLowerCase().includes(q))
+      : SPEAKERS;
+    updateSpeakerStarControls(starred.size);
+    const list = speakersShowStarredFirst
+      ? [...filteredList].sort((a, b) => {
+          const starDelta = Number(starred.has(b.id)) - Number(starred.has(a.id));
+          if (starDelta) return starDelta;
+          return a.name.localeCompare(b.name);
+        })
+      : filteredList;
+
+    const countEl = document.getElementById('speakersCount');
+    countEl.textContent = `${filteredList.length} presenter${filteredList.length !== 1 ? 's' : ''} · ${starred.size} starred · PCATT Summit 2026`;
+
+    if (list.length === 0) {
+      document.getElementById('speakersList').innerHTML = `<div class="speakers-empty">No speakers match "${esc(filter)}"</div>`;
+      return;
+    }
+
+    document.getElementById('speakersList').innerHTML = list.map(sp => {
+      const note = notes[noteKey(NOTE_TYPES.SPEAKER, sp.id)];
+      const hasNote = !!note;
+      const isStarred = starred.has(sp.id);
+      const sid = 'spk-' + sp.id;
+      const notePanelId = `notebody-speaker-${sp.id}`;
+      const chips = sp.sessions.map(id => `
+        <button class="speaker-session-chip" type="button" data-session-id="${id}">
+          <span class="speaker-session-time">${esc(sessionTime(id))}</span>
+          ${esc(sessionTitle(id))}
+        </button>
+      `).join('');
+      return `
+        <div class="speaker-item ${isStarred ? 'is-starred' : ''}" id="${sid}">
+          <button class="speaker-trigger" aria-expanded="false" data-spk="${sid}">
+            <div class="speaker-avatar" aria-hidden="true">${initials(sp.name)}</div>
+            <div class="speaker-info">
+              <div class="speaker-name">
+                ${esc(sp.name)}
+                ${isStarred ? '<span class="speaker-star-indicator" aria-hidden="true">★ Starred</span>' : ''}
+              </div>
+              <div class="speaker-role">${esc(sp.role)} · ${esc(sp.company)}</div>
+            </div>
+            <span class="speaker-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="speaker-body" id="spkbody-${sid}">
+            <div class="speaker-body-inner">
+              <div class="speaker-company">🏢 ${esc(sp.company)}</div>
+              <p class="speaker-sessions-label">Mapped conference blocks</p>
+              <p class="speaker-gesture-hint">Swipe left on mobile to toggle a star quickly. On desktop, use the button below.</p>
+              <div>${chips}</div>
+              <div class="session-actions">
+                <button class="speaker-star-toggle" type="button" data-speaker-star-id="${sp.id}">
+                  <span aria-hidden="true">${isStarred ? '⭐' : '☆'}</span>
+                  <span>${isStarred ? 'Starred — tap to unstar' : 'Keep in mind — tap to star'}</span>
+                </button>
+                <a
+                  href="${speakerSearchUrl(sp)}"
+                  target="_blank"
+                  rel="noopener"
+                  class="ext-link"
+                  aria-label="Search ${esc(speakerSearchQuery(sp))} with g.ai"
+                >
+                  ↗ Learn more with Google AI mode
+                </a>
+                <button class="note-toggle ${hasNote ? 'has-note' : ''}" data-note-type="${NOTE_TYPES.SPEAKER}" data-note-id="${sp.id}" aria-expanded="false" aria-controls="${notePanelId}">
+                  <span aria-hidden="true">🤝</span>
+                  <span class="note-label">${noteLabel(NOTE_TYPES.SPEAKER, hasNote)}</span>
+                  <span class="note-dot" aria-hidden="true"></span>
+                </button>
+                <div class="note-body" id="${notePanelId}">
+                  <div class="note-inner">
+                    <textarea
+                      class="note-textarea"
+                      data-note-type="${NOTE_TYPES.SPEAKER}"
+                      data-note-id="${sp.id}"
+                      placeholder="Where did you meet? What did they say? Any follow-up?"
+                      aria-label="Note about ${esc(sp.name)}"
+                    >${note ? esc(note.text) : ''}</textarea>
+                    <p class="note-meta" data-note-meta-type="${NOTE_TYPES.SPEAKER}" data-note-meta-id="${sp.id}">${esc(noteMetaMessage(note))}</p>
+                    <button class="note-save-btn" data-note-type="${NOTE_TYPES.SPEAKER}" data-note-id="${sp.id}">Save Person Note ✓</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    bindNoteEditors(document.getElementById('speakersList'));
+    syncNoteIndicators();
+    syncNoteMeta();
+
+    // Accordion
+    document.querySelectorAll('.speaker-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.spk;
+        const item = document.getElementById(id);
+        const body = document.getElementById('spkbody-' + id);
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+          btn.setAttribute('aria-expanded', 'false');
+          item.classList.remove('expanded');
+        } else {
+          body.style.maxHeight = body.scrollHeight + 500 + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+          item.classList.add('expanded');
+        }
+      });
+    });
+
+    // Session chips → jump to schedule
+    document.querySelectorAll('.speaker-session-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        openSessionContext(chip.dataset.sessionId);
+      });
+    });
+
+    document.querySelectorAll('[data-speaker-star-id]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const speakerId = btn.dataset.speakerStarId;
+        const isStarred = toggleSpeakerStar(speakerId);
+        showToast(isStarred ? 'Speaker starred' : 'Speaker unstarred');
+        renderSpeakers(getSpeakerSearchValue());
+      });
+    });
+
+    document.querySelectorAll('.speaker-trigger').forEach(trigger => {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchStartAt = 0;
+      let ignoreNextClick = false;
+
+      trigger.addEventListener('touchstart', event => {
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        touchStartAt = Date.now();
+        ignoreNextClick = false;
+      }, { passive: true });
+
+      trigger.addEventListener('touchend', event => {
+        const touch = event.changedTouches[0];
+        const dx = touch.clientX - touchStartX;
+        const dy = touch.clientY - touchStartY;
+        const duration = Date.now() - touchStartAt;
+        if (dx < -54 && Math.abs(dy) < 42 && Math.abs(dx) > Math.abs(dy) * 1.25 && duration < 700) {
+          ignoreNextClick = true;
+          event.preventDefault();
+          const speakerId = trigger.dataset.spk.replace('spk-', '');
+          const isStarred = toggleSpeakerStar(speakerId);
+          const item = document.getElementById(trigger.dataset.spk);
+          if (item) {
+            item.classList.add('swipe-starred');
+            setTimeout(() => renderSpeakers(getSpeakerSearchValue()), 170);
+          } else {
+            renderSpeakers(getSpeakerSearchValue());
+          }
+          showToast(isStarred ? 'Speaker starred' : 'Speaker unstarred');
+        }
+      }, { passive: false });
+
+      trigger.addEventListener('click', event => {
+        if (!ignoreNextClick) return;
+        ignoreNextClick = false;
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }, { capture: true });
+    });
+  }
+
+  // Search
+  document.getElementById('speakerSearch').addEventListener('input', e => {
+    renderSpeakers(e.target.value);
+  });
+  document.getElementById('showStarredFirstBtn').addEventListener('click', () => {
+    if (getStarredSpeakers().size === 0) return;
+    speakersShowStarredFirst = !speakersShowStarredFirst;
+    renderSpeakers(getSpeakerSearchValue());
+  });
+
+  function updateClearSpeakerStarsConfirmState() {
+    const input = document.getElementById('clearSpeakerStarsInput');
+    const status = document.getElementById('clearSpeakerStarsStatus');
+    const confirmBtn = document.getElementById('confirmClearSpeakerStarsBtn');
+    const isMatch = input.value === CLEAR_STARS_CONFIRMATION;
+
+    confirmBtn.disabled = !isMatch;
+    status.textContent = isMatch
+      ? 'Phrase matched. Clear will remove every starred speaker on this device.'
+      : 'Type the phrase exactly to enable the clear button.';
+    status.classList.toggle('ready', isMatch);
+  }
+
+  function resetClearSpeakerStarsModal() {
+    document.getElementById('clearSpeakerStarsInput').value = '';
+    updateClearSpeakerStarsConfirmState();
+  }
+
+  function openClearSpeakerStarsModal() {
+    const starredCount = getStarredSpeakers().size;
+    if (starredCount === 0) {
+      showToast('No starred speakers to clear');
+      return;
+    }
+
+    document.getElementById('clearSpeakerStarsCopy').textContent = 'Are you sure you want to clear all starred speakers?';
+    document.getElementById('clearSpeakerStarsNote').textContent =
+      `This will remove ${starredCount} starred speaker${starredCount !== 1 ? 's' : ''} from this browser on this device only.`;
+    resetClearSpeakerStarsModal();
+    openModal('clearSpeakerStarsModal');
+    setTimeout(() => document.getElementById('clearSpeakerStarsInput').focus(), 40);
+  }
+
+  function closeClearSpeakerStarsModal() {
+    closeModal('clearSpeakerStarsModal');
+    resetClearSpeakerStarsModal();
+  }
+
+  document.getElementById('clearSpeakerStarsBtn').addEventListener('click', openClearSpeakerStarsModal);
+  document.getElementById('closeClearSpeakerStarsModal').addEventListener('click', closeClearSpeakerStarsModal);
+  document.getElementById('clearSpeakerStarsModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('clearSpeakerStarsModal')) {
+      closeClearSpeakerStarsModal();
+    }
+  });
+
+  document.getElementById('clearSpeakerStarsInput').addEventListener('input', updateClearSpeakerStarsConfirmState);
+  document.getElementById('clearSpeakerStarsInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.getElementById('clearSpeakerStarsInput').value === CLEAR_STARS_CONFIRMATION) {
+      e.preventDefault();
+      document.getElementById('confirmClearSpeakerStarsBtn').click();
+    }
+  });
+
+  document.getElementById('confirmClearSpeakerStarsBtn').addEventListener('click', () => {
+    if (document.getElementById('clearSpeakerStarsInput').value !== CLEAR_STARS_CONFIRMATION) return;
+    if (clearAllSpeakerStars()) {
+      speakersShowStarredFirst = false;
+      closeClearSpeakerStarsModal();
+      showToast('Starred speakers cleared');
+      renderSpeakers(getSpeakerSearchValue());
+    }
+  });
+
+  // ──────────────────────────────────────────────────────────
+  //  QR SHARE MODAL
+  // ──────────────────────────────────────────────────────────
+
+  document.getElementById('openQrModal').addEventListener('click', () => {
+    openModal('qrModal');
+  });
+  document.getElementById('closeQrModal').addEventListener('click', () => {
+    closeModal('qrModal');
+  });
+  document.getElementById('qrModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('qrModal')) closeModal('qrModal');
+  });
+
+  // ──────────────────────────────────────────────────────────
+  //  YOU ARE HERE — highlights current / next session on event day
+  // ──────────────────────────────────────────────────────────
+
+  function parseSessionMs(timeStr, dateStr = '2026-06-04') {
+    // Parse "9:15 AM" / "4:30 PM" into UTC ms for the given HST event date.
+    // HST = UTC − 10, so add 10 h to the local hour to get UTC.
+    const match = timeStr.match(/^(\d+):(\d+)\s+(AM|PM)$/i);
+    if (!match) return null;
+    let h = parseInt(match[1], 10);
+    const m = parseInt(match[2], 10);
+    const ampm = match[3].toUpperCase();
+    if (ampm === 'PM' && h !== 12) h += 12;
+    if (ampm === 'AM' && h === 12) h = 0;
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return Date.UTC(year, month - 1, day, h + 10, m);
+  }
+
+  const EVENT_DAY_KEYS = ['2026-06-04', '2026-06-05'];
+  const EVENT_TIME_ZONE = 'Pacific/Honolulu';
+
+  function hawaiiDateKey(date = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: EVENT_TIME_ZONE,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(date).reduce((acc, part) => {
+      if (part.type !== 'literal') acc[part.type] = part.value;
+      return acc;
+    }, {});
+
+    return `${parts.year}-${parts.month}-${parts.day}`;
+  }
+
+  function isConferenceDayInHawaii(date = new Date()) {
+    return EVENT_DAY_KEYS.includes(hawaiiDateKey(date));
+  }
+
+  function updateYouAreHere() {
+    const now = Date.now();
+    const currentIds = [];
+    let nextId = null;
+
+    // Clear existing indicators first so stale badges disappear outside the live conference window.
+    document.querySelectorAll('.session-item').forEach(el => {
+      el.classList.remove('status-current', 'status-upcoming');
+      el.querySelectorAll('.status-now-badge, .status-upcoming-badge').forEach(b => b.remove());
+    });
+
+    if (!isConferenceDayInHawaii(new Date(now))) {
+      return;
+    }
+
+    for (const s of SCHEDULE) {
+      if (s.type === 'background') continue;
+      const start = parseSessionMs(s.time, s.date);
+      const end = s.timeEnd ? parseSessionMs(s.timeEnd, s.date) : null;
+      if (!start) continue;
+
+      if (end && now >= start && now < end) {
+        currentIds.push(s.id);
+      } else if (start > now && !nextId) {
+        nextId = s.id;
+      }
+    }
+
+    if (currentIds.length > 0) {
+      currentIds.forEach(id => {
+        const item = document.getElementById('item-' + id);
+        if (!item) return;
+        item.classList.add('status-current');
+        const timeEl = item.querySelector('.session-time');
+        if (timeEl) timeEl.insertAdjacentHTML('beforeend', '<span class="status-now-badge">Now</span>');
+      });
+    } else if (nextId) {
+      const item = document.getElementById('item-' + nextId);
+      if (item) {
+        item.classList.add('status-upcoming');
+        const timeEl = item.querySelector('.session-time');
+        if (timeEl) timeEl.insertAdjacentHTML('beforeend', '<span class="status-upcoming-badge">Up Next</span>');
+      }
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  CODE GUIDE CALLOUT
+  // ──────────────────────────────────────────────────────────
+  const LEARN_CALLOUT_AUTO_COLLAPSE_MS = 5000;
+  const learnCallout = document.getElementById('learnCallout');
+  const learnCalloutToggle = document.getElementById('learnCalloutToggle');
+  const learnCalloutInlineLink = learnCallout?.querySelector('.learn-callout-inline-link');
+  let learnCalloutAutoTimer = null;
+  let learnCalloutTouched = false;
+
+  function setLearnCalloutCollapsed(collapsed) {
+    if (!learnCallout || !learnCalloutToggle) return;
+    learnCallout.classList.toggle('collapsed', collapsed);
+    learnCalloutToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    learnCalloutToggle.setAttribute('aria-label', collapsed ? 'Expand code guide panel' : 'Collapse code guide panel');
+  }
+
+  function stopLearnCalloutAutoCollapse() {
+    if (learnCalloutAutoTimer) {
+      clearTimeout(learnCalloutAutoTimer);
+      learnCalloutAutoTimer = null;
+    }
+  }
+
+  function markLearnCalloutTouched() {
+    learnCalloutTouched = true;
+    stopLearnCalloutAutoCollapse();
+  }
+
+  function startLearnCalloutAutoCollapse() {
+    stopLearnCalloutAutoCollapse();
+    learnCalloutAutoTimer = setTimeout(() => {
+      if (!learnCalloutTouched) setLearnCalloutCollapsed(true);
+    }, LEARN_CALLOUT_AUTO_COLLAPSE_MS);
+  }
+
+  if (learnCallout && learnCalloutToggle) {
+    learnCallout.addEventListener('focusin', markLearnCalloutTouched);
+    learnCallout.addEventListener('pointerdown', markLearnCalloutTouched);
+    if (learnCalloutInlineLink) {
+      learnCalloutInlineLink.addEventListener('click', () => {
+        markLearnCalloutTouched();
+        setLearnCalloutCollapsed(!learnCallout.classList.contains('collapsed'));
+      });
+    }
+    learnCalloutToggle.addEventListener('click', () => {
+      markLearnCalloutTouched();
+      setLearnCalloutCollapsed(!learnCallout.classList.contains('collapsed'));
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  INIT
+  // ──────────────────────────────────────────────────────────
+  renderSchedule();
+  updateDownloadReminderTestState();
+  setLearnCalloutCollapsed(false);
+  startLearnCalloutAutoCollapse();
+  updateYouAreHere();
+  setInterval(updateYouAreHere, 60000);
+
+  // Register service worker for offline support at the venue
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
+  </script>
+</body>
+</html>

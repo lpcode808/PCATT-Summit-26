@@ -1,0 +1,10 @@
+{
+  "name": "pcatt-summit-26-guide",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/extract-pcatt-schedule.mjs && node scripts/update-pcatt-app.mjs && node --check script.js && node scripts/static-smoke.mjs",
+    "serve": "python3 -m http.server 4173"
+  }
+}
