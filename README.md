@@ -1,25 +1,26 @@
 # PCATT Summit 2026 Guide
 
-Static attendee guide forked from the KSEDTECH conference app and adapted for PCATT Summit 2026.
+A mobile-first, offline-capable attendee guide for the PCATT Summit 2026 — built as a single self-contained `index.html` (no build step, no framework).
 
 ## What It Does
 
-- Mobile-first schedule guide for PCATT Summit 2026
-- Searchable schedule from the official PCATT schedule page
-- Strand/track filters for Trust in AI, Future of Work, Public/Social Interest in AI, and Mechanics of AI
-- Speaker list generated from extracted session presenters
-- Local notes, starred speakers, export/import, and QR sharing from the original guide app
+- Full two-day schedule for PCATT Summit 2026, generated from the official schedule page
+- Search across sessions, speakers, strands, and rooms
+- Strand/track filters for Trust in AI, AI and the Future of Work, Public/Social Interest in AI, and Mechanics of AI
+- Speaker list generated from session presenters and panelists
+- Local notes, starred speakers, JSON/Markdown export & import, and QR sharing
+- Installable PWA with a service worker for offline use on event day
 
 ## Source
 
 Primary source: [https://pcatt.org/summit26-schedule/](https://pcatt.org/summit26-schedule/)
 
-Captured files:
+Captured files (raw source data, committed for reproducibility):
 
-- `scraped/summit26-schedule.html` - raw fetched page
-- `scraped/summit26-schedule.json` - structured extract with source URL and fetch timestamp
+- `scraped/summit26-schedule.html` — raw fetched page
+- `scraped/summit26-schedule.json` — structured extract with source URL and fetch timestamp
 
-The extractor currently captures the official Elementor tooltip session cards. It produced 26 scheduled/keynote/breakout entries from the page on 2026-05-29.
+The extractor captures the official Elementor session cards (keynotes + breakout tracks) **and** the surrounding agenda blocks — registration, opening remarks, lunch, lunch panels, the Pau Hana mixer, and the all-day Time Capsule Gallery. As of 2026-05-29 it produces 36 schedule entries (26 session cards + 10 agenda blocks).
 
 ## Quick Start
 
@@ -36,20 +37,20 @@ curl -L https://pcatt.org/summit26-schedule/ -o scraped/summit26-schedule.html
 npm test
 ```
 
-`npm test` reruns the extractor, regenerates the app data in both app copies, checks `script.js` syntax, and runs the static smoke test.
+`npm test` reruns the extractor, regenerates the embedded schedule/speaker data in `index.html`, and runs the static smoke test.
 
 ## Project Map
 
-- `index.html` - primary guide app
-- `conference-skeleton-export/index.html` - copied app shell kept in sync for now
-- `scripts/extract-pcatt-schedule.mjs` - reproducible scrape parser
-- `scripts/update-pcatt-app.mjs` - injects schedule/speaker data into the app
-- `scripts/static-smoke.mjs` - no-dependency regression check
-- `scraped/` - raw and structured PCATT source data
+- `index.html` — the entire app (markup, styles, and logic, with `SCHEDULE`/`SPEAKERS` data injected by the build script)
+- `favicon.svg` — app icon
+- `sw.js` — service worker (offline cache; bump `CACHE_NAME` when shipping changes)
+- `scripts/extract-pcatt-schedule.mjs` — reproducible scrape parser (HTML → JSON)
+- `scripts/update-pcatt-app.mjs` — injects schedule/speaker data into `index.html`
+- `scripts/static-smoke.mjs` — no-dependency regression check
+- `scraped/` — raw and structured PCATT source data
 
 ## Known Limitations
 
-- The first pass keeps the KSEDTECH app structure and much of its visual shell.
-- General schedule blocks such as registration, breakfast, lunch, and networking are visible in the raw page but are not yet extracted into `SCHEDULE`; only session/keynote cards are captured.
-- Several official descriptions are still `TBA` or focus-only blurbs; those are preserved as-is.
-- Speaker affiliations are not reliably separated from names in the current extractor.
+- Official session **end times** aren't published, so each card shows its start time (`timeEnd` is `TBD`).
+- A few official descriptions are still `TBA` or focus-only blurbs; those are preserved verbatim — the extractor never invents missing details.
+- Speaker affiliations are not reliably separated from names, so the speaker list uses a generic "PCATT Summit 2026" company placeholder.

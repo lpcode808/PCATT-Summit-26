@@ -26,8 +26,8 @@
       --primary: #334f7e;
       --teal: #7cc9dd;
       --teal-dim: rgba(7, 168, 168, 0.15);
-      --orange: #f285da;
-      --orange-dim: rgba(242, 133, 218, 0.16);
+      --orange: #ff5a8a;
+      --orange-dim: rgba(255, 90, 138, 0.16);
       --lime: #ffd166;
       --lime-dim: rgba(255, 209, 102, 0.16);
       --text: #fffaf2;
@@ -242,8 +242,8 @@
     .episode-banner.open .episode-toggle-chevron { transform: rotate(180deg); }
 
     .episode-banner.open {
-      box-shadow: 0 0 0 2px rgba(200, 83, 29, 0.35), 0 8px 32px rgba(200, 83, 29, 0.22);
-      border-bottom-color: rgba(200, 83, 29, 0.55);
+      box-shadow: 0 0 0 2px rgba(255, 90, 138, 0.35), 0 8px 32px rgba(255, 90, 138, 0.22);
+      border-bottom-color: rgba(255, 90, 138, 0.55);
     }
 
     .episode-body {
@@ -273,8 +273,8 @@
       padding: 0.68rem 1rem;
       border-radius: 999px;
       background: var(--orange);
-      border: 1px solid rgba(200, 83, 29, 0.95);
-      box-shadow: 0 10px 24px rgba(200, 83, 29, 0.26);
+      border: 1px solid rgba(255, 90, 138, 0.95);
+      box-shadow: 0 10px 24px rgba(255, 90, 138, 0.26);
       color: var(--text);
       font-family: var(--font-display);
       font-size: 0.76rem;
@@ -286,7 +286,7 @@
     }
     .episode-transcript-link:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(200, 83, 29, 0.34);
+      box-shadow: 0 12px 28px rgba(255, 90, 138, 0.34);
       filter: brightness(1.05);
     }
 
@@ -620,10 +620,11 @@
       margin-bottom: 0.3rem;
     }
 
-    .badge-keynote      { background: var(--orange-dim);               color: #e07840; }
+    .badge-keynote      { background: var(--orange-dim);               color: #ff8fb0; }
+    .badge-breakout     { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
     .badge-fireside     { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
     .badge-panel        { background: var(--teal-dim);                 color: var(--teal); }
-    .badge-pitch        { background: rgba(200, 83, 29, 0.2);          color: #e07840; }
+    .badge-pitch        { background: rgba(255, 90, 138, 0.2);          color: #ff8fb0; }
     .badge-roundtable   { background: var(--lime-dim);                 color: var(--lime); }
     .badge-networking   { background: rgba(175, 205, 83, 0.1);         color: #c4df6a; }
     .badge-mindfulness  { background: rgba(91, 211, 162, 0.12);        color: #5bd3a2; }
@@ -708,7 +709,7 @@
     .meta-strand .meta-icon { font-size: 0.85rem; }
     .strand-culture        { background: rgba(175, 205, 83, 0.18); color: #d6e89a; }
     .strand-transformation { background: rgba(7, 168, 168, 0.20);  color: #7ce0e0; }
-    .strand-well-being     { background: rgba(200, 83, 29, 0.20);  color: #f0a073; }
+    .strand-well-being     { background: rgba(255, 90, 138, 0.20);  color: #f0a073; }
     .strand-advocacy       { background: rgba(247, 197, 80, 0.22); color: #ffd97a; }
     .strand-agency         { background: rgba(146, 110, 255, 0.22); color: #c6b3ff; }
 
@@ -927,7 +928,7 @@
       gap: 0.5rem;
       padding: 0.6rem 0.8rem;
       background: var(--orange-dim);
-      border: 1px solid rgba(200, 83, 29, 0.22);
+      border: 1px solid rgba(255, 90, 138, 0.22);
       border-radius: var(--radius-sm);
       cursor: pointer;
       color: #f0b283;
@@ -939,7 +940,7 @@
       transition: background 0.2s;
       min-height: 44px;
     }
-    .research-toggle:hover { background: rgba(200, 83, 29, 0.18); }
+    .research-toggle:hover { background: rgba(255, 90, 138, 0.18); }
 
     .research-toggle .r-chevron {
       margin-left: auto;
@@ -957,9 +958,9 @@
 
     .research-panel {
       padding: 0.72rem 0.75rem;
-      background: rgba(200, 83, 29, 0.05);
+      background: rgba(255, 90, 138, 0.05);
       border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-      border: 1px solid rgba(200, 83, 29, 0.16);
+      border: 1px solid rgba(255, 90, 138, 0.16);
       border-top: none;
     }
 
@@ -996,8 +997,8 @@
     }
 
     .research-link:hover {
-      background: rgba(200, 83, 29, 0.12);
-      border-color: rgba(200, 83, 29, 0.28);
+      background: rgba(255, 90, 138, 0.12);
+      border-color: rgba(255, 90, 138, 0.28);
       color: #fff4ea;
     }
 
@@ -1275,12 +1276,12 @@
     }
 
     .clear-notes-btn {
-      background: rgba(200, 83, 29, 0.12);
+      background: rgba(255, 90, 138, 0.12);
       color: var(--orange);
-      border: 1px solid rgba(200, 83, 29, 0.28);
+      border: 1px solid rgba(255, 90, 138, 0.28);
     }
     .clear-notes-btn:hover:not(:disabled) {
-      background: rgba(200, 83, 29, 0.18);
+      background: rgba(255, 90, 138, 0.18);
     }
     .clear-notes-btn:disabled {
       opacity: 0.45;
@@ -1327,8 +1328,8 @@
 
     .note-card.note-type-general {
       --note-accent: #e78b4f;
-      --note-accent-soft: rgba(200, 83, 29, 0.14);
-      --note-accent-border: rgba(200, 83, 29, 0.2);
+      --note-accent-soft: rgba(255, 90, 138, 0.14);
+      --note-accent-border: rgba(255, 90, 138, 0.2);
       --note-title: #f0b283;
     }
 
@@ -1438,9 +1439,9 @@
       color: var(--text-dim);
     }
     .note-card-delete:hover {
-      background: rgba(200, 83, 29, 0.1);
+      background: rgba(255, 90, 138, 0.1);
       color: var(--orange);
-      border-color: rgba(200, 83, 29, 0.3);
+      border-color: rgba(255, 90, 138, 0.3);
     }
 
     /* ── COLLAPSIBLE NOTE CARDS ── */
@@ -1783,8 +1784,8 @@
       outline: none;
     }
     .confirm-input:focus {
-      border-color: rgba(200, 83, 29, 0.42);
-      box-shadow: 0 0 0 3px rgba(200, 83, 29, 0.12);
+      border-color: rgba(255, 90, 138, 0.42);
+      box-shadow: 0 0 0 3px rgba(255, 90, 138, 0.12);
     }
 
     /* iOS Safari zooms focused fields when font-size is under 16px. */
@@ -1990,8 +1991,8 @@
     }
 
     .speaker-clear-btn {
-      background: rgba(200, 83, 29, 0.12);
-      border: 1px solid rgba(200, 83, 29, 0.28);
+      background: rgba(255, 90, 138, 0.12);
+      border: 1px solid rgba(255, 90, 138, 0.28);
       color: var(--orange);
     }
 
@@ -2300,7 +2301,7 @@
         <div class="learn-callout-row">
           <button class="learn-callout-inline-link" type="button" aria-controls="learnCalloutBody">
             <span class="learn-callout-label">Heads up</span>
-            <h2 class="learn-callout-title">Schedule preview — times and rooms firming up</h2>
+            <h2 class="learn-callout-title">Schedule preview — end times still firming up</h2>
           </button>
           <button
             class="learn-callout-toggle"
@@ -2315,7 +2316,7 @@
         </div>
         <div class="learn-callout-body" id="learnCalloutBody">
           <p class="learn-callout-copy">
-            This first pass uses the official PCATT schedule cards for keynotes and breakout sessions. Meals, registration, and all-day gallery blocks are still being pulled into the local guide.
+            This guide mirrors the full official PCATT agenda — keynotes, breakout tracks, lunch panels, meals, registration, and the all-day Time Capsule Gallery. Session end times aren't published yet, so each card shows its start time; check the official site for any last-minute changes.
           </p>
           <div class="learn-callout-links">
             <a class="learn-callout-link primary" href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener">Official PCATT Summit 2026 site ↗</a>
@@ -2539,6 +2540,57 @@
   // ──────────────────────────────────────────────────────────
   const SCHEDULE = [
   {
+    "id": "thursday-08-00-am-registration-breakfast-networking",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "08:00 AM",
+    "timeEnd": "TBD",
+    "title": "Registration / Breakfast / Networking",
+    "type": "networking",
+    "speaker": "",
+    "location": "",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-all-day-pcatt-25-years-time-capsule-gallery",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "All Day",
+    "timeEnd": "TBD",
+    "title": "PCATT 25 years Time Capsule Gallery",
+    "type": "background",
+    "speaker": "",
+    "location": "Anthurium",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-09-00-am-opening-remarks",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "09:00 AM",
+    "timeEnd": "TBD",
+    "title": "Opening Remarks",
+    "type": "welcome",
+    "speaker": "",
+    "location": "Hibiscus",
+    "description": "PCATT Welcome and 25th Anniversary Celebration — Karen Lee, Honolulu Community College Chancellor\nUniversity of Hawaiʻi Welcome — Kim Siegenthaler, UH System Senior Advisor to the President",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
     "id": "thursday-09-30-am-bring-impossible-ideas-to-life",
     "date": "2026-06-04",
     "day": "Thursday, June 4, 2026",
@@ -2619,6 +2671,40 @@
     "description": "A practical view of AI adoption within existing systems, workflows, and organizational constraints. The following tools will be demonstrated: 1. AI Career Explorer 2. AI Program Report (education to workforce alignment) 3. AI Data Query (Using AI to write SQL and extract data)",
     "strand": "Mechanics of AI",
     "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-11-45-am-lunch",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "11:45 AM",
+    "timeEnd": "TBD",
+    "title": "Lunch",
+    "type": "meal",
+    "speaker": "",
+    "location": "Pre-Function Area",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "12:15 PM",
+    "timeEnd": "TBD",
+    "title": "Lunch Panel — What should educators learn from entrepreneurs, and what should entrepreneurs learn from educators?",
+    "type": "panel",
+    "speaker": "Ian Kitajima, Chris Barton, Kim Siegenthaler, Brett Tanaka, Monir Hodges",
+    "location": "Hibiscus",
+    "description": "Moderator: Ian Kitajima — PICHTR\nPanelists: Chris Barton — Industry, Kim Siegenthaler — UH System, Brett Tanaka — HIDOE, Monir Hodges — PCATT",
+    "strand": "",
+    "track": "",
     "sourceUrl": "https://pcatt.org/summit26-schedule/",
     "studentSummary": "",
     "subItems": []
@@ -2760,6 +2846,57 @@
     "subItems": []
   },
   {
+    "id": "thursday-03-45-pm-pau-hana-mixer-and-25th-anniversary-hall-of-fame",
+    "date": "2026-06-04",
+    "day": "Thursday, June 4, 2026",
+    "time": "03:45 PM",
+    "timeEnd": "TBD",
+    "title": "Pau Hana Mixer and 25th Anniversary Hall of Fame",
+    "type": "networking",
+    "speaker": "",
+    "location": "",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-08-00-am-registration-breakfast-networking",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "08:00 AM",
+    "timeEnd": "TBD",
+    "title": "Registration / Breakfast / Networking",
+    "type": "networking",
+    "speaker": "",
+    "location": "",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-all-day-pcatt-25-years-time-capsule-gallery",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "All Day",
+    "timeEnd": "TBD",
+    "title": "PCATT 25 years Time Capsule Gallery",
+    "type": "background",
+    "speaker": "",
+    "location": "Anthurium",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
     "id": "friday-09-00-am-learning-at-the-speed-of-ai-with-cisco",
     "date": "2026-06-05",
     "day": "Friday, June 5, 2026",
@@ -2840,6 +2977,40 @@
     "description": "Generative Artificial Intelligence (GenAI), which uses Large Language Models (LLMs), has existed for a few years and has significantly influenced higher education. Although educators understand what GenAI is, they find it challenging to implement it effectively in the classroom. While some disruptions have impacted student learning and assessment, they have also notably affected faculty teaching STEM, Business, and other disciplines. This session will examine the impact on curriculum development, assessment strategies, and teaching methods for a business course, including a case study from a Business Capstone course in the ABIT BAS program at UH Maui College. Session learning outcomes will include designing an adaptive curriculum, project-based assessments, and oral student presentations that showcase creativity in solving new and unique problems. This session will cover general topics of interest to faculty, staff, and administrators, including hands-on activities to actively engage a diverse audience.",
     "strand": "Mechanics of AI",
     "track": "Track IV",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-11-30-am-lunch",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "11:30 AM",
+    "timeEnd": "TBD",
+    "title": "Lunch",
+    "type": "meal",
+    "speaker": "",
+    "location": "Pre-Function Area",
+    "description": "Description TBD.",
+    "strand": "",
+    "track": "",
+    "sourceUrl": "https://pcatt.org/summit26-schedule/",
+    "studentSummary": "",
+    "subItems": []
+  },
+  {
+    "id": "friday-12-00-pm-lunch-panel-diversifying-our-economy-via-ai",
+    "date": "2026-06-05",
+    "day": "Friday, June 5, 2026",
+    "time": "12:00 PM",
+    "timeEnd": "TBD",
+    "title": "Lunch Panel — Diversifying our Economy via AI",
+    "type": "panel",
+    "speaker": "Katie Adams, Nicole Bentley, Branden Baker, Ben Mendes",
+    "location": "Hibiscus",
+    "description": "Moderator: TBA\nPanelists: Katie Adams - SAFAL, Nicole Bentley - SAFAL, Branden Baker - Intech Hawaii, Ben Mendes - Hawaii State Federal Credit Union",
+    "strand": "",
+    "track": "",
     "sourceUrl": "https://pcatt.org/summit26-schedule/",
     "studentSummary": "",
     "subItems": []
@@ -3414,7 +3585,7 @@
   //  RENDER SCHEDULE
   // ──────────────────────────────────────────────────────────
   const BADGE_LABELS = {
-    keynote: 'Keynote', fireside: 'Fireside', panel: 'Panel',
+    keynote: 'Keynote', breakout: 'Session', fireside: 'Fireside', panel: 'Panel',
     pitch: 'Pitch', roundtable: 'Roundtable', networking: 'Networking',
     mindfulness: 'Mindfulness', ceremony: 'Ceremony', meal: 'Dining',
     break: 'Break', welcome: 'Welcome', presentation: 'Presentation',
@@ -4673,6 +4844,30 @@
     ]
   },
   {
+    "name": "Ben Mendes",
+    "role": "Panelist",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-12-00-pm-lunch-panel-diversifying-our-economy-via-ai"
+    ]
+  },
+  {
+    "name": "Branden Baker",
+    "role": "Panelist",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-12-00-pm-lunch-panel-diversifying-our-economy-via-ai"
+    ]
+  },
+  {
+    "name": "Brett Tanaka",
+    "role": "Panelist",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre"
+    ]
+  },
+  {
     "name": "Chad Morita",
     "role": "Presenter",
     "company": "PCATT Summit 2026",
@@ -4685,7 +4880,8 @@
     "role": "Keynote Speaker",
     "company": "PCATT Summit 2026",
     "sessions": [
-      "thursday-09-30-am-bring-impossible-ideas-to-life"
+      "thursday-09-30-am-bring-impossible-ideas-to-life",
+      "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre"
     ]
   },
   {
@@ -4745,10 +4941,19 @@
     ]
   },
   {
-    "name": "Katie Adams",
-    "role": "Presenter",
+    "name": "Ian Kitajima",
+    "role": "Panelist",
     "company": "PCATT Summit 2026",
     "sessions": [
+      "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre"
+    ]
+  },
+  {
+    "name": "Katie Adams",
+    "role": "Panelist",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "friday-12-00-pm-lunch-panel-diversifying-our-economy-via-ai",
       "friday-02-00-pm-the-future-is-bright-building-a-resilient-workforce-in-the-age-of-ai"
     ]
   },
@@ -4758,6 +4963,14 @@
     "company": "PCATT Summit 2026",
     "sessions": [
       "friday-10-15-am-how-can-ai-tools-help-with-grading-an-ethical-and-practical-dive-into-four-effec"
+    ]
+  },
+  {
+    "name": "Kim Siegenthaler",
+    "role": "Panelist",
+    "company": "PCATT Summit 2026",
+    "sessions": [
+      "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre"
     ]
   },
   {
@@ -4789,7 +5002,8 @@
     "role": "Presenter",
     "company": "PCATT Summit 2026",
     "sessions": [
-      "thursday-10-30-am-game-based-learning-with-ai-from-concept-to-classroom"
+      "thursday-10-30-am-game-based-learning-with-ai-from-concept-to-classroom",
+      "thursday-12-15-pm-lunch-panel-what-should-educators-learn-from-entrepreneurs-and-what-should-entre"
     ]
   },
   {
@@ -4802,9 +5016,10 @@
   },
   {
     "name": "Nicole Bentley",
-    "role": "Presenter",
+    "role": "Panelist",
     "company": "PCATT Summit 2026",
     "sessions": [
+      "friday-12-00-pm-lunch-panel-diversifying-our-economy-via-ai",
       "friday-02-00-pm-the-future-is-bright-building-a-resilient-workforce-in-the-age-of-ai"
     ]
   },

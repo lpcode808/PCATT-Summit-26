@@ -1,16 +1,10 @@
 import fs from "node:fs";
 
 const data = JSON.parse(fs.readFileSync("scraped/summit26-schedule.json", "utf8"));
-const appPaths = ["index.html", "conference-skeleton-export/index.html"];
+const appPaths = ["index.html"];
 
 function isoDate(session) {
   return session.dayName === "Thursday" ? "2026-06-04" : "2026-06-05";
-}
-
-function sessionType(session) {
-  if (/keynote/i.test(session.strand)) return "keynote";
-  if (/panel/i.test(session.title)) return "roundtable";
-  return "breakout";
 }
 
 function jsConst(name, value) {
@@ -24,7 +18,7 @@ const schedule = data.sessions.map((session) => ({
   time: session.time,
   timeEnd: "TBD",
   title: session.title,
-  type: sessionType(session),
+  type: session.type || "breakout",
   speaker: session.speaker,
   location: session.room,
   description: session.description || "Description TBD.",
@@ -35,14 +29,22 @@ const schedule = data.sessions.map((session) => ({
   subItems: [],
 }));
 
+function speakerRole(type) {
+  if (/keynote/i.test(type)) return "Keynote Speaker";
+  if (/panel/i.test(type)) return "Panelist";
+  return "Presenter";
+}
+
 const speakerMap = new Map();
 for (const session of schedule) {
+  // Meals, registration, and all-day blocks carry no presenter.
+  if (["meal", "break", "background", "networking", "welcome"].includes(session.type)) continue;
   for (const rawName of session.speaker.split(/\s+(?:and|&)\s+|,\s*/)) {
     const name = rawName.trim();
     if (!name || /^TBD$/i.test(name)) continue;
     const existing = speakerMap.get(name) || {
       name,
-      role: /keynote/i.test(session.type) ? "Keynote Speaker" : "Presenter",
+      role: speakerRole(session.type),
       company: "PCATT Summit 2026",
       sessions: [],
     };
