@@ -2,58 +2,30 @@
 
 ## Current State
 
-This repo is an initial fork of `/Users/justinlai/Coding/KSEDTECH-2026` into `/Users/justinlai/Coding/PCATT-Summit-26`.
+This is a standalone, single-file attendee guide for PCATT Summit 2026. It began as a fork of an earlier conference app (KSEDTECH / CONNECT26), but that inheritance has now been removed: all KSEDTECH/CONNECT26 assets, branding, and dead marketing-site files are gone, and the app is fully PCATT.
 
-The KSEDTECH guide app shell remains, but the primary schedule and speaker data now come from the official PCATT Summit 2026 schedule page:
+Schedule and speaker data come from the official PCATT Summit 2026 schedule page:
 
 - Source URL: `https://pcatt.org/summit26-schedule/`
 - Raw capture: `scraped/summit26-schedule.html`
 - Structured data: `scraped/summit26-schedule.json`
 
-## What Changed
+## What Was Done (this pass)
 
-- Removed the copied KSEDTECH `.git` directory.
-- Added `scripts/extract-pcatt-schedule.mjs`.
-- Added `scripts/update-pcatt-app.mjs`.
-- Replaced embedded `SCHEDULE` and `SPEAKERS` constants in:
-  - `index.html`
-  - `conference-skeleton-export/index.html`
-- Renamed storage keys and UI labels from CONNECT26 to PCATT Summit 2026.
-- Rewrote `scripts/static-smoke.mjs` for the current app surface.
-- Updated `README.md` and `package.json`.
-
-## Data Notes
-
-The official PCATT page is WordPress/Elementor HTML. The most useful schedule data is embedded in `.topic-tooltip` cards with a visible trigger and a hidden detail box. The extractor currently captures those cards and associates them with the nearest preceding date/time marker.
-
-Captured count on 2026-05-29: 26 entries.
-
-Not yet captured:
-
-- Registration / breakfast / networking blocks
-- Lunch blocks and lunch panels outside tooltip cards
-- PCATT 25 years Time Capsule Gallery all-day block
-- Clean affiliation fields for every presenter
-
-Do not invent missing details. Keep official `TBA` values as `TBA`.
+- **Full agenda extraction.** Rewrote `scripts/extract-pcatt-schedule.mjs` to capture not just the Elementor tooltip session cards but also the non-tooltip agenda blocks: registration/breakfast, opening remarks, lunch, lunch panels (with moderator + panelists), the Pau Hana mixer, and the all-day Time Capsule Gallery. Output grew from 26 → 36 entries, all in chronological document order. No details are invented; `TBA`/`TBD` are preserved.
+- **Purged KSEDTECH leftovers.** Deleted the entire `assets/` directory (24 orphaned KS images — logos, KS presenter photos, KS strand icons), the dead `styles.css` and `script.js` (old KS *marketing-site* code, never referenced by the app), and the stale, divergent `conference-skeleton-export/` duplicate.
+- **Simplified the build.** `update-pcatt-app.mjs` now targets only `index.html`, uses the extractor's `type` field, and skips presenter-less blocks when building the speaker list. Panelists are now included as speakers (33 total).
+- **Visual pass toward PCATT branding.** Aligned the accent palette to PCATT's official rose/pink (`#ff5a8a`) and fixed a leftover inconsistency (orange-tinted backgrounds paired with pink text). Added a proper "Session" badge for breakout cards (was rendering the raw word "breakout"). Tweaked the favicon gradient to match.
+- **Refreshed copy + docs.** Updated the schedule-status callout (meals/registration are no longer "still being pulled in"), README, and this handoff. Bumped the service-worker cache to `v2`.
 
 ## Verification
 
-Run:
+`npm test` runs extract → update → static smoke and prints `Static smoke test passed.`
 
-```sh
-npm test
-```
-
-Current expected result:
-
-```text
-Static smoke test passed.
-```
+Also verified with a headless render (Playwright, 414px mobile viewport): 36 cards in correct chronological order, badges render correctly (Keynote 2, Session 24, Panel 2, Dining 2, Networking 3, All Day 2, Welcome 1), strand filters work, and the lunch panel expands with moderator/panelists. The only console error is the sandbox blocking the external QR image — not an app bug.
 
 ## Best Next Moves
 
-- Extend the extractor to include non-tooltip agenda blocks so the day feels complete.
-- Do a visual pass and retheme away from the inherited CONNECT26/KSEDTECH look toward PCATT branding.
-- Decide whether to keep both root `index.html` and `conference-skeleton-export/index.html`; for now they are synced by script.
-- Initialize git and add a `.gitignore` when Justin is ready to treat this as its own repo.
+- Add real session **end times** and **speaker affiliations** once PCATT publishes them (extractor preserves `TBD`/placeholder today; `company` is a generic placeholder).
+- Consider day-grouping headers (Thursday / Friday) in the schedule list — currently a flat chronological list with each card showing its day in the meta row.
+- When the official page changes, re-run the Refresh Data steps in the README and re-run `npm test`.

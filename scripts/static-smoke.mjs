@@ -54,9 +54,18 @@ assert(schedule.some((item) => item.strand === "AI and the Future of Work"), "Fu
 assert(schedule.some((item) => item.location === "Hibiscus"), "Hibiscus room entries are missing.");
 assert(schedule.every((item) => item.sourceUrl === data.sourceUrl), "Schedule entries should retain source URL.");
 
+// Full-agenda blocks (non-tooltip items pulled in alongside the session cards).
+assert(schedule.some((item) => item.type === "meal" && item.title === "Lunch"), "Lunch meal block is missing.");
+assert(schedule.some((item) => item.type === "panel" && /^Lunch Panel/.test(item.title)), "Lunch panel block is missing.");
+assert(schedule.some((item) => item.title === "Registration / Breakfast / Networking"), "Registration block is missing.");
+assert(schedule.some((item) => item.title === "Opening Remarks"), "Opening Remarks block is missing.");
+assert(schedule.some((item) => item.type === "background" && /Time Capsule Gallery/.test(item.title)), "All-day Time Capsule Gallery block is missing.");
+assert(schedule.filter((item) => item.type === "breakout").length >= 20, "Breakout sessions are missing.");
+
 assert(speakers.length >= 20, "Expected at least 20 extracted speakers.");
 assert(speakers.some((speaker) => speaker.name === "Chris Barton"), "Chris Barton speaker record is missing.");
 assert(speakers.some((speaker) => speaker.name === "Dave Free"), "Dave Free speaker record is missing.");
+assert(speakers.some((speaker) => speaker.name === "Ian Kitajima"), "Lunch panel moderator (Ian Kitajima) is missing from speakers.");
 
 if (failures.length > 0) {
   console.error("Static smoke test failed:");

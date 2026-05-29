@@ -30,7 +30,7 @@ The point isn't the code. The point is that the same lightweight approach — vi
 
 ## What It Does
 
-- Browse and search 26 sessions across four AI-focused tracks
+- Browse and search the full two-day agenda — 26 sessions across four AI-focused tracks, plus keynotes, lunch panels, and meals
 - Filter by strand: Trust in AI · Future of Work · Public/Social Interest in AI · Mechanics of AI
 - Read speaker bios pulled from the official PCATT schedule
 - Take personal notes and star sessions (saved locally, no account needed)
@@ -54,7 +54,7 @@ curl -L https://pcatt.org/summit26-schedule/ -o scraped/summit26-schedule.html
 npm test
 ```
 
-`npm test` re-runs the extractor, injects fresh session and speaker data into the app, checks syntax, and runs a smoke test.
+`npm test` re-runs the extractor, injects fresh session and speaker data into the app, and runs a smoke test.
 
 ---
 
@@ -66,7 +66,7 @@ scripts/extract-pcatt-schedule.mjs  parses official PCATT HTML → JSON
 scripts/update-pcatt-app.mjs        injects schedule/speaker data into HTML
 scripts/static-smoke.mjs            lightweight regression check
 scraped/summit26-schedule.html      raw page capture
-scraped/summit26-schedule.json      structured session extract (26 entries)
+scraped/summit26-schedule.json      structured session extract (36 entries)
 ```
 
 ---

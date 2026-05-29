@@ -14,7 +14,7 @@ function decode(value = "") {
     .replace(/&#8220;/g, '"')
     .replace(/&#8221;/g, '"')
     .replace(/&#038;|&amp;/g, "&")
-    .replace(/&nbsp;|\u00a0/g, " ")
+    .replace(/&nbsp;| /g, " ")
     .replace(/&rsquo;/g, "'")
     .replace(/&ldquo;/g, '"')
     .replace(/&rdquo;/g, '"')
@@ -57,20 +57,149 @@ function rawMatch(text, pattern) {
   return match ? match[1] : "";
 }
 
+// Strip a trailing "— Affiliation" / "– Affiliation" so a presenter line
+// like "Ian Kitajima — PICHTR" becomes just the person's name.
+function nameOnly(value) {
+  return decode(value).split(/\s+[—–-]\s+/)[0].trim();
+}
+
+// ──────────────────────────────────────────────────────────
+//  TOKEN SCAN
+//  The official page is Elementor markup. Two kinds of content appear under
+//  each time marker: `.topic-tooltip` session cards (keynotes + breakouts) and
+//  plain text-editor blocks (registration, opening remarks, lunch, lunch
+//  panels, pau hana, all-day gallery). We scan both and walk them in document
+//  order, which is already chronological.
+// ──────────────────────────────────────────────────────────
+
 const tokens = [];
+const cardSpans = [];
+
 const tokenPattern =
   /<h2 class="elementor-heading-title[^"]*"><br>(Thursday|Friday),\s+([^<]+)<br><\/h2>|<p style="text-align:\s*right;"><strong>(\d{2}:\d{2}\s+[AP]M)<\/strong><\/p>|<div class="elementor-element[^"]*topic-tooltip[^"]*"[\s\S]*?(?=<div class="elementor-element[^"]*topic-tooltip|<p style="text-align:\s*right;"><strong>\d{2}:\d{2}\s+[AP]M<\/strong><\/p>|<h2 class="elementor-heading-title|<div id="chatbot-toggle"|<\/body>)/g;
 
 let match;
 while ((match = tokenPattern.exec(html))) {
   if (match[1]) {
-    tokens.push({ type: "date", dayName: match[1], date: decode(match[2]) });
+    tokens.push({ pos: match.index, type: "date", dayName: match[1], date: decode(match[2]) });
   } else if (match[3]) {
-    tokens.push({ type: "time", time: match[3] });
+    tokens.push({ pos: match.index, type: "time", time: match[3] });
   } else {
-    tokens.push({ type: "card", html: match[0] });
+    tokens.push({ pos: match.index, type: "card", html: match[0] });
+    cardSpans.push([match.index, match.index + match[0].length]);
   }
 }
+
+// Limit non-tooltip block capture to the schedule region so page chrome
+// (menus, footers, course catalog) is never mistaken for agenda content.
+const regionStart = html.search(/<h2 class="elementor-heading-title[^"]*"><br>Thursday/);
+let regionEnd = html.indexOf("ADVANCED TECHNOLOGY COURSES");
+if (regionEnd === -1) regionEnd = html.indexOf('<div id="chatbot-toggle"');
+if (regionEnd === -1) regionEnd = html.length;
+
+const insideCard = (pos) => cardSpans.some(([s, e]) => pos >= s && pos < e);
+
+// Capture stops at the next Elementor element/widget boundary so nested
+// content divs (Topic/Moderator/Panelists) are kept while the markup of the
+// following widget is excluded.
+const blockPattern =
+  /widget_type="text-editor\.default">\s*<div class="elementor-widget-container">([\s\S]*?)(?=<div class="elementor-element|<h2 class="elementor-heading-title|ADVANCED TECHNOLOGY COURSES)/g;
+
+let block;
+while ((block = blockPattern.exec(html))) {
+  const pos = block.index;
+  if (pos < regionStart || pos >= regionEnd) continue;
+  if (insideCard(pos)) continue;
+  const text = textFromHtml(block[1]);
+  if (!text) continue;
+  if (/^\d{1,2}:\d{2}\s*[AP]M$/.test(text)) continue; // bare time marker
+  tokens.push({ pos, type: "block", text });
+}
+
+tokens.sort((a, b) => a.pos - b.pos);
+
+// ──────────────────────────────────────────────────────────
+//  BLOCK PARSING (non-tooltip agenda items)
+// ──────────────────────────────────────────────────────────
+
+// Collect the value(s) for a "Label:" field. Handles both inline
+// ("Topic: X") and stacked ("Topic:\nX\nY") layouts.
+function fieldLines(lines, label) {
+  const idx = lines.findIndex((l) => new RegExp(`^${label}:`, "i").test(l));
+  if (idx === -1) return [];
+  const out = [];
+  const inline = lines[idx].replace(new RegExp(`^${label}:\\s*`, "i"), "").trim();
+  if (inline) out.push(inline);
+  const stop = /^(Room|Topic|Moderator|Panelists):/i;
+  for (let i = idx + 1; i < lines.length; i++) {
+    if (stop.test(lines[i])) break;
+    out.push(lines[i]);
+  }
+  return out;
+}
+
+function parseBlock(text, dayName, date, time) {
+  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  const base = { dayName, date, time, track: "", strand: "", room: "", speaker: "", description: "", sourceUrl };
+  const make = (extra) => ({
+    id: `${slugify(dayName)}-${slugify(extra.time || time)}-${slugify(extra.title)}`,
+    ...base,
+    ...extra,
+  });
+
+  if (/Registration/i.test(text)) {
+    return make({ type: "networking", title: "Registration / Breakfast / Networking" });
+  }
+  if (/Time Capsule/i.test(text)) {
+    return make({
+      type: "background",
+      time: "All Day",
+      title: "PCATT 25 years Time Capsule Gallery",
+      room: firstMatch(text, /Room:\s*([^\n]+)/),
+    });
+  }
+  if (/Opening Remarks/i.test(text)) {
+    const description = lines
+      .slice(1)
+      .filter((l) => !/^Room:/i.test(l))
+      .join("\n");
+    return make({
+      type: "welcome",
+      title: "Opening Remarks",
+      room: firstMatch(text, /Room:\s*([^\n]+)/),
+      description,
+    });
+  }
+  if (/Lunch Panel/i.test(text)) {
+    const topic = fieldLines(lines, "Topic").join(" ");
+    const moderator = fieldLines(lines, "Moderator").join(" ");
+    const panelists = fieldLines(lines, "Panelists");
+    const names = [];
+    if (moderator && !/^TBA$/i.test(moderator)) names.push(nameOnly(moderator));
+    for (const p of panelists) names.push(nameOnly(p));
+    const descParts = [];
+    if (moderator) descParts.push(`Moderator: ${moderator}`);
+    if (panelists.length) descParts.push(`Panelists: ${panelists.join(", ")}`);
+    return make({
+      type: "panel",
+      title: topic ? `Lunch Panel — ${topic}` : "Lunch Panel",
+      room: firstMatch(text, /Room:\s*([^\n]+)/),
+      speaker: names.join(", "),
+      description: descParts.join("\n"),
+    });
+  }
+  if (/Lunch/i.test(text)) {
+    return make({ type: "meal", title: "Lunch", room: lines.slice(1).find(Boolean) || "" });
+  }
+  if (/Pau Hana/i.test(text)) {
+    return make({ type: "networking", title: lines[0] });
+  }
+  return null; // unknown block — skip rather than invent
+}
+
+// ──────────────────────────────────────────────────────────
+//  WALK
+// ──────────────────────────────────────────────────────────
 
 const sessions = [];
 let currentDate = "";
@@ -89,6 +218,13 @@ for (const token of tokens) {
   }
   if (!currentDate || !currentTime) continue;
 
+  if (token.type === "block") {
+    const entry = parseBlock(token.text, currentDayName, currentDate, currentTime);
+    if (entry) sessions.push(entry);
+    continue;
+  }
+
+  // token.type === "card"
   const triggerHtml = rawMatch(token.html, /topic-trigger[\s\S]*?<div class="elementor-widget-container">([\s\S]*?)<\/div>\s*<\/div>/);
   const detailHtml = rawMatch(token.html, /topic-box[\s\S]*?<div class="elementor-widget-container">([\s\S]*?)<\/div>\s*<\/div>/);
   const triggerText = textFromHtml(triggerHtml);
@@ -115,6 +251,7 @@ for (const token of tokens) {
     time: currentTime,
     track,
     strand: trackTitle || track,
+    type: /keynote/i.test(track) ? "keynote" : "breakout",
     title,
     room,
     speaker: presenter,
@@ -140,4 +277,5 @@ if (sessions.length < 12) {
 }
 
 fs.writeFileSync(outputPath, `${JSON.stringify(payload, null, 2)}\n`);
-console.log(`Wrote ${sessions.length} sessions to ${outputPath}`);
+const blockCount = sessions.filter((s) => !["keynote", "breakout"].includes(s.type)).length;
+console.log(`Wrote ${sessions.length} sessions (${blockCount} agenda blocks) to ${outputPath}`);
