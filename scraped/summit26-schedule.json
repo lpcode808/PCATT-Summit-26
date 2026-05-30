@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://pcatt.org/summit26-schedule/",
-  "fetchedAt": "2026-05-29T23:22:35.008Z",
+  "fetchedAt": "2026-05-30T00:53:39.222Z",
   "event": {
     "name": "PCATT Summit 2026",
     "dates": "Thursday June 4 and Friday June 5, 2026",
@@ -172,7 +172,7 @@
       "type": "breakout",
       "title": "AI Workforce Resources from the National Science Foundation",
       "room": "Plumeria",
-      "speaker": "Dr. Kimberly Scott",
+      "speaker": "Dr. Kimberly Scott, Sarah Dunton, Dr. Nasser Alaraje",
       "description": "This session will cover AI funding opportunities, partnership possibilities, and guidance on NSF program submissions. This session is presented virtually.",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
@@ -200,7 +200,7 @@
       "type": "breakout",
       "title": "Understanding Machine Learning Algorithms",
       "room": "Ilima",
-      "speaker": "Wayne Lewis PCATT",
+      "speaker": "Wayne Lewis",
       "description": "Presenter:Wayne Lewis PCATT\nFocus: Supervised vs. unsupervised learning",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
@@ -256,7 +256,7 @@
       "type": "breakout",
       "title": "Apple Intelligence, ML, and AI",
       "room": "Ilima",
-      "speaker": "Nani Daniels",
+      "speaker": "Nani Daniels, Scott Brems",
       "description": "Learn about AI, Machine Learning, and Apple Intelligence, and how Apple securely and privately integrates them into products and services you use every day.",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
@@ -326,7 +326,7 @@
       "type": "breakout",
       "title": "Trust by Design in the Age of AI",
       "room": "Pakalana",
-      "speaker": "Victoria Rivett, AI in Education",
+      "speaker": "Victoria Rivett",
       "description": "This presentation explores how trust in AI should be developed intentionally rather than assumed. It explores how AI is reshaping the process in academia and other domains in how we come to know what is true, how knowledge is formed and information is interpreted. Participants will gain practical ways to verify and use AI with greater confidence in everyday work and life.",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
@@ -438,7 +438,7 @@
       "type": "breakout",
       "title": "The Human Edge in an AI World",
       "room": "Carnation",
-      "speaker": "Noah Pomeroy Mindfulness Catalyst",
+      "speaker": "Noah Pomeroy",
       "description": "Competing with machines is a losing game. So what is our human edge? As AI capabilities accelerate, the human capacities that technology cannot replace will matter more and more in education, work, and life. This session brings together current research, reflection, and guided practices to help participants strengthen those capacities and begin putting them to work.",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
