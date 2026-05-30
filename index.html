@@ -15,26 +15,38 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="theme-color" content="#06226b">
+  <meta name="theme-color" content="#1a1019">
   <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #06226b;
-      --surface: #12347d;
-      --surface-elevated: #1d418a;
-      --surface-input: #173978;
-      --primary: #334f7e;
-      --teal: #7cc9dd;
-      --teal-dim: rgba(7, 168, 168, 0.15);
-      --orange: #ff5a8a;
-      --orange-dim: rgba(255, 90, 138, 0.16);
-      --lime: #ffd166;
-      --lime-dim: rgba(255, 209, 102, 0.16);
-      --text: #fffaf2;
-      --text-muted: rgba(255, 250, 242, 0.62);
-      --text-dim: rgba(255, 250, 242, 0.36);
-      --border: rgba(255, 250, 242, 0.1);
-      --border-active: rgba(124, 201, 221, 0.38);
+      /* PCATT Summit dark theme — deep plum base, brand rose primary,
+         with coral + gold supporting accents (tuned for legibility on dark,
+         derived from PCATT's rose #ff4e80 / crimson family). */
+
+      /* base — deep warm plum so the rose accents glow */
+      --bg: #1a1019;
+      --surface: #241823;
+      --surface-elevated: #2f2130;
+      --surface-input: #1f141f;
+      --primary: #4a3a4d;
+
+      /* primary brand accent — PCATT rose (dominant interactive color) */
+      --teal: #ff5c8a;
+      --teal-dim: rgba(255, 92, 138, 0.15);
+
+      /* secondary — warm coral for keynotes / standout moments */
+      --orange: #ff8c6b;
+      --orange-dim: rgba(255, 140, 107, 0.16);
+
+      /* tertiary — gold for highlights, notes, starred items */
+      --lime: #ffc861;
+      --lime-dim: rgba(255, 200, 97, 0.16);
+
+      --text: #fdf2f6;
+      --text-muted: rgba(253, 242, 246, 0.62);
+      --text-dim: rgba(253, 242, 246, 0.38);
+      --border: rgba(253, 242, 246, 0.1);
+      --border-active: rgba(255, 92, 138, 0.45);
       --radius: 12px;
       --radius-sm: 8px;
       --font-display: 'Sen', sans-serif;
@@ -129,7 +141,7 @@
       flex-shrink: 0;
       transition: background 0.2s;
     }
-    .header-link:hover { background: rgba(7, 168, 168, 0.25); }
+    .header-link:hover { background: rgba(255, 92, 138, 0.25); }
 
     /* ── TAB NAV ── */
     .tab-nav {
@@ -214,7 +226,7 @@
       min-height: 44px;
       transition: background 0.15s;
     }
-    .episode-toggle:hover { background: rgba(7,168,168,0.07); }
+    .episode-toggle:hover { background: rgba(255,92,138,0.07); }
 
     .episode-toggle-icon {
       font-size: 1.15rem;
@@ -329,7 +341,7 @@
       padding: 1rem;
       border-radius: var(--radius);
       background:
-        linear-gradient(135deg, rgba(7, 168, 168, 0.18), rgba(0, 53, 113, 0.42)),
+        linear-gradient(135deg, rgba(255, 92, 138, 0.18), rgba(54, 38, 56, 0.42)),
         var(--surface);
       border: 1px solid var(--border-active);
       box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
@@ -541,7 +553,7 @@
     .session-item.type-meal,
     .session-item.type-break,
     .session-item.type-background {
-      background: rgba(0, 32, 64, 0.78);
+      background: rgba(26, 16, 25, 0.78);
       border-color: rgba(255, 247, 235, 0.05);
     }
 
@@ -570,8 +582,8 @@
     .session-item.type-break .session-body-inner,
     .session-item.type-background .session-body-inner {
       background:
-        linear-gradient(180deg, rgba(5, 33, 58, 0.76), rgba(2, 24, 43, 0.94)),
-        rgba(2, 32, 64, 0.88);
+        linear-gradient(180deg, rgba(28, 18, 27, 0.76), rgba(20, 12, 19, 0.94)),
+        rgba(26, 16, 25, 0.88);
     }
 
     /* ── SESSION TRIGGER ── */
@@ -620,21 +632,14 @@
       margin-bottom: 0.3rem;
     }
 
-    .badge-keynote      { background: var(--orange-dim);               color: #ff8fb0; }
-    .badge-breakout     { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
-    .badge-fireside     { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
-    .badge-panel        { background: var(--teal-dim);                 color: var(--teal); }
-    .badge-pitch        { background: rgba(255, 90, 138, 0.2);          color: #ff8fb0; }
-    .badge-roundtable   { background: var(--lime-dim);                 color: var(--lime); }
-    .badge-networking   { background: rgba(175, 205, 83, 0.1);         color: #c4df6a; }
-    .badge-mindfulness  { background: rgba(91, 211, 162, 0.12);        color: #5bd3a2; }
-    .badge-ceremony     { background: rgba(255, 200, 80, 0.13);        color: #ffc850; }
-    .badge-meal         { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
-    .badge-break        { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
+    /* PCATT session-type badges (only the types the data emits) */
+    .badge-keynote      { background: var(--orange-dim);               color: #ffb59a; }
+    .badge-breakout     { background: var(--teal-dim);                 color: var(--teal); }
+    .badge-panel        { background: rgba(255, 140, 107, 0.14);       color: #ffb59a; }
+    .badge-networking   { background: var(--lime-dim);                 color: var(--lime); }
     .badge-welcome      { background: var(--teal-dim);                 color: var(--teal); }
-    .badge-presentation { background: rgba(0, 53, 113, 0.45);          color: #6aabdf; }
-    .badge-announcement { background: rgba(255, 247, 235, 0.06);       color: var(--text-dim); }
-    .badge-background   { background: rgba(255, 247, 235, 0.04);       color: var(--text-dim); }
+    .badge-meal         { background: rgba(253, 242, 246, 0.06);       color: var(--text-dim); }
+    .badge-background   { background: rgba(253, 242, 246, 0.04);       color: var(--text-dim); }
 
     .session-title {
       font-family: var(--font-display);
@@ -672,10 +677,10 @@
 
     .session-body-inner {
       padding: 0.9rem 1rem 1rem;
-      border-top: 1px solid rgba(7, 168, 168, 0.16);
+      border-top: 1px solid rgba(255, 92, 138, 0.16);
       background:
-        linear-gradient(180deg, rgba(6, 43, 76, 0.74), rgba(2, 29, 52, 0.96)),
-        rgba(2, 32, 64, 0.94);
+        linear-gradient(180deg, rgba(36, 24, 35, 0.74), rgba(20, 12, 19, 0.96)),
+        rgba(26, 16, 25, 0.94);
       box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.03);
     }
 
@@ -707,11 +712,12 @@
       color: var(--text);
     }
     .meta-strand .meta-icon { font-size: 0.85rem; }
-    .strand-culture        { background: rgba(175, 205, 83, 0.18); color: #d6e89a; }
-    .strand-transformation { background: rgba(7, 168, 168, 0.20);  color: #7ce0e0; }
-    .strand-well-being     { background: rgba(255, 90, 138, 0.20);  color: #f0a073; }
-    .strand-advocacy       { background: rgba(247, 197, 80, 0.22); color: #ffd97a; }
-    .strand-agency         { background: rgba(146, 110, 255, 0.22); color: #c6b3ff; }
+    /* PCATT strands — a warm rose→gold family, each track its own legible hue */
+    .strand-keynote-speaker               { background: rgba(255, 92, 138, 0.20); color: #ff9ab6; }
+    .strand-trust-in-ai                   { background: rgba(255, 140, 107, 0.18); color: #ffb59a; }
+    .strand-ai-and-the-future-of-work     { background: rgba(255, 200, 97, 0.18);  color: #ffd98a; }
+    .strand-public-social-interest-in-ai  { background: rgba(232, 122, 196, 0.18);  color: #f2a8db; }
+    .strand-mechanics-of-ai               { background: rgba(255, 122, 140, 0.16);  color: #ffaab2; }
 
     /* Strand filter pills */
     .strand-filter {
@@ -784,14 +790,14 @@
       font-weight: 600;
       cursor: pointer;
       text-decoration: underline;
-      text-decoration-color: rgba(7, 168, 168, 0.28);
+      text-decoration-color: rgba(255, 92, 138, 0.28);
       text-underline-offset: 0.14rem;
       transition: color 0.18s, text-decoration-color 0.18s;
     }
 
     .meta-speaker-link:hover {
       color: var(--teal);
-      text-decoration-color: rgba(7, 168, 168, 0.7);
+      text-decoration-color: rgba(255, 92, 138, 0.7);
     }
 
     .session-description {
@@ -882,7 +888,7 @@
       gap: 0.5rem;
       padding: 0.6rem 0.8rem;
       background: var(--lime-dim);
-      border: 1px solid rgba(175, 205, 83, 0.2);
+      border: 1px solid rgba(255, 200, 97, 0.2);
       border-radius: var(--radius-sm);
       cursor: pointer;
       color: var(--lime);
@@ -894,13 +900,13 @@
       transition: background 0.2s;
       min-height: 44px;
     }
-    .summary-toggle:hover { background: rgba(175, 205, 83, 0.12); }
+    .summary-toggle:hover { background: rgba(255, 200, 97, 0.12); }
 
     .summary-toggle .s-chevron {
       margin-left: auto;
       font-size: 0.95rem;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      color: rgba(175, 205, 83, 0.6);
+      color: rgba(255, 200, 97, 0.6);
     }
     .summary-toggle.open .s-chevron { transform: rotate(180deg); }
 
@@ -912,12 +918,12 @@
 
     .summary-text {
       padding: 0.75rem;
-      background: rgba(175, 205, 83, 0.05);
+      background: rgba(255, 200, 97, 0.05);
       border-radius: 0 0 var(--radius-sm) var(--radius-sm);
       font-size: 0.82rem;
       line-height: 1.68;
       color: rgba(255, 247, 235, 0.85);
-      border: 1px solid rgba(175, 205, 83, 0.15);
+      border: 1px solid rgba(255, 200, 97, 0.15);
       border-top: none;
     }
 
@@ -931,7 +937,7 @@
       border: 1px solid rgba(255, 90, 138, 0.22);
       border-radius: var(--radius-sm);
       cursor: pointer;
-      color: #f0b283;
+      color: #ffc861;
       font-family: var(--font-body);
       font-size: 0.79rem;
       font-weight: 600;
@@ -946,7 +952,7 @@
       margin-left: auto;
       font-size: 0.95rem;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      color: rgba(240, 178, 131, 0.72);
+      color: rgba(255, 200, 97, 0.72);
     }
     .research-toggle.open .r-chevron { transform: rotate(180deg); }
 
@@ -1004,7 +1010,7 @@
 
     .research-link span:last-child {
       flex-shrink: 0;
-      color: rgba(240, 178, 131, 0.72);
+      color: rgba(255, 200, 97, 0.72);
     }
 
     /* ── NOTE SECTION ── */
@@ -1014,7 +1020,7 @@
       gap: 0.5rem;
       padding: 0.6rem 0.8rem;
       background: var(--teal-dim);
-      border: 1px solid rgba(7, 168, 168, 0.2);
+      border: 1px solid rgba(255, 92, 138, 0.2);
       border-radius: var(--radius-sm);
       cursor: pointer;
       color: var(--teal);
@@ -1026,7 +1032,7 @@
       transition: background 0.2s;
       min-height: 44px;
     }
-    .note-toggle:hover { background: rgba(7, 168, 168, 0.12); }
+    .note-toggle:hover { background: rgba(255, 92, 138, 0.12); }
 
     .note-dot {
       width: 7px;
@@ -1059,7 +1065,7 @@
     .note-textarea {
       width: 100%;
       background: var(--surface-input);
-      border: 1px solid rgba(7, 168, 168, 0.2);
+      border: 1px solid rgba(255, 92, 138, 0.2);
       border-radius: var(--radius-sm);
       color: var(--text);
       font-family: var(--font-body);
@@ -1174,7 +1180,7 @@
       flex: 1;
       width: 100%;
       background: var(--surface-input);
-      border: 1px solid rgba(7, 168, 168, 0.18);
+      border: 1px solid rgba(255, 92, 138, 0.18);
       border-radius: var(--radius-sm);
       color: var(--text);
       font-family: var(--font-body);
@@ -1209,8 +1215,8 @@
     }
 
     .notes-search-clear:hover:not(:disabled) {
-      background: rgba(7, 168, 168, 0.12);
-      border-color: rgba(7, 168, 168, 0.26);
+      background: rgba(255, 92, 138, 0.12);
+      border-color: rgba(255, 92, 138, 0.26);
       color: var(--teal);
     }
 
@@ -1302,15 +1308,15 @@
 
     .note-card {
       --note-accent: var(--teal);
-      --note-accent-soft: rgba(7, 168, 168, 0.1);
-      --note-accent-border: rgba(7, 168, 168, 0.18);
+      --note-accent-soft: rgba(255, 92, 138, 0.1);
+      --note-accent-border: rgba(255, 92, 138, 0.18);
       --note-title: var(--teal);
       margin: 0 0.75rem 0.5rem;
       padding: 0.9rem 1rem;
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, var(--note-accent-soft), rgba(0, 32, 64, 0.92) 44%),
+        linear-gradient(180deg, var(--note-accent-soft), rgba(26, 16, 25, 0.92) 44%),
         var(--surface);
       border: 1px solid var(--note-accent-border);
       border-radius: var(--radius);
@@ -1327,24 +1333,24 @@
     }
 
     .note-card.note-type-general {
-      --note-accent: #e78b4f;
-      --note-accent-soft: rgba(255, 90, 138, 0.14);
-      --note-accent-border: rgba(255, 90, 138, 0.2);
-      --note-title: #f0b283;
+      --note-accent: var(--orange);
+      --note-accent-soft: rgba(255, 140, 107, 0.14);
+      --note-accent-border: rgba(255, 140, 107, 0.2);
+      --note-title: #ffb59a;
     }
 
     .note-card.note-type-session {
       --note-accent: var(--lime);
-      --note-accent-soft: rgba(175, 205, 83, 0.12);
-      --note-accent-border: rgba(175, 205, 83, 0.2);
-      --note-title: #d4e983;
+      --note-accent-soft: rgba(255, 200, 97, 0.12);
+      --note-accent-border: rgba(255, 200, 97, 0.2);
+      --note-title: #ffd98a;
     }
 
     .note-card.note-type-speaker {
       --note-accent: var(--teal);
-      --note-accent-soft: rgba(7, 168, 168, 0.12);
-      --note-accent-border: rgba(7, 168, 168, 0.2);
-      --note-title: #6fe1df;
+      --note-accent-soft: rgba(255, 92, 138, 0.12);
+      --note-accent-border: rgba(255, 92, 138, 0.2);
+      --note-title: #ff9ab6;
     }
 
     .note-card-meta {
@@ -1430,9 +1436,9 @@
     }
 
     .note-card-open:hover {
-      background: rgba(7, 168, 168, 0.12);
+      background: rgba(255, 92, 138, 0.12);
       color: var(--teal);
-      border-color: rgba(7, 168, 168, 0.25);
+      border-color: rgba(255, 92, 138, 0.25);
     }
 
     .note-card-delete {
@@ -1601,13 +1607,13 @@
     }
 
     .export-download-prompt {
-      background: rgba(7, 168, 168, 0.1);
-      border: 1px solid rgba(7, 168, 168, 0.28);
+      background: rgba(255, 92, 138, 0.1);
+      border: 1px solid rgba(255, 92, 138, 0.28);
     }
 
     .notes-test-tools {
-      background: rgba(175, 205, 83, 0.08);
-      border: 1px dashed rgba(175, 205, 83, 0.38);
+      background: rgba(255, 200, 97, 0.08);
+      border: 1px dashed rgba(255, 200, 97, 0.38);
       margin-top: 0.85rem;
     }
 
@@ -1872,8 +1878,8 @@
       gap: 0.4rem;
       margin-top: 0.85rem;
       padding: 0.6rem 1.1rem;
-      background: rgba(7, 168, 168, 0.12);
-      border: 1px solid rgba(7, 168, 168, 0.35);
+      background: rgba(255, 92, 138, 0.12);
+      border: 1px solid rgba(255, 92, 138, 0.35);
       border-radius: var(--radius-sm);
       color: var(--teal);
       font-family: var(--font-display);
@@ -1884,7 +1890,7 @@
       min-height: 44px;
       transition: background 0.2s, border-color 0.2s;
     }
-    .qr-share-btn:hover { background: rgba(7, 168, 168, 0.2); border-color: var(--teal); }
+    .qr-share-btn:hover { background: rgba(255, 92, 138, 0.2); border-color: var(--teal); }
 
     /* ── QR MODAL ── */
     .qr-modal-body {
@@ -1973,15 +1979,15 @@
     }
 
     .speaker-toolbar-btn {
-      background: rgba(175, 205, 83, 0.08);
-      border: 1px solid rgba(175, 205, 83, 0.28);
+      background: rgba(255, 200, 97, 0.08);
+      border: 1px solid rgba(255, 200, 97, 0.28);
       color: var(--lime);
     }
 
     .speaker-toolbar-btn[aria-pressed="true"] {
-      background: rgba(175, 205, 83, 0.2);
-      color: #f5ffd0;
-      border-color: rgba(175, 205, 83, 0.45);
+      background: rgba(255, 200, 97, 0.2);
+      color: #fff0c2;
+      border-color: rgba(255, 200, 97, 0.45);
     }
 
     .speaker-toolbar-btn:disabled,
@@ -2005,9 +2011,9 @@
       margin: 0 0.75rem 0.2rem;
       padding: 0.75rem 0.9rem;
       border-radius: var(--radius);
-      border: 1px solid rgba(7, 168, 168, 0.16);
+      border: 1px solid rgba(255, 92, 138, 0.16);
       background:
-        linear-gradient(180deg, rgba(7, 168, 168, 0.08), rgba(0, 32, 64, 0.92)),
+        linear-gradient(180deg, rgba(255, 92, 138, 0.08), rgba(26, 16, 25, 0.92)),
         var(--surface);
       color: var(--text-muted);
       font-size: 0.79rem;
@@ -2039,13 +2045,13 @@
 
     .speaker-item.expanded { border-color: var(--border-active); }
     .speaker-item.is-starred {
-      border-color: rgba(175, 205, 83, 0.52);
-      box-shadow: 0 0 0 1px rgba(175, 205, 83, 0.14);
+      border-color: rgba(255, 200, 97, 0.52);
+      box-shadow: 0 0 0 1px rgba(255, 200, 97, 0.14);
     }
 
     .speaker-item.swipe-starred {
       transform: translateX(-6px);
-      box-shadow: 0 0 0 1px rgba(175, 205, 83, 0.2), 0 10px 24px rgba(175, 205, 83, 0.1);
+      box-shadow: 0 0 0 1px rgba(255, 200, 97, 0.2), 0 10px 24px rgba(255, 200, 97, 0.1);
     }
 
     .speaker-trigger {
@@ -2133,10 +2139,10 @@
 
     .speaker-body-inner {
       padding: 0.85rem 1rem 0.95rem;
-      border-top: 1px solid rgba(7, 168, 168, 0.18);
+      border-top: 1px solid rgba(255, 92, 138, 0.18);
       background:
         linear-gradient(180deg, rgba(6, 45, 80, 0.78), rgba(3, 31, 56, 0.96)),
-        rgba(2, 32, 64, 0.94);
+        rgba(26, 16, 25, 0.94);
       box-shadow: inset 0 1px 0 rgba(255, 247, 235, 0.03);
     }
 
@@ -2187,7 +2193,7 @@
       min-height: 44px;
       font-family: var(--font-body);
     }
-    .speaker-session-chip:hover { background: rgba(7, 168, 168, 0.12); color: var(--teal); }
+    .speaker-session-chip:hover { background: rgba(255, 92, 138, 0.12); color: var(--teal); }
 
     .speaker-star-toggle {
       display: flex;
@@ -2195,8 +2201,8 @@
       justify-content: center;
       gap: 0.4rem;
       padding: 0.58rem 0.8rem;
-      background: rgba(175, 205, 83, 0.08);
-      border: 1px solid rgba(175, 205, 83, 0.28);
+      background: rgba(255, 200, 97, 0.08);
+      border: 1px solid rgba(255, 200, 97, 0.28);
       border-radius: var(--radius-sm);
       cursor: pointer;
       color: var(--lime);
@@ -2210,7 +2216,7 @@
     }
 
     .speaker-star-toggle:hover {
-      background: rgba(175, 205, 83, 0.15);
+      background: rgba(255, 200, 97, 0.15);
     }
 
     .speaker-session-time {
@@ -2228,12 +2234,12 @@
 
     /* ── YOU ARE HERE ── */
     .session-item.status-current {
-      border-color: rgba(7, 168, 168, 0.6);
-      box-shadow: 0 0 0 1px rgba(7, 168, 168, 0.2), 0 4px 20px rgba(7, 168, 168, 0.1);
+      border-color: rgba(255, 92, 138, 0.6);
+      box-shadow: 0 0 0 1px rgba(255, 92, 138, 0.2), 0 4px 20px rgba(255, 92, 138, 0.1);
     }
 
     .session-item.status-upcoming {
-      border-color: rgba(175, 205, 83, 0.35);
+      border-color: rgba(255, 200, 97, 0.35);
     }
 
     .status-now-badge {
@@ -2257,7 +2263,7 @@
       padding: 0.12rem 0.4rem;
       background: var(--lime-dim);
       color: var(--lime);
-      border: 1px solid rgba(175, 205, 83, 0.3);
+      border: 1px solid rgba(255, 200, 97, 0.3);
       border-radius: 3px;
       font-size: 0.55rem;
       font-weight: 800;
@@ -3675,7 +3681,7 @@
         metaParts.push(speakerMetaMarkup(s.speaker));
       }
       if (s.strand) {
-        metaParts.push(`<span class="meta-item meta-strand strand-${esc(s.strand.toLowerCase())}"><span class="meta-icon">🌺</span>${esc(s.strand)}</span>`);
+        metaParts.push(`<span class="meta-item meta-strand strand-${esc(slugify(s.strand))}"><span class="meta-icon">🌺</span>${esc(s.strand)}</span>`);
       }
       if (s.location) {
         metaParts.push(`<span class="meta-item"><span class="meta-icon">📍</span>${esc(s.location)}</span>`);
