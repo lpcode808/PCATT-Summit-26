@@ -1,0 +1,19 @@
+{
+  "name": "PCATT Summit 2026 — Conference Guide",
+  "short_name": "PCATT Summit",
+  "description": "Mobile-first guide for the PCATT Summit 2026, June 4-5, 2026, at the Ala Moana Hotel in Honolulu.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a1019",
+  "theme_color": "#1a1019",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

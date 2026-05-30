@@ -10,7 +10,20 @@ Schedule and speaker data come from the official PCATT Summit 2026 schedule page
 - Raw capture: `scraped/summit26-schedule.html`
 - Structured data: `scraped/summit26-schedule.json`
 
-## What Was Done (this pass)
+## What Was Done (persona UX-audit pass)
+
+Ran a three-persona review (a busy mobile attendee, a low-vision presenter using a screen reader, and a technical attendee), then implemented the fixes everyone agreed were clear wins:
+
+- **Killed placeholder leakage.** Added `isPlaceholderText()` so schedule cards no longer render the literal "Description TBD." body text (7 sessions) or the "9:30 AM – TBD" end-time range (all 36 entries showed it because `"TBD"` is truthy). Cards now show start time only until real end times land.
+- **Day grouping.** The schedule list now emits a "Thursday, June 4, 2026" / "Friday, June 5, 2026" heading at each day boundary instead of one undifferentiated flat list.
+- **Modal accessibility.** `openModal`/`closeModal` now move focus into the dialog and restore it on close; a global handler adds Escape-to-close and Tab focus-trapping; backdrop clicks close any modal (previously only the QR modal). Added `aria-label`s to the two confirm inputs, `aria-labelledby` linking each tabpanel to its tab, and `id`s on the tab buttons.
+- **QR fallback.** The external QR `<img>` now has an `onerror` handler that reveals a "couldn’t load — use this link" fallback instead of a silent broken image when offline.
+- **Real PWA.** Added `manifest.json`, `apple-touch-icon`, and Apple/mobile web-app meta tags so the "installable PWA" claim actually holds; service worker precaches the manifest and was bumped to `v4`.
+- **Cleanup.** Renamed the misleadingly-named `--teal` CSS variable (its value is rose `#ff5c8a`) to `--rose` throughout, and nudged `--text-dim` from 0.38→0.5 opacity for low-vision legibility.
+
+Deliberately left alone (would require inventing data or heavy infra): real room locations for registration/meals, real speaker affiliations (some still read "PCATT Summit 2026"), and self-hosting the Google Fonts for true offline typography.
+
+## What Was Done (earlier pass)
 
 - **Full agenda extraction.** Rewrote `scripts/extract-pcatt-schedule.mjs` to capture not just the Elementor tooltip session cards but also the non-tooltip agenda blocks: registration/breakfast, opening remarks, lunch, lunch panels (with moderator + panelists), the Pau Hana mixer, and the all-day Time Capsule Gallery. Output grew from 26 → 36 entries, all in chronological document order. No details are invented; `TBA`/`TBD` are preserved.
 - **Purged KSEDTECH leftovers.** Deleted the entire `assets/` directory (24 orphaned KS images — logos, KS presenter photos, KS strand icons), the dead `styles.css` and `script.js` (old KS *marketing-site* code, never referenced by the app), and the stale, divergent `conference-skeleton-export/` duplicate.
