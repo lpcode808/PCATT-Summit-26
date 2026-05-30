@@ -260,6 +260,36 @@ for (const token of tokens) {
   });
 }
 
+// ──────────────────────────────────────────────────────────
+//  CURATED PRESENTER CORRECTIONS
+//  The official page lists presenters as free text, sometimes stacking
+//  several people (and their affiliations) on one line. The auto-parser
+//  above can only safely take the first line, so co-presenters get dropped
+//  and a few names arrive with their org glued on. This hand-maintained map
+//  (keyed by session id) restores the full, clean presenter list straight
+//  from https://pcatt.org/summit26-schedule/. Update it when the page changes.
+// ──────────────────────────────────────────────────────────
+const PRESENTER_OVERRIDES = {
+  // Page lists three NSF presenters; parser only caught the first.
+  "thursday-01-30-pm-ai-workforce-resources-from-the-national-science-foundation":
+    "Dr. Kimberly Scott, Sarah Dunton, Dr. Nasser Alaraje",
+  // Two Apple presenters; parser only caught the first.
+  "thursday-02-30-pm-apple-intelligence-ml-and-ai": "Nani Daniels, Scott Brems",
+  // Names below arrived with their affiliation glued on — strip to name only.
+  "thursday-01-30-pm-understanding-machine-learning-algorithms": "Wayne Lewis",
+  "friday-10-15-am-trust-by-design-in-the-age-of-ai": "Victoria Rivett",
+  "friday-01-00-pm-the-human-edge-in-an-ai-world": "Noah Pomeroy",
+};
+
+for (const id of Object.keys(PRESENTER_OVERRIDES)) {
+  const session = sessions.find((s) => s.id === id);
+  if (!session) {
+    console.warn(`PRESENTER_OVERRIDES: no session matched id "${id}" — page markup may have changed.`);
+    continue;
+  }
+  session.speaker = PRESENTER_OVERRIDES[id];
+}
+
 const payload = {
   sourceUrl,
   fetchedAt: new Date().toISOString(),

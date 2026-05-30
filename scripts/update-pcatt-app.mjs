@@ -35,6 +35,44 @@ function speakerRole(type) {
   return "Presenter";
 }
 
+// Presenter affiliations as published on https://pcatt.org/summit26-schedule/.
+// Keyed by the exact name produced by the speaker-name split below. Speakers
+// the official page lists without an org fall back to the generic placeholder.
+const AFFILIATIONS = {
+  "Chris Barton": "Founder & Creator of Shazam",
+  "Mericia Palma Elmore": "UH System & HPU",
+  "Monir Hodges": "PCATT",
+  "Paul Sakamoto": "UHCC",
+  "Dr. Kimberly Scott": "NSF",
+  "Sarah Dunton": "NSF",
+  "Dr. Nasser Alaraje": "NSF",
+  "Nicole Cacal": "TRUE Initiative",
+  "Wayne Lewis": "PCATT",
+  "Darsh Davé": "Kapiʻolani Community College",
+  "Hunter Kirihara": "Kapiʻolani Community College",
+  "Dr. Gloria Niles": "University of Hawaiʻi System",
+  "Lionel Derrick Roxas": "eWorld Enterprise",
+  "Nani Daniels": "Apple Education Hawaiʻi & Alaska",
+  "Scott Brems": "Apple",
+  "Dave Free": "Cisco Networking Academy",
+  "Victoria Rivett": "AI in Education",
+  "Apple Presenter": "Apple Education",
+  "Debasis Bhattacharya": "UH Maui College",
+  "Mahdi Belcaid": "UH Mānoa",
+  "Noah Pomeroy": "Mindfulness Catalyst",
+  "Sadie Flick": "UH System",
+  "Sujit Ghosh": "HPE",
+  "Nicole Bentley": "SAFAL",
+  "Katie Adams": "SAFAL",
+  "Seiichi Nagai": "Civic Nexus",
+  // Lunch-panel participants.
+  "Ian Kitajima": "PICHTR",
+  "Kim Siegenthaler": "UH System",
+  "Brett Tanaka": "HIDOE",
+  "Branden Baker": "Intech Hawaii",
+  "Ben Mendes": "Hawaii State Federal Credit Union",
+};
+
 const speakerMap = new Map();
 for (const session of schedule) {
   // Meals, registration, and all-day blocks carry no presenter.
@@ -45,7 +83,7 @@ for (const session of schedule) {
     const existing = speakerMap.get(name) || {
       name,
       role: speakerRole(session.type),
-      company: "PCATT Summit 2026",
+      company: AFFILIATIONS[name] || "PCATT Summit 2026",
       sessions: [],
     };
     existing.sessions.push(session.id);
