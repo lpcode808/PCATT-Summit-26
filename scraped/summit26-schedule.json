@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://pcatt.org/summit26-schedule/",
-  "fetchedAt": "2026-05-30T00:53:39.222Z",
+  "fetchedAt": "2026-05-31T09:23:51.055Z",
   "event": {
     "name": "PCATT Summit 2026",
     "dates": "Thursday June 4 and Friday June 5, 2026",
@@ -177,17 +177,17 @@
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
     {
-      "id": "thursday-01-30-pm-ai-for-social-good",
+      "id": "thursday-01-30-pm-who-shapes-the-future-ai-access-and-hawai-i-s-answer",
       "dayName": "Thursday",
       "date": "June 4, 2026",
       "time": "01:30 PM",
       "track": "Track III",
       "strand": "Public/Social Interest in AI",
       "type": "breakout",
-      "title": "AI for Social Good",
+      "title": "Who Shapes the Future? AI, Access, and Hawaiʻi's Answer",
       "room": "Carnation",
       "speaker": "Nicole Cacal",
-      "description": "Presenter: Nicole Cacal\nTRUE Initiative\nFocus: Solving societal challenges such as climate change, education, and public health",
+      "description": "The Hawaiʻi AI Center exists to make AI a force for good on our islands. Together, TRUE Initiative, the University of Hawaii, MIT, DBEDT, and industry partners are working together to build the locally governed infrastructure, talent pipeline, and industry connections that let our people build full, well-paying careers. The MIT PATH pilot is our first proof point: that a community can equip its own people to build the future at home, instead of leaving to find it.",
       "sourceUrl": "https://pcatt.org/summit26-schedule/"
     },
     {
@@ -394,8 +394,8 @@
       "track": "",
       "strand": "",
       "room": "Hibiscus",
-      "speaker": "Katie Adams, Nicole Bentley, Branden Baker, Ben Mendes",
-      "description": "Moderator: TBA\nPanelists: Katie Adams - SAFAL, Nicole Bentley - SAFAL, Branden Baker - Intech Hawaii, Ben Mendes - Hawaii State Federal Credit Union",
+      "speaker": "Marty Beach, Katie Adams, Nicole Bentley, Branden Baker, Ben Mendes",
+      "description": "Moderator: Marty Beach — Anthology FINN Partners\nPanelists: Katie Adams — SAFAL, Nicole Bentley — SAFAL, Branden Baker — Intech Hawaii, Ben Mendes — Hawaii State Federal Credit Union",
       "sourceUrl": "https://pcatt.org/summit26-schedule/",
       "type": "panel",
       "title": "Lunch Panel — Diversifying our Economy via AI"
