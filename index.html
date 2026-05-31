@@ -1290,7 +1290,11 @@
       background: var(--rose);
       color: var(--bg);
     }
-    .export-btn:hover { opacity: 0.9; }
+    .export-btn:hover:not(:disabled) { opacity: 0.9; }
+    .export-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
 
     .import-btn {
       background: rgba(124, 201, 221, 0.1);
@@ -3434,9 +3438,13 @@
   }
 
   function updateNotesActionState() {
+    const isEmpty = getNoteCount() === 0;
     const clearBtn = document.getElementById('clearNotesBtn');
-    if (!clearBtn) return;
-    clearBtn.disabled = getNoteCount() === 0;
+    if (clearBtn) clearBtn.disabled = isEmpty;
+    // Export has nothing to act on until at least one note exists; keep it
+    // disabled (like Clear All) so a new user never opens an empty export sheet.
+    const exportBtn = document.getElementById('exportBtn');
+    if (exportBtn) exportBtn.disabled = isEmpty;
   }
 
   function updateNoteCount() {
@@ -3826,6 +3834,23 @@
         </div>
       `;
     }).join('');
+
+    if (!html) {
+      const safeQuery = esc(q);
+      const message = q
+        ? `No sessions match <strong>${safeQuery}</strong>.`
+        : 'No sessions in this strand yet.';
+      const hint = q
+        ? 'Try a different keyword, a speaker name, or clear the search to see the full agenda.'
+        : 'Switch back to All Strands to see the full agenda.';
+      document.getElementById('scheduleList').innerHTML = `
+        <div class="strand-empty-msg">
+          <p>${message}<br>${hint}</p>
+        </div>
+      `;
+      updateNoteCount();
+      return;
+    }
 
     document.getElementById('scheduleList').innerHTML = html;
     attachScheduleEvents();

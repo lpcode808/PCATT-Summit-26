@@ -10,6 +10,13 @@ Schedule and speaker data come from the official PCATT Summit 2026 schedule page
 - Raw capture: `scraped/summit26-schedule.html`
 - Structured data: `scraped/summit26-schedule.json`
 
+## What Was Done (UX follow-up pass)
+
+A second review focused on general UX logic and the first-time/new-user path. Two gaps fixed:
+
+- **Schedule empty state.** `renderSchedule()` previously set `scheduleList.innerHTML` to the joined card markup with no guard, so a search (or strand filter) that matched nothing painted a completely blank area — no feedback. The `.strand-empty-msg` style existed but was never wired up. Now an empty result renders a clear message ("No sessions match **<query>**…") with a recovery hint, matching the existing Speakers/Notes empty states.
+- **Export button gated when empty.** A brand-new user with zero notes could click **Export ↓** and open a sheet containing the literal "No notes saved yet." text. `updateNotesActionState()` now disables Export alongside Clear All when the note count is 0; added the missing `.export-btn:disabled` style and scoped its hover to `:not(:disabled)`. Import stays enabled (a returning user may import on a fresh device).
+
 ## What Was Done (persona UX-audit pass)
 
 Ran a three-persona review (a busy mobile attendee, a low-vision presenter using a screen reader, and a technical attendee), then implemented the fixes everyone agreed were clear wins:
