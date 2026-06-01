@@ -1949,11 +1949,11 @@
     }
     .qr-fallback-title {
       font-weight: 700;
-      color: #06226b;
+      color: #1a1019;
       font-size: 0.95rem;
     }
     .qr-fallback-copy {
-      color: #3a3a55;
+      color: #5a4853;
       font-size: 0.82rem;
     }
     .qr-url {
@@ -2348,11 +2348,11 @@
         <span class="date-label">June 4-5, 2026</span>
         <span class="date-sub">Ala Moana Hotel · Honolulu, Hawaiʻi</span>
       </div>
-      <section class="learn-callout" id="learnCallout" aria-label="Schedule status">
+      <section class="learn-callout" id="learnCallout" aria-label="About this agenda">
         <div class="learn-callout-row">
           <button class="learn-callout-inline-link" type="button" aria-controls="learnCalloutBody">
-            <span class="learn-callout-label">Heads up</span>
-            <h2 class="learn-callout-title">Schedule preview — end times still firming up</h2>
+            <span class="learn-callout-label">Good to know</span>
+            <h2 class="learn-callout-title">The complete two-day agenda</h2>
           </button>
           <button
             class="learn-callout-toggle"
@@ -2360,14 +2360,14 @@
             type="button"
             aria-expanded="true"
             aria-controls="learnCalloutBody"
-            aria-label="Collapse status panel"
+            aria-label="Collapse agenda panel"
           >
             <span class="learn-callout-toggle-icon" aria-hidden="true">▾</span>
           </button>
         </div>
         <div class="learn-callout-body" id="learnCalloutBody">
           <p class="learn-callout-copy">
-            This guide mirrors the full official PCATT agenda — keynotes, breakout tracks, lunch panels, meals, registration, and the all-day Time Capsule Gallery. Session end times aren't published yet, so each card shows its start time; check the official site for any last-minute changes.
+            This guide mirrors the full official PCATT Summit 2026 schedule — both keynotes, every breakout across the four strands, lunch panels, meals, registration, and the all-day Time Capsule Gallery. Each session shows its time up front; tap any card for the room, speakers, and full details. For last-minute room or lineup changes, check the official site.
           </p>
           <div class="learn-callout-links">
             <a class="learn-callout-link primary" href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener">Official PCATT Summit 2026 site ↗</a>
@@ -2573,7 +2573,7 @@
         <div class="qr-frame">
           <img
             id="qrImage"
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=06226b&bgcolor=ffffff&data=https%3A%2F%2Flpcode808.github.io%2FPCATT-Summit-26%2F"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1a1019&bgcolor=ffffff&data=https%3A%2F%2Flpcode808.github.io%2FPCATT-Summit-26%2F"
             alt="QR code for https://lpcode808.github.io/PCATT-Summit-26/"
             width="200"
             height="200"
@@ -5745,7 +5745,7 @@
   }
 
   // ──────────────────────────────────────────────────────────
-  //  CODE GUIDE CALLOUT
+  //  AGENDA CALLOUT
   // ──────────────────────────────────────────────────────────
   const LEARN_CALLOUT_AUTO_COLLAPSE_MS = 5000;
   const learnCallout = document.getElementById('learnCallout');
@@ -5758,7 +5758,7 @@
     if (!learnCallout || !learnCalloutToggle) return;
     learnCallout.classList.toggle('collapsed', collapsed);
     learnCalloutToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    learnCalloutToggle.setAttribute('aria-label', collapsed ? 'Expand code guide panel' : 'Collapse code guide panel');
+    learnCalloutToggle.setAttribute('aria-label', collapsed ? 'Expand agenda panel' : 'Collapse agenda panel');
   }
 
   function stopLearnCalloutAutoCollapse() {

@@ -7,7 +7,7 @@
 // re-download everything on next visit. Without the bump, returning users
 // may see stale content until the background revalidate completes.
 
-const CACHE_NAME = 'pcatt-summit-2026-guide-v4';
+const CACHE_NAME = 'pcatt-summit-2026-guide-v5';
 const PRECACHE_URLS = [
   './',
   './index.html',
