@@ -250,7 +250,11 @@ for (const token of tokens) {
     date: currentDate,
     time: currentTime,
     track,
-    strand: trackTitle || track,
+    // Strand drives the filter chips; only the four Track I-IV breakouts carry
+    // one. Keynotes (and any non-track item) stay plenary with no strand, like
+    // Opening Remarks, so they anchor every filtered view instead of adding a
+    // fifth "Keynote Speaker" chip.
+    strand: trackTitle,
     type: /keynote/i.test(track) ? "keynote" : "breakout",
     title,
     room,

@@ -30,8 +30,8 @@ The point isn't the code. The point is that the same lightweight approach — vi
 
 ## What It Does
 
-- Browse and search the full two-day agenda — 26 sessions across four AI-focused tracks, plus keynotes, lunch panels, and meals
-- Filter by strand: Trust in AI · Future of Work · Public/Social Interest in AI · Mechanics of AI
+- Browse and search the full two-day agenda — 24 breakout sessions across four AI-focused tracks, plus two keynotes, lunch panels, and meals
+- Filter by strand: Trust in AI · AI and the Future of Work · Public/Social Interest in AI · Mechanics of AI
 - Read speaker bios pulled from the official PCATT schedule
 - Take personal notes and star sessions (saved locally, no account needed)
 - Share via QR code or just the link above
