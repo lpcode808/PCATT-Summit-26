@@ -1949,11 +1949,11 @@
     }
     .qr-fallback-title {
       font-weight: 700;
-      color: #06226b;
+      color: #1a1019;
       font-size: 0.95rem;
     }
     .qr-fallback-copy {
-      color: #3a3a55;
+      color: #5a4853;
       font-size: 0.82rem;
     }
     .qr-url {
@@ -2348,11 +2348,11 @@
         <span class="date-label">June 4-5, 2026</span>
         <span class="date-sub">Ala Moana Hotel · Honolulu, Hawaiʻi</span>
       </div>
-      <section class="learn-callout" id="learnCallout" aria-label="Schedule status">
+      <section class="learn-callout" id="learnCallout" aria-label="About this agenda">
         <div class="learn-callout-row">
           <button class="learn-callout-inline-link" type="button" aria-controls="learnCalloutBody">
-            <span class="learn-callout-label">Heads up</span>
-            <h2 class="learn-callout-title">Schedule preview — end times still firming up</h2>
+            <span class="learn-callout-label">Good to know</span>
+            <h2 class="learn-callout-title">The complete two-day agenda</h2>
           </button>
           <button
             class="learn-callout-toggle"
@@ -2360,14 +2360,14 @@
             type="button"
             aria-expanded="true"
             aria-controls="learnCalloutBody"
-            aria-label="Collapse status panel"
+            aria-label="Collapse agenda panel"
           >
             <span class="learn-callout-toggle-icon" aria-hidden="true">▾</span>
           </button>
         </div>
         <div class="learn-callout-body" id="learnCalloutBody">
           <p class="learn-callout-copy">
-            This guide mirrors the full official PCATT agenda — keynotes, breakout tracks, lunch panels, meals, registration, and the all-day Time Capsule Gallery. Session end times aren't published yet, so each card shows its start time; check the official site for any last-minute changes.
+            This guide mirrors the full official PCATT Summit 2026 schedule — both keynotes, every breakout across the four strands, lunch panels, meals, registration, and the all-day Time Capsule Gallery. Each session shows its time up front; tap any card for the room, speakers, and full details. For last-minute room or lineup changes, check the official site.
           </p>
           <div class="learn-callout-links">
             <a class="learn-callout-link primary" href="https://pcatt.org/summit26-schedule/" target="_blank" rel="noopener">Official PCATT Summit 2026 site ↗</a>
@@ -2573,7 +2573,7 @@
         <div class="qr-frame">
           <img
             id="qrImage"
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=06226b&bgcolor=ffffff&data=https%3A%2F%2Flpcode808.github.io%2FPCATT-Summit-26%2F"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1a1019&bgcolor=ffffff&data=https%3A%2F%2Flpcode808.github.io%2FPCATT-Summit-26%2F"
             alt="QR code for https://lpcode808.github.io/PCATT-Summit-26/"
             width="200"
             height="200"
@@ -2660,7 +2660,7 @@
     "speaker": "Chris Barton",
     "location": "Hibiscus",
     "description": "Technology & AI are dramatically changing what’s possible in our world. Our challenge as we create new things is to dislodge from the comfort of what we already know. Chris created Shazam after being told by every “expert” that his outlandish idea was impossible. It was an idea far ahead of its time – eight years before iPhone apps even existed. In this presentation, Chris helps audiences imagine and then create new visions for the future. He inspires with jaw-dropping stories about creating Shazam and shows how innovation comes from not just an idea, but from a series of insights to overcome obstacles along the way.",
-    "strand": "Keynote Speaker",
+    "strand": "",
     "track": "Keynote Speaker",
     "sourceUrl": "https://pcatt.org/summit26-schedule/",
     "studentSummary": "",
@@ -2966,7 +2966,7 @@
     "speaker": "Dave Free",
     "location": "Hibiscus",
     "description": "The pace of AI innovation is unprecedented, but technical progress is only half the story. As we move from AI as a tool to AI as a collaborative coworker, the true challenge lies in preparing our workforce to keep pace. Join Dave Free from Cisco Networking Academy for an insightful look at how the landscape of ICT roles is shifting—and why 78% of technology jobs will soon require specialized AI skills. In this session, we will explore the \"AI fog\"—the gap between rapid technical advancement and workforce preparedness—and discuss how educators can bridge it. We’ll look beyond the hype to examine the essential blend of technical proficiency, ethical intelligence, and human-centric skills needed to succeed in the AI era. Whether you are looking to integrate AI into your curriculum or help students transition from entry-level learners to expert AI practitioners, this session offers a practical roadmap for building a resilient, future-ready workforce.",
-    "strand": "Keynote Speaker",
+    "strand": "",
     "track": "Keynote Speaker",
     "sourceUrl": "https://pcatt.org/summit26-schedule/",
     "studentSummary": "",
@@ -5745,7 +5745,7 @@
   }
 
   // ──────────────────────────────────────────────────────────
-  //  CODE GUIDE CALLOUT
+  //  AGENDA CALLOUT
   // ──────────────────────────────────────────────────────────
   const LEARN_CALLOUT_AUTO_COLLAPSE_MS = 5000;
   const learnCallout = document.getElementById('learnCallout');
@@ -5758,7 +5758,7 @@
     if (!learnCallout || !learnCalloutToggle) return;
     learnCallout.classList.toggle('collapsed', collapsed);
     learnCalloutToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    learnCalloutToggle.setAttribute('aria-label', collapsed ? 'Expand code guide panel' : 'Collapse code guide panel');
+    learnCalloutToggle.setAttribute('aria-label', collapsed ? 'Expand agenda panel' : 'Collapse agenda panel');
   }
 
   function stopLearnCalloutAutoCollapse() {
