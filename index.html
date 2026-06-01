@@ -1186,6 +1186,76 @@
       font-weight: 700;
     }
 
+    .notes-subtitle-recall {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--lime);
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    .notes-storage-tip {
+      margin: 0 1.25rem 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 200, 97, 0.18);
+      border-left: 3px solid var(--lime);
+      background: rgba(255, 200, 97, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .notes-storage-tip-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .notes-storage-tip-heading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.35rem;
+    }
+
+    .notes-storage-tip-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .notes-storage-tip-list li + li {
+      margin-top: 0.08rem;
+    }
+
+    .notes-storage-tip-dismiss {
+      flex-shrink: 0;
+      align-self: flex-start;
+      background: none;
+      border: 1px solid rgba(255, 200, 97, 0.3);
+      border-radius: var(--radius-sm);
+      color: var(--lime);
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      min-height: 28px;
+      transition: background 0.15s;
+    }
+
+    .notes-storage-tip-dismiss:hover {
+      background: rgba(255, 200, 97, 0.1);
+    }
+
     .notes-search-wrap {
       padding: 0 1.25rem 0.95rem;
     }
@@ -2417,7 +2487,18 @@
           <button class="export-btn" id="exportBtn" type="button" aria-haspopup="dialog">Export ↓</button>
         </div>
       </div>
-      <p class="notes-subtitle">Use <strong>Quick Notes</strong> to jot down scraps, to-dos, or anything not tied to a session or speaker.</p>
+      <p class="notes-subtitle">Use <strong>Quick Notes</strong> to jot down scraps, to-dos, or anything not tied to a session or speaker. <button class="notes-subtitle-recall" id="showNotesStorageTip" type="button" hidden aria-label="Show note about how notes are stored">About your notes</button></p>
+      <div class="notes-storage-tip" id="notesStorageTip" hidden>
+        <div class="notes-storage-tip-body">
+          <p class="notes-storage-tip-heading">Your notes live only in this browser</p>
+          <ul class="notes-storage-tip-list">
+            <li>I don't see them — they're stored entirely on your device, never sent anywhere</li>
+            <li>Switching to a different browser or device starts from scratch</li>
+            <li>Private or incognito mode? Notes vanish when you close the window</li>
+          </ul>
+        </div>
+        <button class="notes-storage-tip-dismiss" id="dismissNotesStorageTip" type="button">Got it</button>
+      </div>
       <div class="notes-test-tools" id="notesTestTools" hidden>
         <span class="notes-test-title">Test mode</span>
         <p class="notes-test-copy">Desktop export reminder testing is enabled for this session. Use the reset button below to bring back the reminder after clicking <strong>Don’t remind me again</strong>.</p>
@@ -3220,6 +3301,7 @@
   const NOTES_KEY = 'pcatt_summit_2026_notes';
   const STARRED_SPEAKERS_KEY = 'pcatt_summit_2026_starred_speakers';
   const EXPORT_DOWNLOAD_REMINDER_KEY = 'pcatt_summit_2026_export_download_reminder_hidden';
+  const NOTES_STORAGE_TIP_KEY = 'pcatt_summit_2026_notes_storage_tip_dismissed';
   const DELETE_ALL_CONFIRMATION = 'delete all';
   const CLEAR_STARS_CONFIRMATION = 'clear stars';
   const EXPORT_SHARE_TITLE = 'PCATT Summit 2026 Notes';
@@ -5796,11 +5878,38 @@
   }
 
   // ──────────────────────────────────────────────────────────
+  //  NOTES STORAGE TIP
+  // ──────────────────────────────────────────────────────────
+  function initNotesStorageTip() {
+    const tip = document.getElementById('notesStorageTip');
+    const dismissBtn = document.getElementById('dismissNotesStorageTip');
+    const recallBtn = document.getElementById('showNotesStorageTip');
+    if (!tip || !dismissBtn || !recallBtn) return;
+
+    const isDismissed = localStorage.getItem(NOTES_STORAGE_TIP_KEY) === '1';
+    tip.hidden = isDismissed;
+    recallBtn.hidden = !isDismissed;
+
+    dismissBtn.addEventListener('click', () => {
+      tip.hidden = true;
+      recallBtn.hidden = false;
+      localStorage.setItem(NOTES_STORAGE_TIP_KEY, '1');
+    });
+
+    recallBtn.addEventListener('click', () => {
+      tip.hidden = false;
+      recallBtn.hidden = true;
+      tip.focus();
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────
   //  INIT
   // ──────────────────────────────────────────────────────────
   renderStrandFilter();
   renderSchedule();
   updateDownloadReminderTestState();
+  initNotesStorageTip();
   setLearnCalloutCollapsed(false);
   startLearnCalloutAutoCollapse();
   updateYouAreHere();
